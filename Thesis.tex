@@ -27,9 +27,7 @@
 \usepackage{amssymb}
 \usepackage{breqn}
 \usepackage{appendix}
-\usepackage{natbib}
-\bibliographystyle{abbrvnat}
-\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage{natbib} \bibliographystyle{abbrvnat} \bibpunct{(}{)}{;}{a}{,}{,}
 \usepackage{epsfig}
 \usepackage{epstopdf}
 \usepackage{multirow}
@@ -55,7 +53,6 @@
 \usepackage{longtable}
 \usepackage{lscape}
 \usepackage{multirow}
-\usepackage{natbib} \bibliographystyle{abbrvnat}\bibpunct{(}{)}{;}{a}{,}{,}
 \usepackage{pdfpages}
 \usepackage{rotating}
 \usepackage{setspace}
@@ -150,11 +147,16 @@
 %===============================================================================
 %=== (3) Locations
 %===============================================================================
-\newcommand{\teenfolder}{./../Thesis/Teens}
-%\newcommand{\twinloc}{./../Thesis/Twins}
 \newcommand{\twinloc}{./twins}
+\newcommand{\pillloc}{./planB}
+\newcommand{\sdidloc}{./spillovers}
+
+
+\newcommand{\pillfolder}{./planB}
 \newcommand{\twinfolder}{"/home/damiancclarke/investigacion/Activa/Twins"}
-\newcommand{\sdidfolder}{./../Thesis/Spillovers}
+\newcommand{\sdidfolder}{./spillovers}
+
+
 \newcommand{\biblioinc}{}
 \newcommand{\JELs}{}
 
@@ -227,7 +229,8 @@ and/or source code from their work.}
 \setlength\parskip{0.25in}
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
-\chapter[Assessing Plan B: The Effect of the Morning After Pill in Chile]{Assessing Plan B: The Effect of the Morning After Pill in Chile\footnote{I acknowledge
+\chapter[Assessing Plan B: The Effect of the Morning After Pill in Chile]{Assessing 
+Plan B\footnote{I acknowledge
 the excellent support and advice of a number of members of the Government of Chile 
 who provided extremely useful access to, and advice regarding, national databases.  
 Principally, I thank Rodrigo Alarc\'on S., Andr\'es \'Alvarez A., Carlos Arce 
@@ -235,11 +238,12 @@ M\'artinez, Ximena Carrasco and Nico Mu\~n\'oz of the Ministries of Health, Soci
 Development and Education.  Much care was taken by all parties to respect all 
 necessary privacy clauses, and data analysis was undertaken in line with Law 
 19.628 of Protection of Private Life 
-(\emph{Ley 19.628 de Protecci\'on de la Vida Privada}).}}
+(\emph{Ley 19.628 de Protecci\'on de la Vida Privada}).} 
+\\[2ex]\Large  The Effect of the Morning After Pill in Chile}
 \label{chap:pill}
 \renewcommand*{\thefootnote}{\arabic{footnote}}
 
-\input{./../Thesis/Teens/Teens.tex}
+\input{\pillloc/planB.tex}
 
 
 %===============================================================================
@@ -257,7 +261,7 @@ github.com/damiancclarke/spillovers.}}
 \label{chap:spill}
 \renewcommand*{\thefootnote}{\arabic{footnote}}
 
-\input{./../Thesis/Spillovers/paper/Spillovers.tex}
+\input{\sdidloc/spillovers.tex}
 
 
 %===============================================================================
@@ -265,5 +269,5 @@ github.com/damiancclarke/spillovers.}}
 %===============================================================================
 \end{spacing}
 \newpage
-\bibliography{ThesisRefs.bib}
+\bibliography{ThesisRefs}
 \end{document}

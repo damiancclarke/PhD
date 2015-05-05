@@ -60,6 +60,7 @@
 \usepackage{rotating}
 \usepackage{setspace}
 \usepackage{subcaption}
+\usepackage{subfloat}
 \usepackage{url}
 \usepackage{wrapfig}
 \usepackage{ragged2e}
@@ -142,13 +143,16 @@
 \newcommand{\Bias}[2]{\frac{\Cov[#1,#2]}{\Var[#1]}}
 
 
-
+\newcommand\Chapter[2]{
+  \chapter[#1 \\[2ex]\Large\itshape#2]
+}
 
 %===============================================================================
 %=== (3) Locations
 %===============================================================================
 \newcommand{\teenfolder}{./../Thesis/Teens}
-\newcommand{\twinloc}{./../Thesis/Twins}
+%\newcommand{\twinloc}{./../Thesis/Twins}
+\newcommand{\twinloc}{./twins}
 \newcommand{\twinfolder}{"/home/damiancclarke/investigacion/Activa/Twins"}
 \newcommand{\sdidfolder}{./../Thesis/Spillovers}
 \newcommand{\biblioinc}{}
@@ -199,7 +203,7 @@
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
 \chapter[The Twin Instrument and Family Size]%
-{The Twin Instrument and Family Size%
+{The Twin Instrument%
 \footnote{This paper is coauthored with Professor Sonia Bhalotra. We are 
 grateful to Paul Devereux, James Fenske, Cheti Nicoletti, Carol Propper, Atheen 
 Venkataramani, Marcos Vera-Hernandez and Frank Windmeijer, along with seminar 
@@ -208,11 +212,12 @@ Essex, The University of Oxford, the Barcelona GSE summer forum and the RES
 conference for helpful comments.  We thank Emilia Del Bono, Climent 
 Quintana-Domeque, Pedro R\'odenas, Libertad Gonz\'alez, Anna Aevarsdottir, 
 Martin Foureaux Koppensteiner and Ryan Palmer who have very kindly shared data 
-and/or source code from their work.}}
+and/or source code from their work.} 
+\\[2ex]\Large Estimating the Quality--Quantity Trade-off}
 \label{chap:twins}
 \renewcommand*{\thefootnote}{\arabic{footnote}}
 
-\input{./../Thesis/Twins/TheTwinInstrument.tex}
+\input{\twinloc/TheTwinInstrument.tex}
 
 
 %===============================================================================

@@ -1,0 +1,264 @@
+\documentclass{report}[12pt]
+
+
+%===============================================================================
+%=== (1) Packages
+%===============================================================================
+\usepackage[english]{babel}
+\selectlanguage{english}
+\usepackage[utf8]{inputenc}
+
+%\usepackage{url}
+\usepackage{amsthm}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{dcolumn}
+\usepackage{wrapfig}
+\usepackage{blindtext}
+\usepackage[usenames, dvipsnames]{color}
+\pagecolor{white}
+\usepackage{pdfpages}
+\usepackage{lastpage}
+\usepackage{lscape}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{breqn}
+\usepackage{appendix}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage{type1cm}
+\usepackage{titlesec}
+\usepackage{framed}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{blindtext}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{breqn}
+\usepackage{caption}
+\usepackage{color} \pagecolor{white}
+\usepackage{dcolumn}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage[capposition=top]{floatrow}
+%\usepackage{floatrow}
+\usepackage{lastpage}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{natbib} \bibliographystyle{abbrvnat}\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage{pdfpages}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{wrapfig}
+\usepackage{ragged2e}
+
+%===============================================================================
+%=== (2) Specific Instructions
+%===============================================================================
+\selectlanguage{english}
+
+%\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\DeclareMathOperator{\plim}{plim}
+
+
+
+\newcommand*{\fnmarkscale}{\ifheading 0.85 \else 1 \fi}
+
+\makeatletter
+\renewcommand*{\@makefnmark}
+    {\hbox{\@textsuperscript{\scalebox{\fnmarkscale}{\normalfont\@thefnmark}}}}
+\makeatother
+
+
+\hypersetup{
+    colorlinks=true,      
+    linkcolor=BlueViolet, 
+    citecolor=BlueViolet, 
+    filecolor=BlueViolet, 
+    urlcolor=BlueViolet   
+}
+
+\setlength\topmargin{-0.375in}
+\setlength\textheight{8.8in}
+\setlength\textwidth{5.8in}
+\setlength\oddsidemargin{0.4in}
+\setlength\evensidemargin{-0.5in}
+
+
+%APPENDIX WITHIN CHAPTER
+\let\stdsection\thesection
+\renewcommand{\appendix}{%
+  \renewcommand{\thesection}{\thechapter.\Alph{section}}%
+  \setcounter{section}{0}
+}
+\let\oldchapter\chapter
+\renewcommand{\chapter}{\let\thesection\stdsection\oldchapter}
+
+%ABSTRACT WITHIN CHAPTER
+\usepackage{changepage}%
+\makeatletter
+\newenvironment{chapabstract}{%
+    \begin{center}%
+      \bfseries Abstract
+    \end{center}}%
+   {\par}
+\makeatother
+\newif\ifheading
+
+%ADDITIONAL ASSUMPTION, MATH FORMULAS
+\newtheorem*{assumption*}{\assumptionnumber}
+\providecommand{\assumptionnumber}{}
+\makeatletter
+\newenvironment{assumption}[2]
+ {%
+  \renewcommand{\assumptionnumber}{Assumption #1{#2}}%
+  \begin{assumption*}%
+  \protected@edef\@currentlabel{#1}%
+ }
+ {%
+  \end{assumption*}
+ }
+\makeatother
+\newcommand{\asref}[2]{\ref{#1}{\textcolor{BlueViolet}{#2}}}
+
+
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}[2]{\frac{\Cov[#1,#2]}{\Var[#1]}}
+
+
+
+
+%===============================================================================
+%=== (3) Locations
+%===============================================================================
+\newcommand{\teenfolder}{./../Thesis/Teens}
+\newcommand{\twinloc}{./../Thesis/Twins}
+\newcommand{\twinfolder}{"/home/damiancclarke/investigacion/Activa/Twins"}
+\newcommand{\sdidfolder}{./../Thesis/Spillovers}
+\newcommand{\biblioinc}{}
+\newcommand{\JELs}{}
+
+\newcommand{\person}{I\ }
+\newcommand{\Person}{I\ }
+
+%===============================================================================
+%=== (4) Title, authors, data
+%===============================================================================
+\title{\textbf{Essays on Fertility and Family Size}}
+\author{Damian Clarke}
+\date{2015}
+
+%===============================================================================
+%=== (5) Document
+%===============================================================================
+\begin{document}
+
+\begin{spacing}{1.2}
+\maketitle
+\end{spacing}
+
+\begin{spacing}{1.4}
+\begin{center}
+\pagestyle{empty}
+\textcolor{white}{V.B.P.}\\
+\vspace{5cm}
+\end{center}
+\end{spacing}
+
+
+\tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Page}\par}
+
+\newpage
+\begin{spacing}{1.4}
+\setlength\parindent{0.25in}
+\setlength\parskip{0.25in}
+
+\input{./introduction/Reproducability.tex}
+
+
+%===============================================================================
+%=== (A) CHAPTER: Twins
+%===============================================================================
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\chapter[The Twin Instrument and Family Size]%
+{The Twin Instrument and Family Size%
+\footnote{This paper is coauthored with Professor Sonia Bhalotra. We are 
+grateful to Paul Devereux, James Fenske, Cheti Nicoletti, Carol Propper, Atheen 
+Venkataramani, Marcos Vera-Hernandez and Frank Windmeijer, along with seminar 
+audiences and discussants at CMPO Bristol, ESPE, NEUDC, CSAE, The University of 
+Essex, The University of Oxford, the Barcelona GSE summer forum and the RES 
+conference for helpful comments.  We thank Emilia Del Bono, Climent 
+Quintana-Domeque, Pedro R\'odenas, Libertad Gonz\'alez, Anna Aevarsdottir, 
+Martin Foureaux Koppensteiner and Ryan Palmer who have very kindly shared data 
+and/or source code from their work.}}
+\label{chap:twins}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+
+\input{./../Thesis/Twins/TheTwinInstrument.tex}
+
+
+%===============================================================================
+%=== (B) CHAPTER: Pill
+%===============================================================================
+\setlength\parindent{0.25in}
+\setlength\parskip{0.25in}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\chapter[Assessing Plan B: The Effect of the Morning After Pill in Chile]{Assessing Plan B: The Effect of the Morning After Pill in Chile\footnote{I acknowledge
+the excellent support and advice of a number of members of the Government of Chile 
+who provided extremely useful access to, and advice regarding, national databases.  
+Principally, I thank Rodrigo Alarc\'on S., Andr\'es \'Alvarez A., Carlos Arce 
+M\'artinez, Ximena Carrasco and Nico Mu\~n\'oz of the Ministries of Health, Social 
+Development and Education.  Much care was taken by all parties to respect all 
+necessary privacy clauses, and data analysis was undertaken in line with Law 
+19.628 of Protection of Private Life 
+(\emph{Ley 19.628 de Protecci\'on de la Vida Privada}).}}
+\label{chap:pill}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+
+\input{./../Thesis/Teens/Teens.tex}
+
+
+%===============================================================================
+%=== (C) CHAPTER: Spillovers
+%===============================================================================
+\setlength\parindent{0.25in}
+\setlength\parskip{0.25in}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\chapter[Difference-in-Differences in the Presence of Spillovers]%
+{Difference-in-Differences in the Presence of Spillovers%
+\footnote{I thank participants in the Impact Evaluation Meeting at the 
+Inter-American Development Bank for useful comments on this draft. Source code, 
+including the Stata module \texttt{cdifdif} is available at 
+github.com/damiancclarke/spillovers.}}
+\label{chap:spill}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+
+\input{./../Thesis/Spillovers/paper/Spillovers.tex}
+
+
+%===============================================================================
+%=== (6) BIBLIOGRAPHY, CLOSE
+%===============================================================================
+\end{spacing}
+\newpage
+\bibliography{ThesisRefs.bib}
+\end{document}

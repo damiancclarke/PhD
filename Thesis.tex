@@ -61,9 +61,27 @@
 \usepackage{url}
 \usepackage{wrapfig}
 \usepackage{ragged2e}
+\usepackage{siunitx}
+
+\usepackage{pgfplotstable}
+\usepackage{filecontents}
 
 %===============================================================================
-%=== (2) Specific Instructions
+%=== (2) Locations
+%===============================================================================
+\newcommand{\twinloc}{./twins}
+\newcommand{\pillloc}{./planB}
+\newcommand{\sdidloc}{./spillovers}
+\newcommand{\litrloc}{./literature}
+
+\newcommand{\biblioinc}{}
+\newcommand{\JELs}{}
+\newcommand{\person}{I\ }
+\newcommand{\Person}{I\ }
+
+
+%===============================================================================
+%=== (3) Specific Instructions
 %===============================================================================
 \selectlanguage{english}
 
@@ -139,22 +157,39 @@
 \newcommand{\Cov}{\mathrm{Cov}}
 \newcommand{\Bias}[2]{\frac{\Cov[#1,#2]}{\Var[#1]}}
 
-
 \newcommand\Chapter[2]{
   \chapter[#1 \\[2ex]\Large\itshape#2]
 }
 
-%===============================================================================
-%=== (3) Locations
-%===============================================================================
-\newcommand{\twinloc}{./twins}
-\newcommand{\pillloc}{./planB}
-\newcommand{\sdidloc}{./spillovers}
 
-\newcommand{\biblioinc}{}
-\newcommand{\JELs}{}
-\newcommand{\person}{I\ }
-\newcommand{\Person}{I\ }
+% GENERATE ERROR PLOT (Requires data files)
+\pgfplotstableread{\litrloc/motherEstimates.txt}\dataA
+\pgfplotstableset{create on use/error/.style={
+    create col/expr={\thisrow{uci}-\thisrow{beta}
+}}}
+
+\pgfplotstableread{\litrloc/participEstimates.txt}\dataB
+\pgfplotstableset{create on use/error/.style={
+   create col/expr={\thisrow{uci}-\thisrow{beta}
+}}}
+
+% Define the command for the plot
+\newcommand{\errplot}[1]{%
+\begin{tikzpicture}[trim axis left,trim axis right]
+\begin{axis}[y=-\baselineskip,
+  scale only axis,
+  width=6.5cm,
+  enlarge y limits={abs=0.5},
+  axis y line*=middle,
+  y axis line style=dashed,
+  ytick=\empty,
+  axis x line*=bottom]
+\addplot+[only marks][error bars/.cd,x dir=both, x explicit]
+table [x=beta,y expr=\coordindex,x error=error]{#1};
+\end{axis}
+\end{tikzpicture}%
+}
+
 
 %===============================================================================
 %=== (4) Title, authors, data
@@ -167,20 +202,47 @@
 %=== (5) Document
 %===============================================================================
 \begin{document}
+\pagenumbering{gobble}
 
-\begin{spacing}{1.2}
-\maketitle
-\end{spacing}
+\vspace*{\fill}
+\vspace{-5cm}
+\begin{center}
+{\LARGE \textbf{Essays on Fertility and Family Size}}
+\end{center}
+\vspace*{\fill}
 
+\newpage
+\begin{center}
+A DISSERTATION \\ \vspace{1cm}
+
+Presented to the Faculty of Economics of the University of Oxford.
+
+\vspace{17cm}
+Damian Clarke \\ \vspace{1mm}
+June, 2015
+\end{center}
+
+
+%\begin{spacing}{1.2}
+%\maketitle
+%\end{spacing}
+
+\newpage
 \begin{spacing}{1.4}
 \begin{center}
 \pagestyle{empty}
-\textcolor{white}{V.B.P.}\\
+\textcolor{white}{VBP: T\'u me das la inspiraci\'on}\\
 \vspace{5cm}
 \end{center}
 \end{spacing}
+\newpage
 
+\begin{abstract}
+Thesis abstract.
+\vspace{14cm}
+\end{abstract}
 
+\newpage
 \tableofcontents
 \addtocontents{toc}{~\hfill\textbf{Page}\par}
 
@@ -188,15 +250,31 @@
 \begin{spacing}{1.4}
 \setlength\parindent{0.25in}
 \setlength\parskip{0.25in}
-
 \input{./introduction/Reproducability.tex}
+
+%===============================================================================
+%=== (i) Introduction
+%===============================================================================
+\chapter*{Introduction}
+\pagenumbering{arabic}
+
+%===============================================================================
+%=== (0) CHAPTER: Literature Revision
+%===============================================================================
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\chapter[Causality and Fertilty: Identification with Endogenous Decisions]%
+{Causality and Fertility%
+\\[2ex]\Large Identification with Endogenous Decisions}
+\label{chap:fertility}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+
+\input{\litrloc/fertility.tex}
 
 
 %===============================================================================
 %=== (A) CHAPTER: Twins
 %===============================================================================
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
-
 \chapter[The Twin Instrument and Family Size]%
 {The Twin Instrument%
 \footnote{This paper is coauthored with Professor Sonia Bhalotra. We are 
@@ -256,6 +334,11 @@ github.com/damiancclarke/spillovers.}}
 
 \input{\sdidloc/spillovers.tex}
 
+
+%===============================================================================
+%=== (ii) Conclusion
+%===============================================================================
+\chapter*{Conclusion}
 
 %===============================================================================
 %=== (6) BIBLIOGRAPHY, CLOSE

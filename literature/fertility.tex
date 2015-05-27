@@ -90,17 +90,76 @@ restriction must hold, implying that the estimation of the structural equation
 which contains quality on fertilty and the instrument must result in a 
 coefficient on the instrumental variable which is precisely equal to zero.}
 Returning to the nomenclature introduced in section \ref{Fscn:causality},
+\textcolor{red}{\ldots}
 
-\citet{Bougmaetal2015,Blacketal2005,Blacketal2010,
-Angristetal2010,ConleyGlauber2006,
-RosenzweigWolpin1980,Beckeretal2010,MillimetWang2011,Lee2008}
+The earliest discussion of these types of exclusion restrictions was in 
+\citet{RosenzweigWolpin1980}. They point out that if multiple births are 
+unanticipated, their occurrence will cause some families to exceed their desired
+fertility, shifting the total number of births in the absence of any change in 
+parental considerations of quality investments.  This has motivated estimation 
+in a number of papers, where twin births are employed as instrumental 
+variables.  Twin instruments have been employed in a range of contexts and
+to examine various different `quality' outcome variables.  These include
+\citet{Blacketal2005,Caceres2006,Lietal2008,Dayiogluetal2009,Sanhueza2009,
+Blacketal2010,Angristetal2010,FitzsimonsMalde2010} and 
+\citet{SouzaPonczek2012}, and focus on child quality measures including years of 
+education, IQ, private school enrollment, BMI and height, college completion and 
+age at marriage.  The evidence on the existence of a Q--Q trade-off in these 
+studies is mixed, although recent influential results suggest that the evidence 
+in favour of a trade-off may be weak.  In table \ref{Ftab:childQQ}
+
+Point on estimation requirements.
+
+Sex instruments: \citet{ConleyGlauber2006,Lee2008,Angristetal2010,KumarKugler2011,
+FitzsimonsMalde2014}
+
+\citet{Beckeretal2010,MillimetWang2011,Lee2008}
 Note (or footnote) the birth order discussion in \citet{Blacketal2005}.
-
+\citet{Bougmaetal2015},
 Make table of potential biases...  Ie we know that coefficient between 
 instrument and fertility is +/-.  Then if correlation between instrument
 and error is +/-, this implies:
 
 Timing: \citet{Miller2009}
+
+\begin{table}
+\caption{Empirical Results: Fertility and Child Outcomes}
+\label{Ftab:childQQ}
+\begin{tabular}{lllc} \toprule
+\textsc{Author} & \textsc{Country} & \textsc{Outcome} & \textsc{Estimate} \\
+                &                  &                  & \textsc{(Std Err)} \\ \midrule
+\multicolumn{4}{l}{\textbf{Panel A: Twins}} \\
+\citet{Blacketal2005}            &Norway   & Yrs of Educ         &-0.16(0.44) \\
+\citet{Caceres2006}              &USA      &Private School       & -0.000(0.005)\\
+                                 &        &Behind cohort        & 0.005(0.004)\\
+\citet{Lietal2008}               &China    &Educ (categorical)   & -0.027(0.014)\\
+                                 &         &Educ (enrollment)    & -0.025(0.013)\\
+\citet{Dayiogluetal2009}         &Turkey   &Attendance           & 0.203(0.245)\\
+\citet{Sanhueza2009}             &Chile    &Yrs of Educ          &-0.280(0.092)\\
+\citet{Blacketal2010}            &Norway   &IQ (standardised 1-9)& -0.170(0.052)\\
+\citet{Angristetal2010}          &Israel   &Yrs of Educ          & 0.167(0.117)\\
+                                 &         &Some college         & 0.059(0.036)\\
+                                 &         &College grad         & 0.052(0.032)\\
+\citet{FitzsimonsMalde2010}      &Mexico   &Yrs of Educ (F)      & 0.096(0.063)\\
+                                 &         &Enrolment (F)        &-0.019(0.014)\\
+\citet{SouzaPonczek2012}         &Brazil   &Yrs of Educ (F)      & -0.634(0.194)\\
+                                 &         &Yrs of Educ (M)      & -0.060(0.164)\\ \midrule
+\multicolumn{4}{l}{\textbf{Panel B: Gender Mix}} \\
+\citet{ConleyGlauber2006}        &USA      &Private school       &-0.061(0.021) \\
+                                 &         &Grade repetition     &0.007(0.004)  \\
+\citet{Lee2008}                  &Taiwan   &Total ln(educ spend) &0.328(0.088)  \\
+\citet{Angristetal2010}          &Israel   &Yrs of Educ          & -0.067(0.120)\\
+                                 &         &Some college         & -0.025(0.025)\\
+                                 &         &College grad         & -0.032(0.022)\\
+\citet{KumarKugler2011}          &India    &Yrs of Educ          & -0.363(0.061)\\
+\citet{FitzsimonsMalde2014}      &Mexico   &Yrs of Educ (F)      & -0.015(0.125)\\ 
+\citet{MillimetWang2011}         &Indonesia&BMI for Age          &  0.049(0.013)\\
+\midrule
+\multicolumn{4}{l}{\textbf{Panel C: Other}} \\
+\citet{Bougmaetal2015}           &Burkina Faso&&\\ \bottomrule
+\multicolumn{4}{p{10cm}}{\begin{footnotesize}\textsc{Notes:} \end{footnotesize}}
+\end{tabular}     
+\end{table}
 
 \subsection{Natural Experiments}
 EMAIL MARTHA BAILEY FOR ARTICLE ON CHILDREN'S OPPORTUNITIES (listed on her site)

@@ -1,40 +1,14 @@
-\pgfplotstablegetrowsof{\dataA}
+\pgfplotstablegetrowsof{\dataB}
 \let\numberofrows=\pgfplotsretval
 
 \begin{table}
 \caption{Fertility and Mother's Labour Market Outcomes}
 % Print the table
 \pgfplotstabletypeset[
-columns={name,error,beta,lci},
+columns={name,error,beta},
   every head row/.style={before row=\toprule, after row=\midrule},
   every last row/.style={after row=[1ex]},
   columns/name/.style={string type,column name={}},
-  columns/error/.style={
-    column name={$\hat\beta \pm$ se($\hat\beta$)},
-    assign cell content/.code={% use \multirow for Z column:
-    \ifnum\pgfplotstablerow=1
-    \pgfkeyssetvalue{/pgfplots/table/@cell content}
-    {\multirow{\numberofrows}{6.0cm}{\errplot{\dataA}}}%
-    \else
-    \pgfkeyssetvalue{/pgfplots/table/@cell content}{}%
-    \fi
-    }
-  },
-  % Format numbers and titles
-  columns/beta/.style={column name=$\beta$, string type, column type={S[table-format=-2.2]}},
-  columns/ci/.style={column name=$95\%$ CI, string type, column type={S[table-format=-1.2]}},
- ]{\dataA}
-
-\pgfplotstablegetrowsof{\dataB}
-\let\numberofrows=\pgfplotsretval
-
-\pgfplotstabletypeset[
-columns={name,error,beta,lci},
-  every head row/.style={output empty row, after row=\\},
-  every last row/.style={after row=[3ex]\bottomrule},
-  % Set header name
-  columns/name/.style={string type,column name={}},
-    % Use the ``error'' column to call the \errplot command in a multirow cell in the first row, keep empty for all other rows
   columns/error/.style={
     column name={$\hat\beta \pm$ se($\hat\beta$)},
     assign cell content/.code={% use \multirow for Z column:
@@ -47,7 +21,41 @@ columns={name,error,beta,lci},
     }
   },
   % Format numbers and titles
+  columns/name/.style={column name=Authors, string type, column type={l}},
+  columns/beta/.style={column name=$\beta$, string type, column type={S[table-format=-2.2]}},
+  columns/ci/.style={column name=$95\%$ CI, string type, column type={S[table-format=-1.2]}},
+ ]{\dataB}
+
+\pgfplotstablegetrowsof{\dataA}
+\let\numberofrows=\pgfplotsretval
+
+\pgfplotstabletypeset[
+columns={name,error,beta},
+  every head row/.style={output empty row, after row=\\},
+  every last row/.style={after row=[3ex]\bottomrule},
+  % Set header name
+  columns/name/.style={string type,column name={}},
+    % Use the ``error'' column to call the \errplot command in a multirow cell in the first row, keep empty for all other rows
+  columns/error/.style={
+    column name={$\hat\beta \pm$ se($\hat\beta$)},
+    assign cell content/.code={% use \multirow for Z column:
+    \ifnum\pgfplotstablerow=1
+    \pgfkeyssetvalue{/pgfplots/table/@cell content}
+    {\multirow{\numberofrows}{6.0cm}{\errplot{\dataA}}}%
+    \else
+    \pgfkeyssetvalue{/pgfplots/table/@cell content}{}%
+    \fi
+    }
+  },
+  % Format numbers and titles
+  columns/name/.style={column name=Authors, string type, column type={l}},
   columns/beta/.style={column name=$\hat\beta$, string type, column type={S[table-format=-2.2]}},
   columns/ci/.style={column name=$95\%$ CI, string type, column type={S[table-format=-1.2]}},
-  ]{\dataB}
+  ]{\dataA}
+\\
+\begin{small}
+\begin{quote}
+\textsc{Notes to table:} Points represent coefficients, while error bars represent 95\% confidence intervals.  Estimates are ordered by date of publication.  In the case that various samples are reported in the papers, the pooled estimate for all women from the most recent time period is reported.  In the case of twins estimates, the 3+ sample (twins at third birth as instrument) is reported.
+\end{quote}
+\end{small}
 \end{table}

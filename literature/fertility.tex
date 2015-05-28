@@ -129,7 +129,57 @@ biological papers.}
 
 %-------------------------------------------------------------------------------
 \subsection{Observational Data}
-\citet{ButcherCase1994}, \citet{Hanushek1992}
+Given the aforementioned theoretical structure of the relationship between 
+child quality and child quantity, it is apparent that estimating OLS on 
+observational data will lead to consistent estimates of $\beta$ only in very
+particular circumstances. To see this, we return to equation \ref{Feqn:outcome}.
+If we consider standard OLS with a linear model, we re-write 
+(\ref{Feqn:outcome}) as:
+\[
+Y=\beta F + X + \varepsilon_Y,
+\]
+where we assume that $\mathbb{E}[\varepsilon_Y]=0$.  To estimate $\beta$ from
+the above, we can consider conditioning on two distinct values of $F$:
+\begin{eqnarray}
+\hat\beta & = & \mathbb{E}[Y|F=b+1]-\mathbb{E}[Y|F=b]. \nonumber \\
+          & = & \mathbb{E}[\beta(b+1)+X|F=b+1] - \mathbb{E}[\beta(b)+X|F=b] \nonumber \\
+          & = & \beta + \mathbb{E}[X|F=b+1] - \mathbb{E}[X|F=b] \label{Feqn:OLS}
+\end{eqnarray}
+Thus, (\ref{Feqn:OLS}) is only identical to the causal estimate in 
+(\ref{Feqn:estimand}) in a very limited set of circumstances: above this is when
+$\mathbb{E}[X|F=b+1] = \mathbb{E}[X|F=b]$.  This is simply a specific example of 
+the well-known OLS requirement that the independent variable of interest ($F$) 
+must be uncorrelated with the omitted error term, given that 
+$\plim(\hat\beta)=\beta+\Cov(F,X)/\Var(F)$.  Insofar as variation in fertility
+in a cross-sectional data set is correlated with movements of other variables
+related to the outcome of interest, we will fail to identify the true causal
+effect of fertility given the lack of \citeauthor{Haavelmo1943}'s hypothetical
+manipulation of $F$. 
+
+Given the above discussion, very few papers in the literature aim to infer 
+causality by estimating linear models with cross-sectional data.\footnote{
+Early work, such as \citet{Desai1995}, provides cross-sectional descriptive 
+evidence to document correlations, while \citet{Hanushek1992} estimates some
+cross-sectional (though value-added) models.}  However many papers which use 
+alternative methods to infer causality (discussed in the sections which follow)
+estimate OLS as a base specification, which can provide some information on the 
+type and degree of bias in OLS.  Beyond recognising that a bias is likely to 
+exist, relatively few of these papers provide an explicit discussion of why this
+may be.  Notable exceptions include \citet{Qian2009}, who suggests joint
+parental preferences for more education and fewer children as well as optimal
+stopping rules which depend on the quality of the first child, and 
+\citet{Blacketal2010}, who additionally note that family size effects are 
+confounded with birth order effects.  Indeed there are a number of reasons one
+could use to suggest bias.  These include parental education, discount rates,
+maternal health or network effects driving both fertility and child quality.  
+Generally it seems likely that these factors will cause OLS estimates to 
+induce a negative bias in estimates of the effect of fertility, given that 
+factors which lead to fewer births (contraceptive knowledge, opportunity cost of
+time, aspirations, and so forth) also seem likely to drive greater investments 
+in children who are eventually born.  Empirically, this overwhelmingly seems to
+be the case, with OLS estimates of the effect of fertility being universally 
+lower (more negative) than more credibly causal estimates.  We return to provide
+more details on these estimates in the sections which follow.
 
 %-------------------------------------------------------------------------------
 \subsection{Instrumental Variables}
@@ -189,7 +239,12 @@ economies of scale which facilitate child quality investments more when children
 are of the same sex \citet{ButcherCase1994}, and add note that one would hope 
 that this is the case as goods that boys can use for education can also be used 
 for girls and vice versa, but that generally there are other concerns (see 
-footnote 1 of \citet{RosenzweigZhang2009}).
+footnote 1 of \citet{RosenzweigZhang2009}). \citet{ButcherCase1994} provide 
+extensive discussion of this, and demonstrate that in the USA girls with sisters
+are significantly less educated than girls with brothers, postulating that this
+may be due to a reference group effect where parents have lower aspirations for
+their children when all children are girls. Also \citet{DahlMoretti2008} show
+that in USA parents are more likely to live together with sons.
 
 %-------------------------------------------------------------------------------
 
@@ -235,7 +290,7 @@ and error is +/-, this implies:
 \citet{FitzsimonsMalde2014}      &Mexico   &Yrs of Educ (F)      & -0.015(0.125)\\ 
 \citet{MillimetWang2011}         &Indonesia&BMI for Age          &  0.049(0.013)\\
 \midrule
-\multicolumn{4}{l}{\textbf{Panel C: Other}} \\
+\multicolumn{4}{l}{\textbf{Panel C: Fertility Shock}} \\
 \citet{Bougmaetal2015}           &Burkina Faso&Yrs of Educ        &-0.99(0.40)\\ 
 \citet{Marlani2008}              &Indonesia   &Yrs of Educ (early)&-0.167(0.117)\\ 
                                  &            &Yrs of Educ (late) &-0.054(0.055)\\

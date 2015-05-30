@@ -1,3 +1,4 @@
+%EMAIL MARTHA BAILEY FOR ARTICLE ON CHILDREN'S OPPORTUNITIES (listed on her site)
 %-------------------------------------------------------------------------------
 \begin{chapabstract}
 Child-bearing decisions are not made in isolation.  They are taken in concert 
@@ -27,34 +28,31 @@ General points: \citet{Enke1966} (and others by him: 1960, 1971),
 
 \citet{Moffitt2005} is a useful starting point.
 
-%Black et al EJ 2008 type citations of other drivers of fertility?
-
-\newpage
-\section{Causality and Fertility}
-\label{Fscn:causality}
-%Discussion of Causality: Pearl, Heckman, Haavelmo etc?
+Black et al EJ 2008 type citations of other drivers of fertility?
 
 %-------------------------------------------------------------------------------
+\section{Causality and Fertility}
+\label{Fscn:causality}
 We define an outcome $Y_i$, for each member $i$ of a population, $i\ \in \{1,
 \ldots,N\}$, where $Y$ denotes an outcome variable of interest. We are 
 interested in determining the effect of manipulations of fertility, which we
 denote $F_i$, on our outcome variable of interest $Y_i$.  It is assumed that 
-$Y_i$ is a function of fertility, an unobserved variable $X_i$, and a series of 
+$Y_i$ is a function of fertility, an unobserved variable $U_i$, and a series of 
 other variables which are summarised as the error term $\varepsilon_Y$:
 \begin{equation}
 \label{Feqn:outcome}
-Y_i=f_Y(F_i,X_i,\varepsilon_Y).
+Y_i=f_Y(F_i,U_i,\varepsilon_Y).
 \end{equation}
-Fertility is assumed to be a function of the unobserved $X_i$, and stochastic 
+Fertility is assumed to be a function of the unobserved $U_i$, and stochastic 
 $\varepsilon_F$:
 \begin{equation}
 \label{Feqn:fert}
-F_i=f_F(X_i,\varepsilon_F),
+F_i=f_F(U_i,\varepsilon_F),
 \end{equation}
-and finally $X_i=f_X(\varepsilon_X)$. These error terms $\bm\varepsilon$ are 
+and finally $U_i=f_U(\varepsilon_U)$. These error terms $\bm\varepsilon$ are 
 assumed mutually independent. To fix ideas, we could consider an outcome variable 
 $Y_i$ as average years of education of $i$'s children, $F_i$ as completed 
-fertility, and $X_i$ as unobserved positive health behaviours of the mother. By 
+fertility, and $U_i$ as unobserved positive health behaviours of the mother. By 
 iterative substitution of the $\bm\varepsilon$ terms into (\ref{Feqn:outcome}) 
 and (\ref{Feqn:fert}) it becomes apparent (in the defined system of equations) 
 that changes in fertility and health are unrelated to $\varepsilon_Y$, but that 
@@ -64,7 +62,7 @@ health behaviours.
 In causal terms as per \citet{Haavelmo1943,Haavelmo1944} (and particularly, the
 recent exposition in \citet{HeckmanPinto2015}), we are interested in the change
 in $Y$ resulting from the hypothetical manipulation of fertility $F$, while 
-other elements of the system of equations ($X,\bm\varepsilon$) remain unchanged.  
+other elements of the system of equations ($U,\bm\varepsilon$) remain unchanged.  
 We define $b$ as a particular draw of $F$, and are thus interested in the causal 
 effect of manipulating fertility from $b$ to $b+1$, which throughout this paper
 we will call $\beta$:\footnote{For now we make no distinction between different 
@@ -75,12 +73,12 @@ having $b+1$ children versus having $b$ children for $b\in{1,\ldots,k}$ (the
 intensive margin).}
 \begin{equation}
 \label{Feqn:estimand}
-\beta\equiv\mathbb{E}_{X_i,\varepsilon_Y}[Y_i(b_i+1)-Y_i(b_i)]
+\beta\equiv\mathbb{E}_{U_i,\varepsilon_Y}[Y_i(b_i+1)-Y_i(b_i)]
 \end{equation}
 
 The hypothetical manipulation envisioned by \citeauthor{Haavelmo1943} is 
 generally not feasible in real-world fertility decisions. And in observational
-studies using data over space or time, the presence of factors similar to $X$
+studies using data over space or time, the presence of factors similar to $U$
 considerably hinders the estimation of causal effects.  In the sections which
 follow we return to this system of equations, and outline the existing 
 techniques, and empirical results, which aim to recover causal estimates despite
@@ -88,6 +86,7 @@ the lack of explicit exogenous manipulation of $F$.
 
 %-------------------------------------------------------------------------------
 \section{The Effects of Family Size on Children}
+\label{Fscn:kids}
 In 1973, the \emph{Journal of Political Economy} released a special issue 
 dedicated to new economic approaches to fertility.  Interest in determining
 the causal effect of total fertility on the outcomes of children in the 
@@ -120,13 +119,6 @@ inference. What's more, as recognised in early articles by \citet{%
 BenPorathWelch1972,BenPorath1976}, quality decisions may \emph{directly} feed 
 back to quantity via child mortality.
 
-\textcolor{red}{Discussion of assumptions of Q--Q...
- examine the effect of child 
-characteristics (mortality) on family size., and loosening by 
-\citet{AizerCunha2012} (from \citet{Behrmanetal1982}'s theory, gender discussion 
-of \citet{ButcherCase1994}) recently. \citet{Lawsonetal2012} is one of many 
-biological papers.}
-
 %-------------------------------------------------------------------------------
 \subsection{Observational Data}
 Given the aforementioned theoretical structure of the relationship between 
@@ -136,29 +128,30 @@ particular circumstances. To see this, we return to equation \ref{Feqn:outcome}.
 If we consider standard OLS with a linear model, we re-write 
 (\ref{Feqn:outcome}) as:
 \[
-Y=\beta F + X + \varepsilon_Y,
+Y=\beta F + U + \varepsilon_Y,
 \]
 where we assume that $\mathbb{E}[\varepsilon_Y]=0$.  To estimate $\beta$ from
 the above, we can consider conditioning on two distinct values of $F$:
 \begin{eqnarray}
-\hat\beta & = & \mathbb{E}[Y|F=b+1]-\mathbb{E}[Y|F=b]. \nonumber \\
-          & = & \mathbb{E}[\beta(b+1)+X|F=b+1] - \mathbb{E}[\beta(b)+X|F=b] \nonumber \\
-          & = & \beta + \mathbb{E}[X|F=b+1] - \mathbb{E}[X|F=b] \label{Feqn:OLS}
+\hat\beta & = & \mathbb{E}[Y|F=b+1]-\mathbb{E}[Y|F=b]. \label{Feqn:OLS} \\
+          & = & \mathbb{E}[\beta(b+1)+U|F=b+1] - \mathbb{E}[\beta(b)+U|F=b] \nonumber \\
+          & = & \beta + \mathbb{E}[U|F=b+1] - \mathbb{E}[U|F=b] \nonumber
 \end{eqnarray}
 Thus, (\ref{Feqn:OLS}) is only identical to the causal estimate in 
 (\ref{Feqn:estimand}) in a very limited set of circumstances: above this is when
-$\mathbb{E}[X|F=b+1] = \mathbb{E}[X|F=b]$.  This is simply a specific example of 
+$\mathbb{E}[U|F=b+1] = \mathbb{E}[U|F=b]$.  This is simply a specific example of 
 the well-known OLS requirement that the independent variable of interest ($F$) 
 must be uncorrelated with the omitted error term, given that 
-$\plim(\hat\beta)=\beta+\Cov(F,X)/\Var(F)$.  Insofar as variation in fertility
+$\plim(\hat\beta)=\beta+\Cov(F,U)/\Var(F)$.  Insofar as variation in fertility
 in a cross-sectional data set is correlated with movements of other variables
-related to the outcome of interest, we will fail to identify the true causal
-effect of fertility given the lack of \citeauthor{Haavelmo1943}'s hypothetical
-manipulation of $F$. 
+related to the outcome of interest (which here we summarise as $U$), we will fail 
+to identify the true causal effect of fertility given the lack of 
+\citeauthor{Haavelmo1943}'s hypothetical manipulation of $F$. 
 
-Given the above discussion, very few papers in the literature aim to infer 
-causality by estimating linear models with cross-sectional data.\footnote{
-Early work, such as \citet{Desai1995}, provides cross-sectional descriptive 
+Due to the limitations laid out in the preceding paragraph, very few papers in 
+the literature aim to infer causality by estimating linear models with 
+cross-sectional data.\footnote{Early work, such as \citet{Desai1995}, provides 
+across-sectional descriptive 
 evidence to document correlations, while \citet{Hanushek1992} estimates some
 cross-sectional (though value-added) models.}  However many papers which use 
 alternative methods to infer causality (discussed in the sections which follow)
@@ -183,6 +176,7 @@ more details on these estimates in the sections which follow.
 
 %-------------------------------------------------------------------------------
 \subsection{Instrumental Variables}
+\label{Fsscn:kidIV}
 In systems of equations of this type, one way to drive inference is through the
 use of shifters (or instrumental variables) which affect the quantity of one of
 the variables without affecting the other.  In order to identify the effect of 
@@ -192,41 +186,71 @@ restriction must hold, implying that the estimation of the structural equation
 which contains quality on fertilty and the instrument must result in a 
 coefficient on the instrumental variable which is precisely equal to zero.}
 Returning to the nomenclature introduced in section \ref{Fscn:causality},
-consider $Y_i$ as child quality, $F_i$ as child quantity, and omitted factor
-$X_i$.  However, now consider a new variable $Z_i$, which affects $F_i$ however
-which has no 
+consider $Y_i$ as child quality, $F_i$ as child quantity, and the unobserved
+$U_i$, all generated as described in \ref{Fscn:causality}.  However, now consider 
+the case where a new variable from outside the system is observed, denoted 
+$Z_i$.  $Z_i$ is assumed to directly affect $F_i$:
+\[
+F_i = f_F(U_i,Z_i,\varepsilon_F).
+\]
+The function \ref{Feqn:outcome} is unchanged, reflecting the fact that the only
+channel with which $Z_i$ affects $Y_i$ is through $F_i$ (ie the exlcusion 
+restriction holds).  Finally, to close assume that $Z_i=f(\varepsilon_Z)$,
+and once again the error terms $\bm{\varepsilon}$ are assumed mutually 
+independent.
 
-The earliest discussion of these types of exclusion restrictions was in 
-\citet{RosenzweigWolpin1980}. They point out that if multiple births are 
-unanticipated, their occurrence will cause some families to exceed their desired
-fertility, shifting the total number of births in the absence of any change in 
-parental considerations of quality investments.  This has motivated estimation 
-in a number of papers, where twin births are employed as instrumental 
+The above situation leads to an explicit way to generate the hypothetical 
+variation discussed in section \ref{Fscn:causality}.  By taking advantage of 
+variation in $F$ induced by variation in $Z$, the effect of $F$ on $Y$ can
+be identified in the absence of any movement in $U$.  The most simple way to
+consider this is by considering the Wald estimator:
+\begin{eqnarray}
+\label{Feqn:Wald}
+\hat\beta = \frac{\mathbb{E}[Y|Z=1]-\mathbb{E}[Y|Z=0]}{\mathbb{E}[F|Z=1]-\mathbb{E}[F|Z=0]}.
+\end{eqnarray}
+Here rather than explicitly being based on a movement from $F=b$ to $F=b+1$
+estimation is driven by the effect which $Z$ has on $Y$, scaled by the
+degree to which it moves $F$.  If the instrument increases birth by exactly
+one, then (\ref{Feqn:Wald}) collapses to an expression similar to 
+(\ref{Feqn:OLS}).
+
+The earliest discussion of these types of shifters and the corresponding 
+exclusion restriction required for the estimation of the causal effects of 
+fertility was in \citet{RosenzweigWolpin1980}. They point out that if multiple 
+births are unanticipated, their occurrence will cause some families to exceed 
+their desired fertility, shifting the total number of births in the absence of 
+any change in parental considerations of quality investments. This has motivated 
+estimation in a number of papers, where twin births are employed as instrumental 
 variables.  Twin instruments have been employed in a range of contexts and
 to examine various different `quality' outcome variables.  These include
 \citet{Blacketal2005,Caceres2006,Lietal2008,Dayiogluetal2009,Sanhueza2009,
-Blacketal2010,Angristetal2010,FitzsimonsMalde2010} and 
-\citet{SouzaPonczek2012}, and focus on child quality measures including years of 
-education, IQ, private school enrollment, BMI and height, college completion and 
-age at marriage.  The evidence on the existence of a Q--Q trade-off in these 
-studies is mixed, although recent influential results suggest that the evidence 
-in favour of a trade-off may be weak.  In table \ref{Ftab:childQQ} I lay out 
-outcome variables, contexts, and estimates of $\beta$ presented in the IV 
-literature.
+Blacketal2010,Angristetal2010,FitzsimonsMalde2010} and \citet{SouzaPonczek2012}, 
+and focus on child quality measures including years of education, IQ, private 
+school enrollment, BMI and height, college completion and age at marriage.  The 
+evidence on the existence of a Q--Q trade-off in these studies is mixed, 
+although recent influential results suggest that the evidence in favour of a 
+trade-off may be weak.  In table \ref{Ftab:childQQ} I lay out outcome variables, 
+contexts, and estimates of $\beta$ presented in the IV literature.
 
 As per the above series of equations, causal estimates rely on the fact that
-$Z_i$ truly be independent of $X_i$.  Discuss this...
-This is particularly accute for studies which use later born \citet{Glicketal2007}
-children as their subjects, and those who focus on early life variables of 
-children born before twins.
+$Z$ truly is independent of $U$.  This has been questioned in a number of ways.
+\citet{RosenzweigZhang2009} suggest that the close birth-spacing of twins, and 
+the fact that twins have lower health stocks at birth \citep{Almondetal2005}
+means that parents may change behaviours to reinforce or compensate for intra-%
+household human capital differences.  While this can be tested directly, it 
+requires data on early live human capital endowments such as birthweight.  
+\citet{BhalotraClarke2015} question the exogeneity assumption in another way.
+They demonstrate that healthier mothers are more likely to take twin births
+to term, and at the same time that healthier mothers are more likley to have
+additional resources to invest in child quality later in life. 
 
 A frequently used alternative to twin births consists of instrumenting with the 
 gender mix of children born in the family. Generally, it is argued that parents
-prefer to have offspring of both genders \citet{ConleyGlauber2006,Angristetal2010,
+prefer to have offspring of both genders \citep{ConleyGlauber2006,Angristetal2010,
 Beckeretal2010,MillimetWang2011,FitzsimonsMalde2014}, and so those having various 
 children of the same sex are more likely to continue childbearing. Alternatively, 
 in some circumstances it is argued that parents have a son preference, and so are 
-more likely to continue after having early birth girls \citet{Lee2008,
+more likely to continue after having early birth girls \citep{Lee2008,
 KumarKugler2011}. In both cases these are empirically shown to be important 
 drivers of fertility.  Again, like estimates driven by twin births, recent 
 evidence seems to point to statistically insignificant trade-offs, though the 
@@ -236,7 +260,7 @@ negative for a range of outcomes.
 Causality in this case requires that child sex mix has no direct effect on 
 quality.  This implies (among other things), that there are no gender-specific 
 economies of scale which facilitate child quality investments more when children
-are of the same sex \citet{ButcherCase1994}, and add note that one would hope 
+are of the same sex \citep{ButcherCase1994}, and add note that one would hope 
 that this is the case as goods that boys can use for education can also be used 
 for girls and vice versa, but that generally there are other concerns (see 
 footnote 1 of \citet{RosenzweigZhang2009}). \citet{ButcherCase1994} provide 
@@ -246,18 +270,24 @@ may be due to a reference group effect where parents have lower aspirations for
 their children when all children are girls. Also \citet{DahlMoretti2008} show
 that in USA parents are more likely to live together with sons.
 
-%-------------------------------------------------------------------------------
-
 A range of other instruments have been proposed, including infertility
 \citep{Bougmaetal2015}, miscarriage \citep{Hotzetal1997,Marlani2008,Miller2009}
-and distance to family planning \citep{DangRogers2013}.
+and distance to family planning \citep{DangRogers2013}. The outcomes and 
+empirical results related with these studies are displayed in table 
+\ref{Ftab:childQQ}.  While these instruments---all generally realted to the 
+ability to conceive or control conception---clearly drive fertility, in each 
+case the exclusion restriction is questionable.  This is explicitly treated in
+\citet{Hotzetal1997}, who motivate techniques to recover bounds on the estimate
+of the effect of causality.  At the very least, in each case if unhealthy
+women are more likley than healthy women to be infertile or suffer miscarriage,
+this suggests a positive bias in IV estimates of $\beta$.
 
-Make table of potential biases...  Ie we know that coefficient between 
-instrument and fertility is +/-.  Then if correlation between instrument
-and error is +/-, this implies:
+%Make table of potential biases...  Ie we know that coefficient between 
+%instrument and fertility is +/-.  Then if correlation between instrument
+%and error is +/-, this implies:
 
 \begin{table}
-\caption{Empirical Results: Fertility and Child Outcomes}
+\caption{Empirical Results: Fertility and Child Outcomes (IV)}
 \label{Ftab:childQQ}
 \begin{tabular}{lllc} \toprule
 \textsc{Author} & \textsc{Country} & \textsc{Outcome} & \textsc{Estimate} \\
@@ -298,42 +328,132 @@ and error is +/-, this implies:
 \citet{DangRogers2013}           &Vietnam     &Yrs of Educ        &-0.589(0.392)\\
                                  &            &Private tutoring   &-0.318(0.147)\\
 \bottomrule
-\multicolumn{4}{p{10cm}}{\begin{footnotesize}\textsc{Notes:} \end{footnotesize}}
+\multicolumn{4}{p{12.9cm}}{\begin{footnotesize}\textsc{Notes:} In the case that 
+various samples are reported in the papers, the pooled estimate for female and
+male children of all women from the most recent time period is reported. In the 
+case of twins estimates, the 3+ sample (twins at third birth as instrument) is
+reported.  Where the original studies report $p$-values associated with estimates 
+rather than standard errors, these are converted into standard errors for 
+inclusion in this table.
+\end{footnotesize}}
 \end{tabular}     
 \end{table}
 
+
 \subsection{Natural Experiments}
-EMAIL MARTHA BAILEY FOR ARTICLE ON CHILDREN'S OPPORTUNITIES (listed on her site)
-\citet{OltmansHungerman2012, Gruberetal1999,PopEleches2006,BleakleyLange2009,
-RosenzweigZhang2009, Qian2009,Hossain1989}
-(see literature section in Gruber et al., (1999))
+An alternative manner to deal with correlation between $F$ and $U$ consists of
+taking advantage of externally defined (to $U$) reforms.
+
+These studies can be broadly split into two groups: those which examine the
+effect of public policies or other natural experiments on fertility itself,
+and those which leverage the externally-defined effect on fertility to quantify
+the effect of fertility on some other outcome.  In the latter case, the 
+differentiation between difference-in-differences and IV estimates is artificial,
+as the (diff-in-diff estimated) effect of the policy on fertility is simply 
+plugged in as the first stage in a 2SLS IV framework.  \citet{Duflo2001} is a 
+well known example of this design.  We discuss examples of this framework applied
+to fertility below.  The first set of studies are of fundamental importance in 
+analysing the \emph{determinants} of fertility and the effect of new contraceptive 
+methods on life-cycle childbearing, but do not directly quantify the causal 
+effects of fertility itself.  We return to these studies briefly in section 
+\ref{Fsscn:motherNExp}, however in the remainder of this section focus 
+exclusively on studies which look at the effect of fertility on child outcomes.
+
+\begin{table}
+\caption{The Estimated Effect of Reforms on Fertility}
+\begin{tabular}{lccc} \toprule
+Author & Abortion Effect & Pill Effect & Note \\ \midrule
+\citet{Levineetal1996}        &               &               &      \\
+\citet{Gruberetal1999}        & -0.059(0.005) &               & $a$ \\
+\citet{Bailey2006}            & -0.093(0.043) & -0.074(0.057) & $b$ \\
+\citet{Guldi2008}             & -0.100(0.054) & -0.085(0.041) &      \\
+\citet{OltmansHungerman2012}  & -0.043(0.015) & -0.088(0.023) &      \\
+& & \\ \bottomrule
+\multicolumn{4}{p{11cm}}{\begin{footnotesize}\textsc{Note:} All figures report the
+results of short term access of a fertility reform on birth rates of young women 
+unless otherwise specified in notes. \newline 
+$^a$ Estimate is for states adopting between 1974-1975. Estimate for 1971-1973 is 
+-0.021(0.005). \newline
+$^b$ Binary model with outcome 1=first birth by age 22.
+\end{footnotesize}} \\
+\end{tabular}
+\end{table}
+
+Effects 2SLS/reduced form: \citet{Gruberetal1999} looks at living with single 
+parent, poverty, welfare receipt, infant mortality and LBW.  First two and IMR 
+are significant, all are positively related to fertility. 
+\citet{OltmansHungerman2012} return to these same outcomes using the pill on the
+RHS, and find marginal significance for LBW, living in povert and single parent
+(last one is negative).  Long term effects of the pill on fertility are 
+insignificant.  They also report Wald estimates which look at selection effects
+of fertility driven by different reforms (v different, and make clear the LATE
+and complier difference) bottom of page 43. \citet{PopEleches2006} looks at 
+crime, education (no first stage).
+
+Other types of natural experiments: \citet{RosenzweigZhang2009,Qian2009,
+Hossain1989}
+
+\citet{BleakleyLange2009} perhaps needs its own paragraph, or a carefully 
+written footnote which parenthetically references \citet{AcemogluJohnson2007}.
 
 \subsection{Other}
 Structure: \citet{RosenzweigWolpin1995,RosenzweigSchultz1985,
 RosenzweigWolpin1980b}
 OLS: \citet{Hanushek1992} is descriptive. \citet{Desai1995}
 
-
+%-------------------------------------------------------------------------------
 \section{The Effects of Child Birth on Mothers}
-\citet{FleisherRhodes1979} seems to be an early important reference. 
-\citet{Willis1973} builds female wages into Q-Q.  Also look at \citet{Reuben1973}.
-Make a graph of estimated effects horizontally with error bars (see BMJ 
-article for ref).
+\label{Fscn:mothers}
+Beyond the analysis of a child's effect on his or her siblings' outcomes, a
+birth, at the extensive or the intensive margin, has myriad impacts on parents
+or other carers.  The analysis of these effects has received considerable and 
+ongoing attention in the economics literature.  Much of the focus of this work
+falls on the effect of marginal births on mothers labour market outcomes and
+trajectories.
+
+\citet{FleisherRhodes1979} provides a summary of the early literature, with 
+considerable coverage also provided in the \emph{JPE} Fertilty issue described
+in section \ref{Fscn:kids} \citep{Willis1973,Gronau1973}.  As is the case with
+child investment and fertility decisions, choices regarding fertility, labour
+market participation, and (adult) human capital attainment are linked, and 
+dynamic in nature.  Total fertility, and if childbearing, birth timing have
+important impacts on labour market participation, accrued experience, and
+wages, while participation, experience and wages also influence timing and
+fertility decisions.  Inferring causality in systems of this type is once again
+challenging, relying on the use of plausible instruments, natural experiments,
+structural estimation, or a combination of methods.
 
 \subsection{Natural Experiments}
+\label{Fsscn:motherNExp}
 Split into short run and long run
-\citet{Bailey2011,Baileyetal2012,Bailey2006,Bailey2013,Bailey2012,Christensen2012,
-GoldinKatz2002a,Guldi2008,KearnerLevine2009,Levineetal1999,AngristEvans1996,
+\citet{Bailey2011,Bailey2006,Bailey2013,Bailey2012,Christensen2012,
+Guldi2008,KearnerLevine2009,Levineetal1999,AngristEvans1996,
 Jacobsenetal1999,AngristEvans1998,Cristia2008}
 (\citet{Bailey2009} is an erratum for Bailey 2012).
+
+\citet{OltmansHungerman2012} show that long term effect of pill on mother is
+more likely to graduate college, less likely to divorce, more likely to have
+college educated spouse.  \citet{GoldinKatz2002a} discuss education, marriage,
+but not direct effect on fertility. \citet{Baileyetal2012} show that it has
+effects on wages over the life cycle (long-term) with a demanding specification.
 
 Miscarriage as natural experiment (\citet{Hotzetal2005,Fletcher2012}).  
 \citet{Hotzetal1997} talk about how to bound this, \citet{FletcherWolfe2009} 
 provide further discussion.
 
-MAKE A GRAPH OF DATES OF REFORMS USED TO IDENTIFY OUTCOMES.
 
 \subsection{Instrumental Variables}
+The use of instrumental variables to examine the effect of fertility on 
+\emph{mothers'} outcomes (rather than children's outcomes as described
+in section \ref{Fsscn:kidIV}) follows a similar logic to that outlined in
+equation (\ref{Feqn:Wald}).  An external variable which has strong effects
+on fertility but no direct effects on the outcome of interest except via its
+effect on fertility can be used to drive causal estimates.  Instrumental 
+variable estimates are a popular methodology employed to determine the 
+effect of fertility on mothers.
+
+Outcome variables of interest are typically 
+
 FLFP: \citet{AgueroMarks2008,AgueroMarks2011,ChunOh2002,Caceres2008}
 Earnings:
 
@@ -351,3 +471,32 @@ Matching: \citet{ChevalierViitanen2003,LevinePainter2003}
 
 \newpage
 \input{\litrloc/motherEsts.tex}
+
+
+\section{Other Questions}
+\textcolor{red}{Discussion of assumptions of Q--Q...
+ examine the effect of child 
+characteristics (mortality) on family size., and loosening by 
+\citet{AizerCunha2012} (from \citet{Behrmanetal1982}'s theory, gender discussion 
+of \citet{ButcherCase1994}) recently. \citet{Lawsonetal2012} is one of many 
+biological papers.}
+
+How parents behave in response (ie compensating or reforcing)
+
+%\newpage
+%\begin{table}
+%\caption{Requirements for Causality}
+%\begin{tabular}{lcc}\toprule
+%Instrument & Positive Bias & Negative Bias  \midrule
+%Twins & $\Cov(Twin,U)>0$ & & $\Cov(Twin,U)<0$ & 
+%\end{tabular}
+%\end{table}
+
+
+
+%FROM TWIN IV
+%Discuss this...
+%This is particularly accute for studies which use later born \citet{Glicketal2007}
+%children as their subjects, and those who focus on early life variables of 
+%children born before twins.
+

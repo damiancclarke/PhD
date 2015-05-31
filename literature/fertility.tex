@@ -222,8 +222,8 @@ their desired fertility, shifting the total number of births in the absence of
 any change in parental considerations of quality investments. This has motivated 
 estimation in a number of papers, where twin births are employed as instrumental 
 variables.  Twin instruments have been employed in a range of contexts and
-to examine various different `quality' outcome variables.  These include
-\citet{Blacketal2005,Caceres2006,Lietal2008,Dayiogluetal2009,Sanhueza2009,
+to examine various different `quality' outcome variables of children. These 
+include \citet{Blacketal2005,Caceres2006,Lietal2008,Dayiogluetal2009,Sanhueza2009,
 Blacketal2010,Angristetal2010,FitzsimonsMalde2010} and \citet{SouzaPonczek2012}, 
 and focus on child quality measures including years of education, IQ, private 
 school enrollment, BMI and height, college completion and age at marriage.  The 
@@ -242,7 +242,10 @@ requires data on early live human capital endowments such as birthweight.
 \citet{BhalotraClarke2015} question the exogeneity assumption in another way.
 They demonstrate that healthier mothers are more likely to take twin births
 to term, and at the same time that healthier mothers are more likley to have
-additional resources to invest in child quality later in life. 
+additional resources to invest in child quality later in life.  At the very
+least however, both of these critiques will lead to predictable biases in 
+estimates of $\beta$, resulting in bounds on the effect of fertility on child
+outcomes.
 
 A frequently used alternative to twin births consists of instrumenting with the 
 gender mix of children born in the family. Generally, it is argued that parents
@@ -252,10 +255,10 @@ children of the same sex are more likely to continue childbearing. Alternatively
 in some circumstances it is argued that parents have a son preference, and so are 
 more likely to continue after having early birth girls \citep{Lee2008,
 KumarKugler2011}. In both cases these are empirically shown to be important 
-drivers of fertility.  Again, like estimates driven by twin births, recent 
-evidence seems to point to statistically insignificant trade-offs, though the 
-estimates outlined in panel B of table \ref{Ftab:childQQ} are nearly universally 
-negative for a range of outcomes.
+drivers of fertility.  Again, like estimates driven by twin births, empirical 
+results are mixed, although recent evidence seems to point to statistically 
+insignificant (though nearly universally negative) trade-offs, as outlined in 
+panel B of table \ref{Ftab:childQQ}.
 
 Causality in this case requires that child sex mix has no direct effect on 
 quality.  This implies (among other things), that there are no gender-specific 
@@ -282,11 +285,7 @@ of the effect of causality.  At the very least, in each case if unhealthy
 women are more likley than healthy women to be infertile or suffer miscarriage,
 this suggests a positive bias in IV estimates of $\beta$.
 
-%Make table of potential biases...  Ie we know that coefficient between 
-%instrument and fertility is +/-.  Then if correlation between instrument
-%and error is +/-, this implies:
-
-\begin{table}
+\begin{table}[htpb!]
 \caption{Empirical Results: Fertility and Child Outcomes (IV)}
 \label{Ftab:childQQ}
 \begin{tabular}{lllc} \toprule
@@ -294,31 +293,31 @@ this suggests a positive bias in IV estimates of $\beta$.
                 &                  &                  & \textsc{(Std Err)} \\ \midrule
 \multicolumn{4}{l}{\textbf{Panel A: Twins}} \\
 \citet{Blacketal2005}            &Norway   & Yrs of Educ         &-0.16(0.44) \\
-\citet{Caceres2006}              &USA      &Private School       & -0.000(0.005)\\
+\citet{Caceres2006}              &USA      &Private School       &-0.000(0.005)\\
                                  &         &Behind cohort        & 0.005(0.004)\\
-\citet{Lietal2008}               &China    &Educ (categorical)   & -0.027(0.014)\\
-                                 &         &Educ (enrollment)    & -0.025(0.013)\\
+\citet{Lietal2008}               &China    &Educ (categorical)   &-0.027(0.014)\\
+                                 &         &Educ (enrollment)    &-0.025(0.013)\\
 \citet{Dayiogluetal2009}         &Turkey   &Attendance           & 0.203(0.245)\\
 \citet{Sanhueza2009}             &Chile    &Yrs of Educ          &-0.280(0.092)\\
-\citet{Blacketal2010}            &Norway   &IQ (standardised 1-9)& -0.170(0.052)\\
+\citet{Blacketal2010}            &Norway   &IQ (standardised 1-9)&-0.170(0.052)\\
 \citet{Angristetal2010}          &Israel   &Yrs of Educ          & 0.167(0.117)\\
                                  &         &Some college         & 0.059(0.036)\\
                                  &         &College grad         & 0.052(0.032)\\
 \citet{FitzsimonsMalde2010}      &Mexico   &Yrs of Educ (F)      & 0.096(0.063)\\
                                  &         &Enrolment (F)        &-0.019(0.014)\\
-\citet{SouzaPonczek2012}         &Brazil   &Yrs of Educ (F)      & -0.634(0.194)\\
-                                 &         &Yrs of Educ (M)      & -0.060(0.164)\\ \midrule
+\citet{SouzaPonczek2012}         &Brazil   &Yrs of Educ (F)      &-0.634(0.194)\\
+                                 &         &Yrs of Educ (M)      &-0.060(0.164)\\ \midrule
 \multicolumn{4}{l}{\textbf{Panel B: Gender Mix}} \\
 \citet{ConleyGlauber2006}        &USA      &Private school       &-0.061(0.021) \\
                                  &         &Grade repetition     &0.007(0.004)  \\
 \citet{Lee2008}                  &Taiwan   &Total ln(educ spend) &0.328(0.088)  \\
-\citet{Angristetal2010}          &Israel   &Yrs of Educ          & -0.067(0.120)\\
-                                 &         &Some college         & -0.025(0.025)\\
-                                 &         &College grad         & -0.032(0.022)\\
-\citet{Beckeretal2010}           &Prussia  &Enrolment            & -0.430(0.189)\\
-\citet{KumarKugler2011}          &India    &Yrs of Educ          & -0.363(0.061)\\
-\citet{FitzsimonsMalde2014}      &Mexico   &Yrs of Educ (F)      & -0.015(0.125)\\ 
-\citet{MillimetWang2011}         &Indonesia&BMI for Age          &  0.049(0.013)\\
+\citet{Angristetal2010}          &Israel   &Yrs of Educ          &-0.067(0.120)\\
+                                 &         &Some college         &-0.025(0.025)\\
+                                 &         &College grad         &-0.032(0.022)\\
+\citet{Beckeretal2010}           &Prussia  &Enrolment            &-0.430(0.189)\\
+\citet{KumarKugler2011}          &India    &Yrs of Educ          &-0.363(0.061)\\
+\citet{FitzsimonsMalde2014}      &Mexico   &Yrs of Educ (F)      &-0.015(0.125)\\ 
+\citet{MillimetWang2011}         &Indonesia&BMI for Age          & 0.049(0.013)\\
 \midrule
 \multicolumn{4}{l}{\textbf{Panel C: Fertility Shock}} \\
 \citet{Bougmaetal2015}           &Burkina Faso&Yrs of Educ        &-0.99(0.40)\\ 
@@ -339,7 +338,29 @@ inclusion in this table.
 \end{tabular}     
 \end{table}
 
+Beyond general threats to inference discussed in this section, instrumental 
+variable estimates lead to the question of `inference for whom?'.  Estimates 
+based on IV lead to a local average treatment effect (LATE), not an average 
+treatment effect for the population in general \citep{ImbensAngrist1994}.  This 
+LATE implies that any estimates of $\beta$ holds for that group of the population 
+who would be induced to change their behaviour (ie their fertility) by the 
+instrument in question.  Thus, all instrumental estimates (even assuming causality)
+should be cast in terms of the sub-population (compliers) of interest.  This is
+a point explicitly discussed in \citet{Angristetal2010}, who suggest that the
+twin instrument is relevant for the whole population, while sex-composition 
+instruments are relevant for only certain groups. \citet{RosenzweigWolpin1980}'s 
+original article, although based on a reduced form equation, suggests that twin 
+births are relevant for a more specific group than that suggested by 
+\citet{Angristetal2010}: namely, those families who have a twin birth where
+the twin birth causes them to exceed their desired fertility.  I return to discuss 
+LATE and external validity in the following section of this paper.
 
+%Make table of potential biases...  Ie we know that coefficient between 
+%instrument and fertility is +/-.  Then if correlation between instrument
+%and error is +/-, this implies:
+
+
+%-------------------------------------------------------------------------------
 \subsection{Natural Experiments}
 An alternative manner to deal with correlation between $F$ and $U$ consists of
 taking advantage of externally defined (to $U$) reforms.
@@ -350,51 +371,108 @@ and those which leverage the externally-defined effect on fertility to quantify
 the effect of fertility on some other outcome.  In the latter case, the 
 differentiation between difference-in-differences and IV estimates is artificial,
 as the (diff-in-diff estimated) effect of the policy on fertility is simply 
-plugged in as the first stage in a 2SLS IV framework.  \citet{Duflo2001} is a 
-well known example of this design.  We discuss examples of this framework applied
-to fertility below.  The first set of studies are of fundamental importance in 
-analysing the \emph{determinants} of fertility and the effect of new contraceptive 
-methods on life-cycle childbearing, but do not directly quantify the causal 
-effects of fertility itself.  We return to these studies briefly in section 
-\ref{Fsscn:motherNExp}, however in the remainder of this section focus 
-exclusively on studies which look at the effect of fertility on child outcomes.
+plugged in as the first stage in a 2SLS IV framework.\footnote{\citet{Duflo2001} 
+is a well known example of this design.  We discuss examples of this framework 
+applied to fertility later in this section and in \ref{Fsscn:motherNExp}.} The 
+first set of studies are of fundamental importance in analysing the 
+\emph{determinants} of fertility and the effect of new contraceptive methods on 
+life-cycle childbearing, but do not directly quantify the causal effects of 
+fertility itself.  Nevertheless, given their relevance both as a first stage in 
+causal estimates and as a reduced form estimate itself, I outline a number of 
+these studies below, before moving on to a more comprehensive discussion of their 
+link to causal estimates.
 
-\begin{table}
+\begin{table}[htpb!]
 \caption{The Estimated Effect of Reforms on Fertility}
-\begin{tabular}{lccc} \toprule
+\begin{tabular}{lccl} \toprule
 Author & Abortion Effect & Pill Effect & Note \\ \midrule
-\citet{Levineetal1996}        &               &               &      \\
-\citet{Gruberetal1999}        & -0.059(0.005) &               & $a$ \\
-\citet{Bailey2006}            & -0.093(0.043) & -0.074(0.057) & $b$ \\
-\citet{Guldi2008}             & -0.100(0.054) & -0.085(0.041) &      \\
-\citet{OltmansHungerman2012}  & -0.043(0.015) & -0.088(0.023) &      \\
-& & \\ \bottomrule
-\multicolumn{4}{p{11cm}}{\begin{footnotesize}\textsc{Note:} All figures report the
+\citet{AngristEvans1996}      & -0.012(0.004) &               & $a,(x=19)$   \\
+\citet{Levineetal1996}        & -0.019(0.007) &               & $b$          \\
+\citet{Gruberetal1999}        & -0.059(0.005) &               & $c$          \\
+\citet{Bailey2006}            & -0.093(0.043) & -0.074(0.057) & $a,d,(x=22)$ \\
+\citet{Guldi2008}             & -0.100(0.054) & -0.085(0.041) &              \\
+\citet{Bailey2009}            & -0.012(0.007) &  0.028(0.048) & $a,d,(x=22)$ \\
+\citet{OltmansHungerman2012}  & -0.043(0.015) & -0.088(0.023) &              \\
+\bottomrule
+\multicolumn{4}{p{12.2cm}}{\begin{footnotesize}\textsc{Note:} All figures report the
 results of short term access of a fertility reform on birth rates of young women 
 unless otherwise specified in notes. \newline 
-$^a$ Estimate is for states adopting between 1974-1975. Estimate for 1971-1973 is 
+$^a$ Binary model with outcome 1=first birth by age $x$. \newline
+$^b$ Estimate expressed as births per woman.  Mean rate is 0.110 \newline 
+$^c$ Estimate for states adopting 1974-1975. Estimate for 1971-1973 is 
 -0.021(0.005). \newline
-$^b$ Binary model with outcome 1=first birth by age 22.
+$^d$ The second version (2009) is an erratum, fixing coding errors from 2006.
 \end{footnotesize}} \\
 \end{tabular}
 \end{table}
 
-Effects 2SLS/reduced form: \citet{Gruberetal1999} looks at living with single 
-parent, poverty, welfare receipt, infant mortality and LBW.  First two and IMR 
-are significant, all are positively related to fertility. 
-\citet{OltmansHungerman2012} return to these same outcomes using the pill on the
-RHS, and find marginal significance for LBW, living in povert and single parent
-(last one is negative).  Long term effects of the pill on fertility are 
-insignificant.  They also report Wald estimates which look at selection effects
-of fertility driven by different reforms (v different, and make clear the LATE
-and complier difference) bottom of page 43. \citet{PopEleches2006} looks at 
-crime, education (no first stage).
+Of the large number of studies which use reforms of fertility-control policies%
+\footnote{For abortion: \citet{Ananatetal2007,Ananatetal2009,AngristEvans1996,
+CharlesStephens2006,Cookeetal1999,Currieetal1996,Gruberetal1999,Guldi2008,
+KaneStaiger1996,Levineetal1996,Levineetal1996b,Levineetal1999,PopEleches2005,
+PopEleches2006}, for the oral contraceptive pill: \citet{OltmansHungerman2012,
+Bailey2006,Bailey2011,Bailey2012,Bailey2013,Christensen2012,Goldin2006,
+GoldinKatz2002a,GoldinKatz2002b,KearnerLevine2009} and for the emergency 
+contraceptive pill: \citet{Durrance2013,Grossetal2014}.} to examine the effect 
+on fertility in a 
+diff-in-diff-style framework, only a relatively small number then employ this 
+as the first stage to estimate the causal effect of fertility---the focus of
+this review chapter.  Among those which \emph{do} directly estimate the effect
+of fertilty on child outcomes are \citet{Gruberetal1999,Ananatetal2009} and
+\citet{OltmansHungerman2012}. \citet{Gruberetal1999} examines the effect of 
+fertility (via 2SLS) on the likelihood that a child lives with single parents, 
+lives in poverty, receives welfare, and on rates of infant mortality and low 
+birth rates.  Of these, it is suggested that fertility significantly increases 
+the probability of living in poverty and having single parents, as well rates 
+of infant mortality. \citet{Ananatetal2009} also examine these outcomes, and 
+suggest that in the long-run, the marginal child is more likely to have lived 
+with a single parent, receive welfare, and not have graduated college.
+Finally, \citet{OltmansHungerman2012} return to these same outcomes and report
+a Wald ratio as in (\ref{Feqn:Wald}).  These Wald estimates allow them to look
+at the characteristics of marginal child not born due to both the diffusion of 
+the pill, and the legalisation of abortion.  Their results suggest that the two 
+fertility control policies had remarkably different effects on marginal child 
+characteristics: in agreement with the above studies they suggest that the
+marginal child not born due to abortion legalisation would have been 49.2\%
+(se=25.5) more likely to live in a welfare-receiving household.  However, the 
+marginal child not born due to pill diffusion looks remarkably different: 8.0\% 
+(se=4.4) \emph{less} likely to belong to a welfare receiving household.  These 
+comparisons make manifestly clear the distinction between compliers for 
+different instruments discussed at the end of section \ref{Fsscn:kidIV}.
+Given that the group of `compliers' in the two policies had very different
+characteristics, estimated effects of fertility on outcomes are very different
+despite being plausibly causal in both cases.
 
-Other types of natural experiments: \citet{RosenzweigZhang2009,Qian2009,
-Hossain1989}
+Despite not directly estimating the causal effect of fertility on child 
+outcomes, a number of other contraceptive-based natural experiment papers
+estimate the effect of the natural experiment directly on child outcomes.
+This reduced form technique provides an estimate of the numerator of the ratio
+in (\ref{Feqn:Wald}), and so can be thought of as an unscaled estimate of
+the effect of fertility.  Papers of this type include \citet{PopEleches2006} 
+who finds that the illegalisation of abortion in Romania worsens child 
+education and labour market outcomes (conditional on parental characteristics)
+and \citet{Bailey2013} who reports that US contraceptive pill laws had long-%
+standing impacts on children's eventual college completion, labour force 
+participation, and family incomes.
 
-\citet{BleakleyLange2009} perhaps needs its own paragraph, or a carefully 
-written footnote which parenthetically references \citet{AcemogluJohnson2007}.
+\textcolor{red}{Threats to validity --- an important paragraph.}
+
+Finally, a number of other natural experiments have been used in the 
+literature to examine the effect of fertility on child outcomes.\footnote{
+Similarly, \citet{BleakleyLange2009} use a natural experiment: the eradication
+of hookworm in USA, to test the Q-Q hypothesis.  However, the elimination of
+hookworm is used as a shifter for child quality, \emph{not} child quantity.
+This allows them to quantify the effect of quality increases on subsequent
+fertility decisions of households, and they find that increases in quality
+do lead to fertility declines in line with the Q-Q model discussed earlier.}
+Perhaps most notably among these, \citet{Qian2009} uses the relaxation of 
+China's one child policy to estimate the causal effect of movements from one 
+child to two child households.  This study is unique for two reasons: the low 
+parity shift of the experiment (an expansion from one to two children), and the 
+fact that it finds that higher fertility in this case \emph{increases} child 
+schooling outcomes, especially among households who have two children of the 
+same gender. These results suggests that estimates of fertility at the intensive 
+margin may not be linear, and indeed may not be monotonic by parity.
 
 \subsection{Other}
 Structure: \citet{RosenzweigWolpin1995,RosenzweigSchultz1985,
@@ -429,7 +507,8 @@ Split into short run and long run
 \citet{Bailey2011,Bailey2006,Bailey2013,Bailey2012,Christensen2012,
 Guldi2008,KearnerLevine2009,Levineetal1999,AngristEvans1996,
 Jacobsenetal1999,AngristEvans1998,Cristia2008}
-(\citet{Bailey2009} is an erratum for Bailey 2012).
+(\citet{Bailey2009} is an erratum for Bailey 2006). \citet{AngristEvans1996} 
+uses 2SLS.
 
 \citet{OltmansHungerman2012} show that long term effect of pill on mother is
 more likely to graduate college, less likely to divorce, more likely to have
@@ -482,6 +561,8 @@ of \citet{ButcherCase1994}) recently. \citet{Lawsonetal2012} is one of many
 biological papers.}
 
 How parents behave in response (ie compensating or reforcing)
+
+\section{Conclusion}
 
 %\newpage
 %\begin{table}

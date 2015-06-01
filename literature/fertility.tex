@@ -13,22 +13,104 @@ literature.
 
 \newpage
 \section{Introduction}
-Make point about extensive versus intensive margin.
+Human decisions regarding births, and how these decisions affect individual 
+outcomes, are central to human welfare.  They are also widely relevant to the
+world population.  In 2014, 18.7 per every 1,000 people had a child, which is 
+the equivalent of 4.3 births per second \citep{CIA2014}. Over the course of her 
+lifetime, the average woman in 2013 will have 2.46 births, down from 4.98 in 
+1960 \citep{WorldBank2015}. The importance of choice, and control over the 
+timing and number of children has been documented as early as \emph{c}1800 BC, 
+with discussions of a range of contraceptive methods included in the Kahun 
+Gynaecological Papyrus \citep{OdowdPhillip1994}.  This review chapter examines 
+the effect of childbirth on human outcomes.
 
-Outcomes.
+I review the literature on the effect of individual fertility behaviours on
+individual outcomes: namely, the microeconomic effects of fertility.  This
+chapter, and indeed the literature on which it is based, largely focuses on 
+the effect of a woman or family's fertility decisions on the mother's life 
+outcomes and the outcomes of her children.  Some, although relatively less, 
+focus is paid to the effect on her partner (if present).  
 
-Identification.  Shifters: twins, fertility policies
-Methodologies. IV, DD, (RD?), FE.
+Rather than focus on correlations between fertility and other outcomes, this 
+article is centered on the \emph{causal} effects of fertility.  I discuss
+the theoretical and empirical requirements regarding how to infer causality 
+in a behaviour which cannot be manipulated directly in an experimental context.  
+Given the interruptive nature of child birth on a large range of other life 
+outcomes, any study of causal effects must isolate changes in fertility from 
+corresponding changes in simultaneously determined, or dynamically dependent, 
+outcomes.  As a simple example, if women jointly choose to exit the labour 
+market and have a child, any inference regarding the effect of fertility on her 
+or her child's \emph{other} outcomes must be independent of her labour market 
+choice.
 
-Timing as well as number.
+Since the boom in fertility related research in microeconomics in the mid-%
+1970's,\footnote{From 1970 onwards, the frequency of the occurrence of the word 
+``fertility'' 
+in titles of all articles published in the \emph{Journal of Political Economy} 
+is 46.5 per 100,000 words. Prior to the 1970s, the frequency was 1.45 per 
+100,000 words. Though admittedly based on a small sample of, the frequency by 
+decade is 11.17 (`60s), 72.72 (`70s), 66.33 (`80s), 29.41 (`90s), and 41.07 
+(`00s). It was not mentioned in titles of articles published between 1863 and 
+the 1960s.} a range of methodologies have been proposed to permit inference 
+in precisely these circumstances. These include the use of instrumental 
+variables (IV), combining difference-in-difference (DD) with IV, the use of 
+quasi-experimental fertility shocks, or trying to artificially construct a 
+treatment and control group using family members or propensity score based 
+methods.  In the sections which follow, I describe these methodologies, the 
+papers which propose and estimate them, and the identifying assumptions that
+motivate causality in each case.
 
-General points: \citet{Enke1966} (and others by him: 1960, 1971), 
-\citet{KearneyLevine2012, Schultz2008, GMiller2009, RosenzweigWolpin1986}
-(maybe add Miller cite to twins).
+Empirical considerations regarding the causal effects of fertility require the
+consideration of (at least) three questions: `Effects on what?', `Effects at
+what margin?', and `Timing or quantity?'.  Frequently, these questions are 
+split further, and examined for specific groups of women or children.
 
-\citet{Moffitt2005} is a useful starting point.
+Regarding the first question, the theoretical and empirical microeconomic 
+literature has hypothesised that
+marginal births may have causal implications for many individual-level outcomes.
+This includes effects on children: their health indicators, cognitive and 
+non-cognitive achievements, long-term labour market outcomes, education inputs,
+and social outcomes such as age at marriage and crime incidence; as well as 
+effects on parents. Parental outcomes often considered are centered around 
+labour market participation and returns, rates of education completion, marriage 
+market outcomes and socioeconomic indicators such as welfare-receipt.  I outline 
+these measures in the following sections, along with the evidence that a causal 
+link exists (or does not exist) with fertility.
 
-Black et al EJ 2008 type citations of other drivers of fertility?
+Human fertility decisions exist at two (very different) margins.  The choice of
+whether or not to have a child (the extensive margin), and, conditional on 
+choosing to have any children, the decision regarding \emph{how many} births
+to have (the intensive margin).  The nature of links between fertility decisions
+and outcomes vary considerably when considering the intensive and the extensive
+margin.  The consensus in the literature is that the causal effects are 
+certainly not a linear function of births, with important non-linearities, and 
+indeed non-monotonic, relationships described between fertility and (some) of 
+the previously mentioned outcomes. In order quantify effects at different margins,
+a range of estimation samples and methodologies need be employed.  
+
+Finally, causal effects of fertility are not stationary by mother's age at 
+birth.  Often, rather than estimating the effect of a marginal birth, we will be
+interested in determining the effect of child birth at a particular age (such as
+during adolescence).  Considerations of these effects have important life-cycle
+implications on future investment decisions.
+
+Considerations of fertility exist in a huge range of fields: social sciences, 
+physical sciences, demography and medicine, and in many subfields within 
+disciplines.  As a result, any moderate-length review of the literature must
+be necessarily pointed.  As such, this chapter firmly focuses on the effects
+of fertility on other individual-level outcomes, and not the determinants of
+fertility\footnote{More recently, \citet{KearneyLevine2012} provided an extensive 
+discussion of teenage childbearing and its determinantes in the USA, 
+\citet{Bailey2013} reviewed the old and new evidence on the effect of access to 
+contraception, and \citet{Moffitt2005} has provided a discussion and application 
+of causal inference to the effects of teenage childbearing on child outcomes. All
+provide extremely useful reviews of the relevant literature.  The handbook chapter
+of \citet{Schultz2008} is perhaps the definitive reference for microeconomists
+interested in an analysis with a very broad scope.  There are many papers
+discussing education and fertility (ie \citet{Blacketal2008}), which won't be 
+discussed in this chapter.}, the macroeconomic effects \citep{Enke1966,Enke1971}, 
+or discussions of the broader effects of population control policies
+\citep{GMiller2009,RosenzweigWolpin1986}.
 
 %-------------------------------------------------------------------------------
 \section{Causality and Fertility}
@@ -94,9 +176,13 @@ household blossomed from the articles it contained.  A common theme in a number
 of articles in this issue \citep{BeckerLewis1973, DeTray1973, Willis1973} 
 concerns a family's decisions regarding fertility (the quantity of children) 
 and investments in child human capital (the `quality' of children). Abstracting 
-from intra-household variations in child quality, each of the aforementioned
-articles demonstrates the theoretical existence of a quantity--quality
-(Q--Q trade-off).\footnote{As \citet{Willis1973} succinctly describes:
+from intra-household variations in child quality\footnote{An extensive 
+literature exists which looks at \emph{intra}-household endowment and investment
+decisions among siblings.  \citet{Behrmanetal1982} provides initial discussion,
+and \citet{AizerCunha2012} embed these considerations in a quantity--quality-type 
+framework.}, each of the aforementioned articles demonstrates the theoretical 
+existence of a quantity--quality (Q--Q) trade-off.\footnote{As \citet{Willis1973} 
+succinctly describes:
 \begin{quote}
 `Thus, parents not only balance the satisfactions they receive from their
 children against those received from all other sources not related to 
@@ -394,9 +480,9 @@ Author & Abortion Effect & Pill Effect & Note \\ \midrule
 \citet{Bailey2009}            & -0.012(0.007) &  0.028(0.048) & $a,d,(x=22)$ \\
 \citet{OltmansHungerman2012}  & -0.043(0.015) & -0.088(0.023) &              \\
 \bottomrule
-\multicolumn{4}{p{12.2cm}}{\begin{footnotesize}\textsc{Note:} All figures report the
-results of short term access of a fertility reform on birth rates of young women 
-unless otherwise specified in notes. \newline 
+\multicolumn{4}{p{12.2cm}}{\begin{footnotesize}\textsc{Note:} All figures report 
+the results of short term access of a fertility reform on birth rates of young 
+women unless otherwise specified in notes. \newline 
 $^a$ Binary model with outcome 1=first birth by age $x$. \newline
 $^b$ Estimate expressed as births per woman.  Mean rate is 0.110 \newline 
 $^c$ Estimate for states adopting 1974-1975. Estimate for 1971-1973 is 
@@ -474,10 +560,21 @@ schooling outcomes, especially among households who have two children of the
 same gender. These results suggests that estimates of fertility at the intensive 
 margin may not be linear, and indeed may not be monotonic by parity.
 
-\subsection{Other}
-Structure: \citet{RosenzweigWolpin1995,RosenzweigSchultz1985,
-RosenzweigWolpin1980b}
-OLS: \citet{Hanushek1992} is descriptive. \citet{Desai1995}
+\subsection{Structure and Dynamics}
+A number of dynamic or dynamic structural papers motivate estimation of the
+effects of fertility (or fertility timing) on birth outcomes in based on a
+finite horizon, rather than static, estimation framework.  While these papers
+allow for a more extensive examination of \emph{timing} and life-cycle 
+decisions, estimation generally relies on an exclusion restriction similar to
+those discussed in section \ref{Fsscn:kidIV}.  \citet{RosenzweigWolpin1995} 
+motivate the estimation of a dynamic model to examine the effect of early 
+fertility (teen motherhood) on child birth outcomes (gestation and birthweight).  
+By formulating an over-identified series of equations where identification (in
+a FE-IV framework) comes from family background variables, and idiosyncratic
+elements shared by siblings. \citet{RosenzweigSchultz1985} take advantage of
+variations in fecundity, or births per attempt, which they suggest are 
+unobserved by parents prior to contraception attempts, but observable later 
+given births per period.  CLOSE SECTION.
 
 %-------------------------------------------------------------------------------
 \section{The Effects of Child Birth on Mothers}
@@ -535,6 +632,8 @@ Outcome variables of interest are typically
 
 FLFP: \citet{AgueroMarks2008,AgueroMarks2011,ChunOh2002,Caceres2008}
 Earnings:
+\citet{RosenzweigWolpin1980b} motivates twins in labour supply framework,
+though it is not IV.
 
 \citet{Ananatetal2009,Miller2011,
 BronarsGrogger1994,KimAassve2006,RosenzweigSchultz1987,
@@ -548,21 +647,48 @@ Between effects: \citet{Holmlund2005,GeronimusKorenman1992} \citet{Ribar1999}
 tests sibling effects models.\\
 Matching: \citet{ChevalierViitanen2003,LevinePainter2003}
 
+\citet{RosenzweigWolpin1980b} return to the Beckerian (\citeyear{BeckerLewis1973})
+simultaneous equation framework for fertility, child quality, \emph{and} life-%
+cycle (mother's) labour supply.  They are the first to use twins to estimate
+the structural equation linking fertility and labour supply.  They estimate
+that for younger women, additional births reduce labour supply, but this fades
+as women age.  Once again---as they indeed highlight---consistent estimation
+relies on twins being entirely orthogonal to labour supply.  This assumption 
+is questioned in previous sections of this paper. Using the presumed exogeneity
+of twins as an identifying assumption, \citet{RosenzweigWolpin1980b} provide a
+very interesting series of tests casting considerable doubt on the assumption
+that fertility is exogenous to labour supply decisions, as maintained in some 
+prevailing literature.
+
 \newpage
 \input{\litrloc/motherEsts.tex}
 
-
-\section{Other Questions}
-\textcolor{red}{Discussion of assumptions of Q--Q...
- examine the effect of child 
-characteristics (mortality) on family size., and loosening by 
-\citet{AizerCunha2012} (from \citet{Behrmanetal1982}'s theory, gender discussion 
-of \citet{ButcherCase1994}) recently. \citet{Lawsonetal2012} is one of many 
-biological papers.}
-
-How parents behave in response (ie compensating or reforcing)
-
+%-------------------------------------------------------------------------------
 \section{Conclusion}
+This review chapter serves to provide an overview of the causal estimation of 
+the effect of fertility on child and parental outcomes.  It surveys the wide 
+range of methodologies employed in the existing microeconometric literature, and 
+discusses how various techniques aim to skirt issues of endogenous fertility 
+choices.  In each case, I outline the identifying assumptions implicitly or
+explicitly invoked, as well as the threats to which these are subject.
+
+The evidence discussed in this chapter is mixed.  While there seems to be 
+quite clear evidence in favour of moderate-to-large effects of marginal child 
+births and early births on parental labour market outcomes, the existing 
+microeconometric child-level estimates are less compelling.  Despite a large
+body of theoretical microeconomic work positing that such a Q--Q trade-off may
+exist, causal estimates are certainly not conclusive, and seem to suggest that
+the trade-off is small or non-existent.  While there are a number of papers 
+which \emph{do} find significant effects on a number of outcomes, these are
+context- and complier-specific.
+
+In some cases this lack of evidence may be due to threats to exclusion 
+restrictions or other identifying assumptions. It is in line with this that 
+the present thesis now moves forward.  The remaining chapters are essays on the 
+causal estimate---or more specifically, the challenges and involved in causally 
+estimating---the effect of fertility and contraceptive programs on human 
+outcomes, and some solutions which may be employed to recover bounds and causal
+estimates of these effect.
 
 %\newpage
 %\begin{table}

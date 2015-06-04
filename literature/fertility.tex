@@ -55,7 +55,7 @@ the 1960s.} a range of methodologies have been proposed to permit inference
 in precisely these circumstances. These include the use of instrumental 
 variables (IV), combining difference-in-difference (DD) with IV, the use of 
 quasi-experimental fertility shocks, or trying to artificially construct a 
-treatment and control group using family members or propensity score based 
+treatment and control group using family members or other matching 
 methods.  In the sections which follow, I describe these methodologies, the 
 papers which propose and estimate them, and the identifying assumptions that
 motivate causality in each case.
@@ -66,16 +66,16 @@ what margin?', and `Timing or quantity?'.  Frequently, these questions are
 split further, and examined for specific groups of women or children.
 
 Regarding the first question, the theoretical and empirical microeconomic 
-literature has hypothesised that
-marginal births may have causal implications for many individual-level outcomes.
-This includes effects on children: their health indicators, cognitive and 
-non-cognitive achievements, long-term labour market outcomes, education inputs,
-and social outcomes such as age at marriage and crime incidence; as well as 
-effects on parents. Parental outcomes often considered are centered around 
-labour market participation and returns, rates of education completion, marriage 
-market outcomes and socioeconomic indicators such as welfare-receipt.  I outline 
-these measures in the following sections, along with the evidence that a causal 
-link exists (or does not exist) with fertility.
+literature has hypothesised that marginal births may have causal implications 
+for many individual-level outcomes.  This includes effects on children: their 
+health indicators, cognitive and non-cognitive achievements, long-term labour 
+market outcomes, education inputs, and social outcomes such as age at marriage 
+and crime incidence; as well as effects on parents. Parental outcomes often 
+considered are centered around labour market participation and returns, rates 
+of education completion, marriage market outcomes and socioeconomic indicators 
+such as welfare-receipt.  I outline these measures in the following sections, 
+along with the evidence that a causal link exists (or does not exist) with 
+fertility.
 
 Human fertility decisions exist at two (very different) margins.  The choice of
 whether or not to have a child (the extensive margin), and, conditional on 
@@ -85,16 +85,16 @@ and outcomes vary considerably when considering the intensive and the extensive
 margin.  The consensus in the literature is that the causal effects are 
 certainly not a linear function of births, with important non-linearities, and 
 indeed non-monotonic, relationships described between fertility and (some) of 
-the previously mentioned outcomes. In order quantify effects at different margins,
-a range of estimation samples and methodologies need be employed.  
+the previously mentioned outcomes. In order to quantify effects at different 
+margins, a range of estimation samples and methodologies need be employed.  
 
 Finally, causal effects of fertility are not stationary by mother's age at 
 birth.  Often, rather than estimating the effect of a marginal birth, we will be
 interested in determining the effect of child birth at a particular age (such as
 during adolescence).  Considerations of these effects have important life-cycle
-implications on future investment decisions.
+implications for future investment decisions.
 
-Considerations of fertility exist in a huge range of fields: social sciences, 
+The study of fertility is common to a huge range of fields: social sciences, 
 physical sciences, demography and medicine, and in many subfields within 
 disciplines.  As a result, any moderate-length review of the literature must
 be necessarily pointed.  As such, this chapter firmly focuses on the effects
@@ -112,11 +112,19 @@ discussed in this chapter.}, the macroeconomic effects \citep{Enke1966,Enke1971}
 or discussions of the broader effects of population control policies
 \citep{GMiller2009,RosenzweigWolpin1986}.
 
+In what remains of this chapter I briefly layout a number of considerations
+surrounding causal analysis of endogenous fertility decisions, before turning to
+particular methodologies and samples used to generate empirical estimates.  I
+consider the causal effects of fertility on child and on parental outcomes in
+term, outlining main results from relevant papers in the field.
+
 %-------------------------------------------------------------------------------
 \section{Causality and Fertility}
 \label{Fscn:causality}
-We define an outcome $Y_i$, for each member $i$ of a population, $i\ \in \{1,
-\ldots,N\}$, where $Y$ denotes an outcome variable of interest. We are 
+We define an outcome $Y_i$, for each member $i$ of a sample, $i\ \in \{1,\ldots,
+N\}$, where $Y$ denotes an outcome variable of interest, and the sample is drawn
+from a population of childbearing mothers (or, as discussed later, their 
+children). We are 
 interested in determining the effect of manipulations of fertility, which we
 denote $F_i$, on our outcome variable of interest $Y_i$.  It is assumed that 
 $Y_i$ is a function of fertility, an unobserved variable $U_i$, and a series of 
@@ -139,7 +147,8 @@ iterative substitution of the $\bm\varepsilon$ terms into (\ref{Feqn:outcome})
 and (\ref{Feqn:fert}) it becomes apparent (in the defined system of equations) 
 that changes in fertility and health are unrelated to $\varepsilon_Y$, but that 
 both average years of education and fertility are related to unobserved maternal 
-health behaviours.
+health behaviours.\footnote{\emph{Ie} $F_i$ and $U_i$ are not functions of 
+$\varepsilon_Y$, however $Y_i$ and $F_i$ are functions of $\varepsilon_U$.}
 
 In causal terms as per \citet{Haavelmo1943,Haavelmo1944} (and particularly, the
 recent exposition in \citet{HeckmanPinto2015}), we are interested in the change
@@ -152,7 +161,8 @@ values of $b$ in (\ref{Feqn:estimand}).  Generally however, we will be intereste
 in at least two seperate situations. The first, comparing having any children 
 to having no children (the extensive decision), while the second refers to 
 having $b+1$ children versus having $b$ children for $b\in{1,\ldots,k}$ (the 
-intensive margin).}
+intensive margin).  We return to discussions of $b$ for different parities when
+discussing empirical results in the sections which follow.}
 \begin{equation}
 \label{Feqn:estimand}
 \beta\equiv\mathbb{E}_{U_i,\varepsilon_Y}[Y_i(b_i+1)-Y_i(b_i)]
@@ -219,9 +229,10 @@ Y=\beta F + U + \varepsilon_Y,
 where we assume that $\mathbb{E}[\varepsilon_Y]=0$.  To estimate $\beta$ from
 the above, we can consider conditioning on two distinct values of $F$:
 \begin{eqnarray}
-\hat\beta & = & \mathbb{E}[Y|F=b+1]-\mathbb{E}[Y|F=b]. \label{Feqn:OLS} \\
-          & = & \mathbb{E}[\beta(b+1)+U|F=b+1] - \mathbb{E}[\beta(b)+U|F=b] \nonumber \\
-          & = & \beta + \mathbb{E}[U|F=b+1] - \mathbb{E}[U|F=b] \nonumber
+\mathbb{E}[\hat\beta] & = & \mathbb{E}[Y|F=b+1]-\mathbb{E}[Y|F=b]. \label{Feqn:OLS} \\
+                      & = & \mathbb{E}[\beta(b+1)+U|F=b+1] - \mathbb{E}[\beta(b)+U|F=b] 
+\nonumber \\
+                      & = & \beta + \{\mathbb{E}[U|F=b+1] - \mathbb{E}[U|F=b]\} \nonumber
 \end{eqnarray}
 Thus, (\ref{Feqn:OLS}) is only identical to the causal estimate in 
 (\ref{Feqn:estimand}) in a very limited set of circumstances: above this is when
@@ -263,7 +274,8 @@ more details on these estimates in the sections which follow.
 %-------------------------------------------------------------------------------
 \subsection{Instrumental Variables}
 \label{Fsscn:kidIV}
-In systems of equations of this type, one way to drive inference is through the
+In systems of equations of the type described in \ref{Fscn:kids}, one way to 
+drive inference is through the
 use of shifters (or instrumental variables) which affect the quantity of one of
 the variables without affecting the other.  In order to identify the effect of 
 fertility on children's outcomes, this instrumental variable must affect only 
@@ -280,8 +292,8 @@ $Z_i$.  $Z_i$ is assumed to directly affect $F_i$:
 F_i = f_F(U_i,Z_i,\varepsilon_F).
 \]
 The function \ref{Feqn:outcome} is unchanged, reflecting the fact that the only
-channel with which $Z_i$ affects $Y_i$ is through $F_i$ (ie the exlcusion 
-restriction holds).  Finally, to close assume that $Z_i=f(\varepsilon_Z)$,
+channel with which $Z_i$ affects $Y_i$ is through $F_i$ (ie the exclusion 
+restriction holds).  Finally, to close, assume that $Z_i=f(\varepsilon_Z)$,
 and once again the error terms $\bm{\varepsilon}$ are assumed mutually 
 independent.
 
@@ -298,7 +310,10 @@ Here rather than explicitly being based on a movement from $F=b$ to $F=b+1$
 estimation is driven by the effect which $Z$ has on $Y$, scaled by the
 degree to which it moves $F$.  If the instrument increases birth by exactly
 one, then (\ref{Feqn:Wald}) collapses to an expression similar to 
-(\ref{Feqn:OLS}).
+(\ref{Feqn:OLS}).  Fundamentally in strategies of this type, the identifying
+assumption shifts from concerns regarding correlations between $U$ and $F$
+to correlations between $U$ and $Z$.  Consistent causal estimation now 
+requires that $\Cov(U,Z)=0$.
 
 The earliest discussion of these types of shifters and the corresponding 
 exclusion restriction required for the estimation of the causal effects of 
@@ -328,7 +343,8 @@ requires data on early live human capital endowments such as birthweight.
 \citet{BhalotraClarke2015} question the exogeneity assumption in another way.
 They demonstrate that healthier mothers are more likely to take twin births
 to term, and at the same time that healthier mothers are more likley to have
-additional resources to invest in child quality later in life.  At the very
+additional resources to invest in child quality later in life.  This critique is
+laid out and estimated in chapter \ref{chap:twins} of this thesis.  At the very
 least however, both of these critiques will lead to predictable biases in 
 estimates of $\beta$, resulting in bounds on the effect of fertility on child
 outcomes.
@@ -343,21 +359,23 @@ more likely to continue after having early birth girls \citep{Lee2008,
 KumarKugler2011}. In both cases these are empirically shown to be important 
 drivers of fertility.  Again, like estimates driven by twin births, empirical 
 results are mixed, although recent evidence seems to point to statistically 
-insignificant (though nearly universally negative) trade-offs, as outlined in 
-panel B of table \ref{Ftab:childQQ}.
+insignificant (though nearly universally negative) estimates of the trade-off, 
+as outlined in panel B of table \ref{Ftab:childQQ}.
 
 Causality in this case requires that child sex mix has no direct effect on 
 quality.  This implies (among other things), that there are no gender-specific 
 economies of scale which facilitate child quality investments more when children
-are of the same sex \citep{ButcherCase1994}, and add note that one would hope 
-that this is the case as goods that boys can use for education can also be used 
-for girls and vice versa, but that generally there are other concerns (see 
-footnote 1 of \citet{RosenzweigZhang2009}). \citet{ButcherCase1994} provide 
-extensive discussion of this, and demonstrate that in the USA girls with sisters
-are significantly less educated than girls with brothers, postulating that this
-may be due to a reference group effect where parents have lower aspirations for
-their children when all children are girls. Also \citet{DahlMoretti2008} show
-that in USA parents are more likely to live together with sons.
+are of the same sex \citep{ButcherCase1994}.  While one could argue (and indeed
+hope) that goods which could be employed in the household for boy's education 
+could also be employed for girl's education, generally there are other concerns.
+\citet{DahlMoretti2008} show that gender composition affects the likelihood that
+parents live together. \citet{ButcherCase1994} provide extensive discussion of 
+the potential that different child gender mixes may affect child costs, and 
+demonstrate that in the USA girls with sisters are significantly less educated 
+than girls with brothers, postulating that this may be due to a reference group 
+effect where parents have lower aspirations for their children when all children 
+are girls. Concerns such as these cast doubt on the validity of the exclusion 
+restriction described earlier in this section.
 
 A range of other instruments have been proposed, including infertility
 \citep{Bougmaetal2015}, miscarriage \citep{Hotzetal1997,Marlani2008,Miller2009}
@@ -449,7 +467,19 @@ LATE and external validity in the following section of this paper.
 %-------------------------------------------------------------------------------
 \subsection{Natural Experiments}
 An alternative manner to deal with correlation between $F$ and $U$ consists of
-taking advantage of externally defined (to $U$) reforms.
+taking advantage of externally defined (to $U$) reforms.  If reforms are 
+applicable to a subgroup of a particular population and are designed to affect
+fertility, this suggests a natural `treatment' and `control' group which can
+be compared.  Those who receive the fertility reform are considered treated, and
+those who don't are considered as controls.  If reforms are truly put in place
+for reasons entirely divorved from $U$, causal conclusions can be drawn regarding
+the effect of the reform.  Typically the effect of reforms is estimated using 
+difference-in-differences (diff-in-diff).  This compares pre-reform differences
+between treated and control units with post-reform differences, inferring that
+any change in the level of differences is driven by the reform, or stated in
+another way, that \emph{no} differential and simultaneously occurring phenomena
+seperate treatments from controls.  This is the well known `parallel trends
+assumption'.  
 
 These studies can be broadly split into two groups: those which examine the
 effect of public policies or other natural experiments on fertility itself,

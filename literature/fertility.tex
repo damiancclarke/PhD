@@ -21,7 +21,8 @@ lifetime, the average woman in 2013 will have 2.46 births, down from 4.98 in
 1960 \citep{WorldBank2015}. The importance of choice, and control over the 
 timing and number of children has been documented as early as \emph{c}1800 BC, 
 with discussions of a range of contraceptive methods included in the Kahun 
-Gynaecological Papyrus \citep{OdowdPhillip1994}.  Estimates suggest that today,
+Gynaecological Papyrus \citep{OdowdPhillip1994}.  Estimates suggest that 
+between then and today,
 contraceptive use has grown to reach global coverage of 60\% of all married,
 fertile-aged women \citep{Darroch2013}. This review chapter examines the effect 
 of childbirth and birth timing decisions on human outcomes.
@@ -34,8 +35,8 @@ outcomes and the outcomes of her children.  Some, although relatively less,
 focus is paid to the effect on her partner (if present).  
 
 Rather than focus on correlations between fertility and other outcomes, this 
-article is centered on the \emph{causal} effects of fertility.  I discuss
-the theoretical and empirical requirements regarding how to infer causality 
+article is centered on the \emph{causal} analysis of the effects of fertility.  
+I discuss the theoretical and empirical considerations required to infer causality 
 in a behaviour which cannot be manipulated directly in an experimental context.  
 Given the interruptive nature of child birth on a large range of other life 
 outcomes, any study of causal effects must isolate changes in fertility from 
@@ -90,7 +91,7 @@ indeed non-monotonic, relationships described between fertility and (some) of
 the previously mentioned outcomes. In order to quantify effects at different 
 margins, a range of estimation samples and methodologies need be employed.  
 
-Finally, causal effects of fertility are not stationary by mother's age at 
+Finally, causal effects of fertility are not independent of mother's age at 
 birth.  Often, rather than estimating the effect of a marginal birth, we will be
 interested in determining the effect of child birth at a particular age (such as
 during adolescence).  Considerations of these effects have important life-cycle
@@ -101,9 +102,9 @@ physical sciences, demography and medicine, and in many subfields within
 disciplines.  As a result, any moderate-length review of the literature must
 be necessarily pointed.  As such, this chapter firmly focuses on the effects
 of fertility on other individual-level outcomes, and not the determinants of
-fertility\footnote{More recently, \citet{KearneyLevine2012} provided an extensive 
+fertility\footnote{More recently, \citet{KearneyLevine2012} provide an extensive 
 discussion of teenage childbearing and its determinantes in the USA, 
-\citet{Bailey2013} reviewed the old and new evidence on the effect of access to 
+\citet{Bailey2013} reviews the old and new evidence on the effect of access to 
 contraception, and \citet{Moffitt2005} has provided a discussion and application 
 of causal inference to the effects of teenage childbearing on child outcomes. All
 provide extremely useful reviews of the relevant literature.  The handbook chapter
@@ -123,7 +124,7 @@ term, outlining main results from relevant papers in the field.
 %-------------------------------------------------------------------------------
 \section{Causality and Fertility}
 \label{Fscn:causality}
-We define an outcome $Y_i$, for each member $i$ of a sample, $i\ \in \{1,\ldots,
+Consider an outcome $Y_i$, for each member $i$ of a sample, $i\ \in \{1,\ldots,
 N\}$, where $Y$ denotes an outcome variable of interest, and the sample is drawn
 from a population of childbearing mothers (or, as discussed later, their 
 children). We are 
@@ -175,8 +176,8 @@ generally not feasible in real-world fertility decisions. And in observational
 studies using data over space or time, the presence of factors similar to $U$
 considerably hinders the estimation of causal effects.  In the sections which
 follow we return to this system of equations, and outline the existing 
-techniques, and empirical results, which aim to recover causal estimates despite
-the lack of explicit exogenous manipulation of $F$.
+techniques which aim to recover causal estimates despite the lack of explicit 
+exogenous manipulation of $F$.
 
 %-------------------------------------------------------------------------------
 \section{The Effects of Family Size on Children}
@@ -214,7 +215,7 @@ cannot be made in isolation.  Holding all else constant, increases in fertility
 increase the shadow price of quality, and increases in quantity increases the
 shadow price of the marginal birth. This considerably complicates causal 
 inference. What's more, as recognised in early articles by \citet{%
-BenPorathWelch1972,BenPorath1976}, quality decisions may \emph{directly} feed 
+BenPorathWelch1972,BenPorath1976}, quality decisions may \emph{directly} feed
 back to quantity via child mortality.
 
 %-------------------------------------------------------------------------------
@@ -263,9 +264,9 @@ stopping rules which depend on the quality of the first child, and
 \citet{Blacketal2010}, who additionally note that family size effects are 
 confounded with birth order effects.  Indeed there are a number of reasons one
 could use to suggest bias.  These include parental education, discount rates,
-maternal health or network effects driving both fertility and child quality.  
-Generally it seems likely that these factors will cause OLS estimates to 
-induce a negative bias in estimates of the effect of fertility, given that 
+maternal health, or network effects driving both fertility and child quality.  
+Generally it seems likely that these factors will induce a negative bias in OLS
+estimates of the effect of fertility, given that 
 factors which lead to fewer births (contraceptive knowledge, opportunity cost of
 time, aspirations, and so forth) also seem likely to drive greater investments 
 in children who are eventually born.  Empirically, this overwhelmingly seems to
@@ -294,16 +295,16 @@ $Z_i$.  $Z_i$ is assumed to directly affect $F_i$:
 F_i = f_F(U_i,Z_i,\varepsilon_F).
 \]
 The function \ref{Feqn:outcome} is unchanged, reflecting the fact that the only
-channel with which $Z_i$ affects $Y_i$ is through $F_i$ (ie the exclusion 
-restriction holds).  Finally, to close, assume that $Z_i=f(\varepsilon_Z)$,
-and once again the error terms $\bm{\varepsilon}$ are assumed mutually 
-independent.
+channel with which $Z_i$ affects $Y_i$ is through $F_i$ (in other worlds, the 
+exclusion restriction holds). Finally, to close, assume that 
+$Z_i=f(\varepsilon_Z)$, and once again the error terms $\bm{\varepsilon}$ are 
+assumed mutually independent.
 
-The above situation leads to an explicit way to generate the hypothetical 
+The above situation leads to an explicit way of generating the hypothetical 
 variation discussed in section \ref{Fscn:causality}.  By taking advantage of 
 variation in $F$ induced by variation in $Z$, the effect of $F$ on $Y$ can
 be identified in the absence of any movement in $U$.  The most simple way to
-consider this is by considering the Wald estimator:
+consider this is by observing the Wald estimator:
 \begin{eqnarray}
 \label{Feqn:Wald}
 \hat\beta = \frac{\mathbb{E}[Y|Z=1]-\mathbb{E}[Y|Z=0]}{\mathbb{E}[F|Z=1]-\mathbb{E}[F|Z=0]}.
@@ -357,7 +358,7 @@ prefer to have offspring of both genders \citep{ConleyGlauber2006,Angristetal201
 Beckeretal2010,MillimetWang2011,FitzsimonsMalde2014}, and so those having various 
 children of the same sex are more likely to continue childbearing. Alternatively, 
 in some circumstances it is argued that parents have a son preference, and so are 
-more likely to continue after having early birth girls \citep{Lee2008,
+more likely to continue after having early-birth girls \citep{Lee2008,
 KumarKugler2011}. In both cases these are empirically shown to be important 
 drivers of fertility.  Again, like estimates driven by twin births, empirical 
 results are mixed, although recent evidence seems to point to statistically 
@@ -383,7 +384,7 @@ A range of other instruments have been proposed, including infertility
 \citep{Bougmaetal2015}, miscarriage \citep{Hotzetal1997,Marlani2008,Miller2009}
 and distance to family planning \citep{DangRogers2013}. The outcomes and 
 empirical results related with these studies are displayed in table 
-\ref{Ftab:childQQ}.  While these instruments---all generally realted to the 
+\ref{Ftab:childQQ}.  While these instruments---all generally related to the 
 ability to conceive or control conception---clearly drive fertility, in each 
 case the exclusion restriction is questionable.  This is explicitly treated in
 \citet{Hotzetal1997}, who motivate techniques to recover bounds on the estimate
@@ -396,42 +397,42 @@ this suggests a positive bias in IV estimates of $\beta$.
 \label{Ftab:childQQ}
 \begin{tabular}{lllc} \toprule
 \textsc{Author} & \textsc{Country} & \textsc{Outcome} & \textsc{Estimate} \\
-                &                  &                  & \textsc{(Std Err)} \\ \midrule
+                &                  &                  & \textsc{(Std.\ Err.)} \\ \midrule
 \multicolumn{4}{l}{\textbf{Panel A: Twins}} \\
-\citet{Blacketal2005}            &Norway   & Yrs of Educ         &-0.16(0.44) \\
+\citet{Blacketal2005}            &Norway   &Years of Educ        &-0.16(0.44) \\
 \citet{Caceres2006}              &USA      &Private School       &-0.000(0.005)\\
                                  &         &Behind cohort        & 0.005(0.004)\\
 \citet{Lietal2008}               &China    &Educ (categorical)   &-0.027(0.014)\\
                                  &         &Educ (enrollment)    &-0.025(0.013)\\
 \citet{Dayiogluetal2009}         &Turkey   &Attendance           & 0.203(0.245)\\
-\citet{Sanhueza2009}             &Chile    &Yrs of Educ          &-0.280(0.092)\\
+\citet{Sanhueza2009}             &Chile    &Years of Educ        &-0.280(0.092)\\
 \citet{Blacketal2010}            &Norway   &IQ (standardised 1-9)&-0.170(0.052)\\
-\citet{Angristetal2010}          &Israel   &Yrs of Educ          & 0.167(0.117)\\
+\citet{Angristetal2010}          &Israel   &Years of Educ        & 0.167(0.117)\\
                                  &         &Some college         & 0.059(0.036)\\
                                  &         &College grad         & 0.052(0.032)\\
-\citet{FitzsimonsMalde2010}      &Mexico   &Yrs of Educ (F)      & 0.096(0.063)\\
+\citet{FitzsimonsMalde2010}      &Mexico   &Years of Educ (F)    & 0.096(0.063)\\
                                  &         &Enrolment (F)        &-0.019(0.014)\\
-\citet{SouzaPonczek2012}         &Brazil   &Yrs of Educ (F)      &-0.634(0.194)\\
-                                 &         &Yrs of Educ (M)      &-0.060(0.164)\\ \midrule
+\citet{SouzaPonczek2012}         &Brazil   &Years of Educ (F)    &-0.634(0.194)\\
+                                 &         &Years of Educ (M)    &-0.060(0.164)\\ \midrule
 \multicolumn{4}{l}{\textbf{Panel B: Gender Mix}} \\
 \citet{ConleyGlauber2006}        &USA      &Private school       &-0.061(0.021) \\
                                  &         &Grade repetition     &0.007(0.004)  \\
 \citet{Lee2008}                  &Taiwan   &Total ln(educ spend) &0.328(0.088)  \\
-\citet{Angristetal2010}          &Israel   &Yrs of Educ          &-0.067(0.120)\\
+\citet{Angristetal2010}          &Israel   &Years of Educ        &-0.067(0.120)\\
                                  &         &Some college         &-0.025(0.025)\\
                                  &         &College grad         &-0.032(0.022)\\
 \citet{Beckeretal2010}           &Prussia  &Enrolment            &-0.430(0.189)\\
-\citet{KumarKugler2011}          &India    &Yrs of Educ          &-0.363(0.061)\\
-\citet{FitzsimonsMalde2014}      &Mexico   &Yrs of Educ (F)      &-0.015(0.125)\\ 
+\citet{KumarKugler2011}          &India    &Years of Educ        &-0.363(0.061)\\
+\citet{FitzsimonsMalde2014}      &Mexico   &Years of Educ (F)    &-0.015(0.125)\\ 
 \citet{MillimetWang2011}         &Indonesia&BMI for Age          & 0.049(0.013)\\
 \midrule
 \multicolumn{4}{l}{\textbf{Panel C: Fertility Shock}} \\
-\citet{Bougmaetal2015}           &Burkina Faso&Yrs of Educ        &-0.99(0.40)\\ 
-\citet{Marlani2008}              &Indonesia   &Yrs of Educ (early)&-0.167(0.117)\\ 
-                                 &            &Yrs of Educ (late) &-0.054(0.055)\\
+\citet{Bougmaetal2015}           &Burkina Faso&Years of Educ        &-0.99(0.40)\\ 
+\citet{Marlani2008}              &Indonesia   &Years of Educ (early)&-0.167(0.117)\\ 
+                                 &            &Years of Educ (late) &-0.054(0.055)\\
 \citet{Hotzetal1997}             &USA         &Complete highschool&-0.147(0.406)\\
-\citet{DangRogers2013}           &Vietnam     &Yrs of Educ        &-0.589(0.392)\\
-                                 &            &Private tutoring   &-0.318(0.147)\\
+\citet{DangRogers2013}           &Vietnam     &Years of Educ        &-0.589(0.392)\\
+                                 &            &Private tutoring     &-0.318(0.147)\\
 \bottomrule
 \multicolumn{4}{p{12.9cm}}{\begin{footnotesize}\textsc{Notes:} In the case that 
 various samples are reported in the papers, the pooled estimate for female and
@@ -482,24 +483,24 @@ between treated and control units with post-reform differences, inferring that
 any change in the level of differences is driven by the reform, or stated in
 another way, that \emph{no} differential and simultaneously occurring phenomena
 seperate treatments from controls.  This is the well known `parallel trends
-assumption'.  
+assumption' and is central to this line of inference.  
 
 These studies can be broadly split into two groups: those which examine the
 effect of public policies or other natural experiments on fertility itself,
 and those which leverage the externally-defined effect on fertility to quantify
-the effect of fertility on some other outcome.  In the latter case, the 
-differentiation between difference-in-differences and IV estimates is artificial,
-as the (diff-in-diff estimated) effect of the policy on fertility is simply 
-plugged in as the first stage in a 2SLS IV framework.\footnote{\citet{Duflo2001} 
-is a well known example of this design.  We discuss examples of this framework 
-applied to fertility later in this section and in \ref{Fsscn:motherNExp}.} The 
-first set of studies are of fundamental importance in analysing the 
-\emph{determinants} of fertility and the effect of new contraceptive methods on 
-life-cycle childbearing, but do not directly quantify the causal effects of 
-fertility itself.  Nevertheless, given their relevance both as a first stage in 
-causal estimates and as a reduced form estimate itself, I outline a number of 
-these studies below, before moving on to a more comprehensive discussion of their 
-link to causal estimates.
+the effect of fertility on some other outcome of interest. In the latter case, 
+the differentiation between difference-in-differences and IV estimates is 
+artificial, as the (diff-in-diff estimated) effect of the policy on fertility is 
+simply plugged in as the first stage in a 2SLS IV framework.\footnote{
+\citet{Duflo2001} is a well known example of this design.  We discuss examples 
+of this framework applied to fertility later in this section and in 
+\ref{Fsscn:motherNExp}.} The first set of studies are of fundamental importance 
+in analysing the \emph{determinants} of fertility and the effect of new 
+contraceptive methods on life-cycle childbearing, but do not directly quantify 
+the causal effects of fertility itself.  Nevertheless, given their relevance both 
+as a first stage in causal estimates and as a reduced form estimate itself, I 
+outline a number of these studies below, before moving on to a more comprehensive 
+discussion of their link to causal estimates.
 
 \begin{table}[htpb!]
 \caption{The Estimated Effect of Reforms on Fertility (Selected Studies)}
@@ -537,7 +538,7 @@ contraceptive pill: \citet{Durrance2013,Grossetal2014} and chapter
 \ref{chap:pill} of this thesis.} to examine the effect on fertility in a 
 diff-in-diff-style framework, only a relatively small number then employ this 
 as the first stage to estimate the causal effect of fertility---the focus of
-this review chapter.  Among those which \emph{do} directly estimate the effect
+this review chapter.  Among those that \emph{do} directly estimate the effect
 of fertilty on child outcomes are \citet{Gruberetal1999,Ananatetal2009} and
 \citet{OltmansHungerman2012}. \citet{Gruberetal1999} examines the effect of 
 fertility (via 2SLS) on the likelihood that a child lives with single parents, 
@@ -552,7 +553,7 @@ a Wald ratio as in (\ref{Feqn:Wald}).  These Wald estimates allow them to look
 at the characteristics of marginal child not born due to both the diffusion of 
 the pill, and the legalisation of abortion.  Their results suggest that the two 
 fertility control policies had remarkably different effects on marginal child 
-characteristics: in agreement with the above studies they suggest that the
+characteristics.  In agreement with the above studies they suggest that the
 marginal child not born due to abortion legalisation would have been 49.2\%
 (se=25.5) more likely to live in a welfare-receiving household.  However, the 
 marginal child not born due to pill diffusion looks remarkably different: 8.0\% 
@@ -589,7 +590,7 @@ of receipt of treatment on pre-existing characteristics.\footnote{For example,
 to education, fertility norms, poverty rates, availability of household 
 technologies such as washers and dryers, as well as labour market participation
 at a state level.  The probability of early access is, however, related to the
-percent of Catholic residents in a state.}  However, directly testing for the
+percent of Catholic residents in a state.}  However, directly testing the
 validity of such estimation methodologies is, of course, impossible, given
 that the counterfactual outcome--- the world where the pill was not available%
 ---is never observed.  This has lead to back-and-forth discussion, questioning 
@@ -605,9 +606,8 @@ surrounds the possiblity that \emph{local} reforms have more widely spread
 effects.  For example, the availability of abortion in one region does not
 necessarily imply that nearby non-treated individuals cannot travel to
 treated areas, defying their quasi-experimental status to receive treatment 
-(although it can imply this if local access reforms are extremely tightly 
-controlled).  Fortunatly, violations of this type will, at worst, bias 
-downwards  estimated results.  Often concerns such as these are examined
+\citep{Levineetal1999}. Fortunately, violations of this type will, at worst, 
+bias downwards estimated results. Often concerns such as these are examined
 empirically, as is the case in \citet{Christensen2012}.  This is a point 
 returned to more extensively, and tested explicitly in chapter 
 \ref{chap:spill} of this thesis.
@@ -644,7 +644,10 @@ comes from family background variables, and idiosyncratic elements shared by
 siblings. \citet{RosenzweigSchultz1985} take advantage of variations in 
 fecundity, or births per attempt, which they suggest are unobserved by parents 
 prior to contraception attempts, but observable later given births per period.  
-CLOSE SECTION.
+Identification in these studies usually depends on correct functional form and
+error term assumptions, though it is important to point out that precisely the 
+same conditions are the case for parametric OLS (DD) and IV estimates discussed
+in previous subsections.
 
 %-------------------------------------------------------------------------------
 \section{The Effects of Child Birth on Mothers}
@@ -661,7 +664,7 @@ considerable coverage also provided in the \emph{JPE} Fertilty issue described
 in section \ref{Fscn:kids} \citep{Willis1973,Gronau1973}.  As is the case with
 child investment and fertility decisions, choices regarding fertility, labour
 market participation, and (adult) human capital attainment are linked, and 
-dynamic in nature.  Total fertility, and if childbearing, birth timing have
+dynamic in nature.  Total fertility, and, if childbearing, birth timing have
 important impacts on labour market participation, non-labour market work, 
 accrued experience, and wages, while participation, experience and wages also 
 influence timing and fertility decisions. Inferring causality in systems of this 
@@ -683,43 +686,48 @@ is the arrival of new birth control technologies to a particular geographic
 area.  There are a very large range of microeconomic studies which discuss 
 the effect of these types of programs on a mother's total fertility.  These can
 be broadly split into those which examine the short-run effects of 
-contraceptives on fertility\footnote{This does not imply using data over a 
+contraceptives on fertility,\footnote{This does not imply using data over a 
 short time frame, but rather examining the effect of a birth control method up 
 to an age \emph{less} than the end of the fertile life (eg \citet{Bailey2006}'s
-focus on childbearing before the age of 22).}, and long-run analyses, which 
+focus on childbearing before the age of 22).} and long-run analyses, which 
 account for both short-run delays and long-run rearrangements in timing 
 afforded by new technologies.  Short run analyses include those examining the 
-contraceptive pill: \citet{Bailey2006,Christensen2012}
-LR pill:\citet{Bailey2011,Bailey2013,Bailey2012} 
-
-
-
-Split into short run and long run
-\citet{Guldi2008,KearnerLevine2009,Levineetal1999,AngristEvans1996,
-Jacobsenetal1999,AngristEvans1998,Cristia2008}
-(\citet{Bailey2009} is an erratum for Bailey 2006). \citet{AngristEvans1996} 
-uses 2SLS.
+contraceptive pill \citep{Bailey2006,Bailey2009,Christensen2012}, abortion
+\citep{Guldi2008,Levineetal1999}, the morning after pill 
+(\citeauthor{Grossetal2014},\citeyear{Grossetal2014}; \citeauthor{Durrance2013}, 
+\citeyear{Durrance2013}; chapter \ref{chap:pill}) and medicare access 
+\citep{KearnerLevine2009}, while those examining the long-run effects of
+contraceptive reform on completed fertility include (among others)  
+\citet{Bailey2011,Bailey2013,Bailey2012} for the contraceptive pill and 
+\citet{AngristEvans1996,OltmansHungerman2012} for abortion.
 
 Once again however, beyond the direct relevance of this swarth of studies for
 policy focused on fertility control, in order to apply these results to
-\emph{causal} analysis of parent outcomes, the specifications discussed above 
-can only act as a first-stage effect.  In turning to causal estimates, we
-are interested in the quantifying the effect on outcomes which flows from 
-changes in fertility, rather than the reform itself.
+\emph{causal} analysis of parental outcomes, the specifications discussed above 
+can only act as a first-stage effect.  For the full system of equations, we
+are interested in a two-step process: first quantifying the effect of reforms
+on fertility, and then, from this, the flow-on effect that exogenous shifts in
+fertility have on mother (or carer) outcomes.
 
-\citet{OltmansHungerman2012} show that long term effect of pill on mother is
-more likely to graduate college, less likely to divorce, more likely to have
-college educated spouse.  \citet{GoldinKatz2002a} discuss education, marriage,
-but not direct effect on fertility. \citet{Baileyetal2012} show that it has
-effects on wages over the life cycle (long-term) with a demanding specification.
-\citet{Bailey2006,Bailey2013} also looks at FLFP.  \citet{Christensen2012} looks
-at cohabitation.
-
-Miscarriage as natural experiment (\citet{Hotzetal2005,Fletcher2012}).  
-\citet{Hotzetal1997} talk about how to bound this, \citet{FletcherWolfe2009} 
-provide further discussion.
-
-
+Only a subset of papers which focus on fertility reforms then go on to examine
+the second stage of interest here.  As discussed in sections \ref{Fsscn:kidIV} 
+and \ref{Fsscn:kidNExp}, consistent estimation relies on an exclusion restriction
+assumption, whereby the only effect of the program on outcomes is driven by
+its effect on fertility. \citet{OltmansHungerman2012} use both the pill and
+abortion to examine different groups of compliers, and report Wald estimates
+of the effect of fertility on single parenthood: for pill-compliers, marginal
+fertility reductions occurr in contexts with less single parenthood, while the
+reverse is true for abortion compliers.\footnote{They also show that the 
+long-term effect of the pill on mothers results in a higher likelihood of college 
+completion, having a college education spouse, and a lower likelihood of 
+divorce.} \citet{AngristEvans1996} report similar estimates for 1970 abortion 
+reforms in the USA.  They report that the effects of a particular type of 
+childbearing (teen and unmarried) reduces the education and employment 
+probability, particulary of black women.  Other significant outcomes discussed 
+in this framework include \citet{Baileyetal2012,Bailey2006,Bailey2013}, who 
+show that it has effects on wages over the life cycle or female labour force 
+participation rates, and \citet{Christensen2012}, who finds (reduced form) 
+effects on cohabitation.
 
 \subsection{Instrumental Variables}
 The use of instrumental variables to examine the effect of fertility on 
@@ -731,40 +739,94 @@ effect on fertility can be used to drive causal estimates.  Instrumental
 variable estimates are a popular methodology employed to determine the 
 effect of fertility on mothers.
 
-Outcome variables of interest are typically 
+Outcome variables of interest are typically related to parental labour 
+force outcomes,\footnote{Largely, these papers focus on maternal labour
+market participation rates. \citet{KimAassve2006} studies both mothers' and
+fathers' responses to fertility, using fecundity (births per attempt) as an
+instrument.  They find that on average mothers reduce hours of work in the short 
+run, while paternal hours of work increase (in rural areas).} including female 
+labour force participation \citep{AgueroMarks2008,AgueroMarks2011,ChunOh2002,
+Caceres2008,AngristEvans1998}, or earnings \citep{Caceres2006,Hotzetal1997,
+Jacobsenetal1999}.  A range of instruments has been proposed including twins,
+as in section \ref{Fsscn:kidIV} \citep{RosenzweigWolpin1980b,Jacobsenetal1999,
+BronarsGrogger1994}, gender mix \citep{AgueroMarks2008,AgueroMarks2011,
+ChunOh2002}, and fertility shocks \citep{Miller2011,Cristia2008,
+RosenzweigSchultz1987}.\footnote{\citet{Ribar1994} proposes three alternative
+exclusion restrictions (age at first period, availability of Ob/Gyn, and local
+abortion rates) for use in selection models.  While the identification 
+methodology is different to IV, the requirements for inferring causality are 
+identical.}  The effect sizes of existing estimates of the effect of fertility 
+on labour market outcomes largely point towards significant negative effects, 
+though not universally so.  A summary of point estimates and confidence 
+intervals of estimates is presented in table \ref{ferttab:motherIV}.
 
-FLFP: \citet{AgueroMarks2008,AgueroMarks2011,ChunOh2002,Caceres2008}
-Earnings:
-\citet{RosenzweigWolpin1980b} motivates twins in labour supply framework,
-though it is not IV.
+\input{\litrloc/motherEsts.tex}
 
-\citet{Ananatetal2009,Miller2011,
-BronarsGrogger1994,KimAassve2006,RosenzweigSchultz1987,
-Caceres2006,Hotzetal1997}
-or selection with exclusion restriction, which is fundamentally similar: 
-\citet{Ribar1994}.
+While the majority of these instruments can only be used to estimate the effect
+of fertility at the intensive margin, interestingly, those based on fertility
+shocks can also be applied to quantify the effects of extensive margin births. 
+\citet{Cristia2008} for example proposes using the outcome of fertility 
+treatments (pregnant or not) as an instrument, suggesting that delays in 
+childbearing lead to an increase in wages and hours worked.
 
-\subsection{Other}
-RCT: \citet{DiCensoetal2002}
-Between effects: \citet{Holmlund2005,GeronimusKorenman1992} \citet{Ribar1999} 
-tests sibling effects models.\\
-Matching: \citet{ChevalierViitanen2003,LevinePainter2003}
+Finally, miscarriage has been proposed as an alternative IV that can be employed 
+to estimate the effect of child birth on maternal outcomes \citep{Hotzetal2005,
+Fletcher2012}. This line of argument relies on fetal deaths in utero being 
+randomly assigned to mothers, in order to compare treated (live births) to 
+control (no live births) women. This also relies on miscarriage not having any 
+other effect on (propsective) mothers' outcomes of interest, beyond its direct 
+effect on fertility. \citet{Hotzetal2005} suggest that following this line of 
+argument, early (teenage) child-bearing is associated with small effects on 
+educational attainment, and life cycle changes in labour market rates.
 
-\citet{RosenzweigWolpin1980b} return to the Beckerian (\citeyear{BeckerLewis1973})
+The use of this instrument is of course complicated if characteristics which
+predict miscarriage are also correlated with mother unobservables. Given that
+miscarriage is considerably more likely for unhealthy mothers, this seems likely,
+and a range of studies address these concerns.  Foremost is \citet{Hotzetal1997} 
+who discuss how to bound the effect of fertility where the instrumental variable
+is composed of a mixture of both women who randomly miscarry, and those who 
+non-randomly miscarry.  They show that tight bounds on the effect of fertility can 
+be estimated, if the proportion of non-random and random miscarriages can be
+estimated.  Applying these bounds estimates they suggest that teenage childbearing
+significantly increases the number of hours worked during early adulthood, and
+(weakly) decreases the likelihood of completing a GED certificate in the USA.
+\citet{FletcherWolfe2009} provide additional discussion of the challenges in
+estimating causal effects using miscarriage.  They suggest that unobserved
+\emph{community}-level characteristics are likely correlated with miscarriage, 
+and once including community fixed-effects find that teen childbearing reduces
+education and wages, and increase the likelihood of welfare receipt.
+
+
+\subsection{Other Methods}
+A range of other methods have been employed in the economic and non-economic
+literature to examine the effects of fertility on mother's outcomes. These involve
+RCTs \citep{DiCensoetal2002} between effects using siblings \citep{Holmlund2005,
+GeronimusKorenman1992,Ribar1999}, and other matching methods 
+\citep{ChevalierViitanen2003,LevinePainter2003}.  In the case of the last two
+methods (between effects and matching), the identification of casual effects
+relies on the comparison method fully controlling for relevant differences between
+those having children, and those not having children.  In matching this collapses
+to an assumption regarding `selection on observables' (which is to say that any
+characteristic predicting childbearing is observed by the econometrician), and in
+siblings or relative fixed effects, that on average, those who become pregnant
+early in life are otherwise identical to those who become pregnant later in life.
+\citet{Ribar1999} and \citet{RosenzweigSchultz1985} provide additional discussion, 
+and examination of, the validity of these estimation techniques.
+
+Finally, \citet{RosenzweigWolpin1980b}---in their initial proposition of twins as
+an exclusion restriction---return to the Beckerian (\citeyear{BeckerLewis1973})
 simultaneous equation framework for fertility, child quality, \emph{and} life-%
 cycle (mother's) labour supply.  They are the first to use twins to estimate
 the structural equation linking fertility and labour supply.  They estimate
 that for younger women, additional births reduce labour supply, but this fades
 as women age.  Once again---as they indeed highlight---consistent estimation
 relies on twins being entirely orthogonal to labour supply.  This assumption 
-is questioned in previous sections of this paper. Using the presumed exogeneity
-of twins as an identifying assumption, \citet{RosenzweigWolpin1980b} provide a
-very interesting series of tests casting considerable doubt on the assumption
-that fertility is exogenous to labour supply decisions, as maintained in some 
-prevailing literature.
+is questioned in previous sections of this review chapter. Using the presumed 
+exogeneity of twins as an identifying assumption, \citet{RosenzweigWolpin1980b} 
+provide a very interesting series of tests casting considerable doubt on the 
+assumption that fertility is exogenous to labour supply decisions, as maintained 
+in the prevailing literature at the time of their work.
 
-\newpage
-\input{\litrloc/motherEsts.tex}
 
 %-------------------------------------------------------------------------------
 \section{Conclusion}
@@ -779,11 +841,11 @@ The evidence discussed in this chapter is mixed.  While there seems to be
 quite clear evidence in favour of moderate-to-large effects of marginal child 
 births and early births on parental labour market outcomes, the existing 
 microeconometric child-level estimates are less compelling.  Despite a large
-body of theoretical microeconomic work positing that such a Q--Q trade-off may
-exist, causal estimates are certainly not conclusive, and seem to suggest that
-the trade-off is small or non-existent.  While there are a number of papers 
-which \emph{do} find significant effects on a number of outcomes, these are
-context- and complier-specific.
+body of theoretical microeconomic work which posits that such a Q--Q trade-off 
+may exist, causal estimates are certainly not conclusive, and seem to suggest 
+that the trade-off is small or non-existent.  While there are a number of 
+papers which \emph{do} find significant effects on a number of outcomes, these 
+are context- and complier-specific.
 
 In some cases this lack of evidence may be due to threats to exclusion 
 restrictions or other identifying assumptions. It is in line with this that 
@@ -791,7 +853,7 @@ the present thesis now moves forward.  The remaining chapters are essays on the
 causal estimate---or more specifically, the challenges and involved in causally 
 estimating---the effect of fertility and contraceptive programs on human 
 outcomes, and some solutions which may be employed to recover bounds and causal
-estimates of these effect.
+estimates of these effects.
 
 %\newpage
 %\begin{table}

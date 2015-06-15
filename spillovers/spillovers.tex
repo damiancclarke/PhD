@@ -29,32 +29,31 @@ Given this, researchers interested in using natural experiments in this way may
 be concerned that the effects of a program in a treatment cluster may spillover 
 into non-treatment clusters---at least locally.
 
-Such a situation is in clear violation of the SUTVA's requirement that the treatment
-status of any one unit must not affect the outcomes of any other unit.  In this 
-paper I propose a methodology to deal with such spillover effects.  I
+Such a situation is in clear violation of the SUTVA's requirement that the 
+treatment status of any one unit must not affect the outcomes of any other unit.  
+In this paper I propose a methodology to deal with such spillover effects.  I
 discuss how to test for local spillovers, and if such spillovers exist, how to 
 estimate unbiased treatment effects in their presence.  It is shown that this 
-estimation requires a weaker condition than SUTVA: namely that SUTVA holds between 
-\emph{some} units, as determined by their distance from the treatment cluster.  I 
-show how to estimate treatment and spillover effects, and then
+estimation requires a weaker condition than SUTVA: namely that SUTVA holds 
+between \emph{some} units, as determined by their distance from the treatment 
+cluster.  I show how to estimate treatment and spillover effects, and then
 propose a method to generalise the proposed estimator to a higher dimensional 
 case where spillovers may depend in a flexible way on an arbitrary number of 
 factors.
 
-It is shown that this methodology recovers unbiased treatment
-estimates under quite general violations of SUTVA.  While it is
-assumed that the distance of an individual to the nearest treatment
-cluster determines whether stable unit treatment type assumptions hold
-for that individual, `distance' is defined very broadly.  It is
-envisioned that this will allow for phenomena such as information
-flowing from treated to untreated areas, or of untreated individuals
-violating their treatment status by travelling from untreated to
-treated areas.  In each case distance plays a clear role in the
-propogation of treatment; either information must travel out, or
-beneficiaries must travel in. Similarly, this framework allows for
-local general equilibrium-type spillovers, where a tightly applied
-program may have an economic effect on nearby markets, but where this
-effect disipates as distance to treatment increases.
+It is shown that this methodology recovers unbiased treatment estimates under 
+quite general violations of SUTVA.  While it is assumed that the distance of 
+an individual to the nearest treatment cluster determines whether stable unit 
+treatment type assumptions hold for that individual, `distance' is defined 
+very broadly.  It is envisioned that this will allow for phenomena such as 
+information flowing from treated to untreated areas, or of untreated 
+individuals violating their treatment status by travelling from untreated to
+treated areas.  In each case distance plays a clear role in the propogation 
+of treatment; either information must travel out, or beneficiaries must travel 
+in. Similarly, this framework allows for local general equilibrium-type 
+spillovers, where a tightly applied program may have an economic effect on 
+nearby markets, but where this effect disipates as distance to treatment 
+increases.
 
 Turning to empirics, this methodology is illustrated with two examples.
 I examine how spillovers of reforms across municipal boundaries may 
@@ -137,13 +136,15 @@ where:
 \nonumber
  R(i,t) =
   \begin{cases}
-   1   & \text{if an individual lives close to, but not in, a treatment area} \\
-   0   & \text{otherwise} 
+   f\Big(\mathbf{X}(i,t)\Big)   & \text{if an individual resides close to, but not in, a treatment area} \\
+   0                            & \text{otherwise} 
   \end{cases}
 \end{equation}
-As treatment occurs only in period 1, $R(i,0)=0$ for all $i$.  Similarly, as 
-living in a treatment area itself excludes individuals from living `close to' 
-the same treament area, $R(i,t)=0$ for all $i$ such that $D(i,t)=1$.
+Where $\mathbf{X}(i,t)$ is a vector of individual covariates measuring 
+distance (in a very general sense) to treatment. As treatment occurs only in 
+period 1, $R(i,0)=0$ for all $i$.  Similarly, as living in a treatment area 
+itself excludes individuals from living `close to' the same treament area, 
+$R(i,t)=0$ for all $i$ such that $D(i,t)=1$.
 
 Generalising from (\ref{Seqn:COV}), now we assume that $Y(i,t)$ is generated 
 by:
@@ -155,7 +156,7 @@ If we observe only $Y(i,t)$, $D(i,t)$ and $R(i,t)$, a sufficient condition for
 estimation now consists of (\ref{Seqn:ID}) and the following assumption: 
 \begin{equation}
 \label{Seqn:ID2}
-P(R(i,1)=1|\nu(i,t))=P(R(i,1)=1) \ \forall\ t\in\{0,1\}.
+P(R(i,1)\neq 0|\nu(i,t))=P(R(i,1)\neq 0) \ \forall\ t\in\{0,1\}.
 \end{equation}
 This requires that both treatment, and being close to treatment cannot depend 
 upon individual-specific time-variant components. To see this, write 
@@ -170,10 +171,10 @@ where, following \citet{Abadie2005}, $\varepsilon(i,t)=\eta(i)-\mathbb{E}[\eta(i
 $\mathbb{E}[\eta(i)|D(i,1),R(i,1)]$ as the sum of the expectation of the individual-specific 
 component $\eta(i)$ over treatment status and `close' status\footnote{$\mathbb{E}[\eta(i)|
 D(i,1),R(i,1)]=\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]+(\mathbb{E}[\eta(i)|D(i,1)=1,
-R(i,1)=0]-\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0])\cdot D(i,1)+(\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=1]-
+R(i,1)=0]-\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0])\cdot D(i,1)+(\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)\neq 0]-
 \mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0])\cdot R(i,1)$.}.  Finally define $\mu$ as 
 $\mu=\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]+\delta_0$, $\tau$ as $\tau=\mathbb{E}[\eta(i)|D(i,1)=1,R(i,1)
-=0]-\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]$, $\gamma$ as $\gamma=\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=1]-
+=0]-\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]$, $\gamma$ as $\gamma=\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)\neq 0]-
 \mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]$ and $\delta$ as $\delta=\delta(1)-\delta(0)$.  Then 
 from the above and (\ref{Seqn:addsub})
 we have:
@@ -208,8 +209,8 @@ and
 \nonumber
 \label{Seqn:DDb}
 \begin{split}
-\beta&=\{\mathbb{E}[Y(i,1)|D(i,1)=0,R(i,1)=1]-\mathbb{E}[Y(i,1)|D(i,1)=0,R(i,1)=0]\} \\
-      &-\{\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)=1]-\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)=0]\}. 
+\beta&=\{\mathbb{E}[Y(i,1)|D(i,1)=0,R(i,1)\neq 0]-\mathbb{E}[Y(i,1)|D(i,1)=0,R(i,1)=0]\} \\
+      &-\{\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)\neq 0]-\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)=0]\}. 
 \end{split}
 \end{equation}
 where the sample estimate of each parameter is generated by a least squares
@@ -232,35 +233,37 @@ thus:
 \begin{eqnarray}
 \label{Seqn:estim}
 ATT=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|D(i)=1]\  \\
-ATC=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|R(i)=1].
+ATC=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|R(i)\neq 0].
 \end{eqnarray}
 As is typical in the potential outcome literature, estimation is hindered by the
 reality that only one of $Y^1(i,t)$ or $Y^0(i,t)$ is observed for a given 
 individual $i$ at time $t$.  The realised outcome can thus be expressed as 
 $Y(i,t)=Y^0(i,t)\cdot (1-D(i,t))(1-R(i,t))+Y^1(i,t)\cdot D(i,t)+Y^1(i,t)\cdot 
-R(i,t)$, where, depending on an individual's time varying treatment and close
+\mathbf{1}_{R(i,t)\neq 0}$, where, depending on an individual's time varying treatment and close
 status, we observe either $Y^0(i,t)$ (untreated) or $Y^1(i,t)$ (treated or 
 close).
 
 Thus, in order to be able to estimate the quantities of interest, we rely on
 averages over the entire population, rather than average of individual 
-treatment effects.  As is typical in difference-in-differences estimation,
+treatment effects.  As is typical in difference-in-differences identification
+strategies,
 consistent estimation requires parallel trends assumptions.  In the case of
 treatment \emph{and} local spillovers, this relies on:
 
 \begin{assumption}{1}{}
 \label{Sass:PT}
 \textbf{Parallel trends in treatment and control:} \\
-$\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D=1,R=0]=\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D=0,R=0]$,
+$\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0]=
+\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,R(i,1)=0]$,
 \end{assumption}
 \begin{assumption}{2}{}
 \label{Sass:PTC}
 \textbf{Parallel trends in close and control:} \\
-$\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D=0,R=1]=\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D=0,R=0]$.
+$\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,R(i,1)\neq 0]=
+\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,R(i,1)=0]$.
 \end{assumption}
 
-Here, for notational simplicity, $D$ and $R$ are used instead of the more 
-extensive $D(i,1)$ and $R(i,1)$.  In other words, assumption \ref{Sass:PT}
+In other words, assumption \ref{Sass:PT}
 and \ref{Sass:PTC} state that in the absence of treatment, the evolution
 of outcomes for treated units and for units close to treatment would have
 been parallel to the evolution of entirely untreated units.  This is the
@@ -837,6 +840,44 @@ $R(i,t)$ and $t$ gives $E(\hat\beta)=\beta=ATC$. $\qed$
 \includegraphics[scale=0.77]{\sdidloc/figures/MexClose4.eps}
 \caption{Treatment and close to treatment effects: 30-39 year olds Mexico}
 \end{figure}
+
+\section{A Structural Interpretation of Spillover-Robust Difference-in-Difference Estimation}
+The framework discussed in this paper can be motivated in terms of a simple
+structural model in the style of \citet{Roy1951}, or 
+\citet{HeckmanVytlacil2005}.\footnote{While the \citet{Roy1951} model is not
+cast in terms of causal effects, it does consider selection based on relative
+utility.  The so-called ``Generalised Roy Model'' laid out in 
+\citet{HeckmanVytlacil2005} is a more appropriate framework for this analysis.}
+To start, potential outcomes are written as:
+\[
+Y_0= \mu_0(X) + U_0
+\]
+and
+\[
+Y_1= \mu_1(X) + U_1.
+\]
+Treatment assignment $T=1$ and $T=0$ are observed.  Each individual decides
+whether to opt in to treatment $D$, given their realisation of $X$ and $T$,
+along with the costs of participation:
+\[
+C=\mu_c(Z,T)+U_c.
+\]
+Their decision rule depends upon net utility:
+\[
+D^{*}=Y_1-Y_0-C,
+\]
+and can be expressed as: $D=\mathbf{1}_{D^{*}\geq 0}$.  Structural estimation
+relies on the assumption $(X,Z,T) \independent (U_0,U_1,U_c)$.\footnote{Note
+that the parallel trend assumption is a linear form of this.}  Note that in 
+the above specification, the costs of participation are explicitly allowed 
+to depend upon treatment assignment status $T$. This is a cost associated with
+defying the treatment status.
+
+Attach functionl forms: $\mu_0(X)=X\beta_0$, $\mu_1(X)=X\beta_1$, 
+$\mu_c(Z,T)=Z\beta_{cz}+T\beta_{cT}$, and distributional assumptions for the
+unobserved components: $(U_0,U_1,U_c)\sim \mathcal{N}(0,\Sigma)$ 
+
+
 
 %\section{Appendix Tables}
 %\input{./Appendix.tex}

@@ -136,12 +136,12 @@ where:
 \nonumber
  R(i,t) =
   \begin{cases}
-   f\Big(\mathbf{X}(i,t)\Big)   & \text{if an individual resides close to, but not in, a treatment area} \\
+   f\Big(X(i,t)\Big)   & \text{if an individual resides close to, but not in, a treatment area} \\
    0                            & \text{otherwise} 
   \end{cases}
 \end{equation}
-Where $\mathbf{X}(i,t)$ is a vector of individual covariates measuring 
-distance (in a very general sense) to treatment. As treatment occurs only in 
+Where $X(i,t)$ is an individual covariate measuring distance (in a very general 
+sense) to treatment. As treatment occurs only in 
 period 1, $R(i,0)=0$ for all $i$.  Similarly, as living in a treatment area 
 itself excludes individuals from living `close to' the same treament area, 
 $R(i,t)=0$ for all $i$ such that $D(i,t)=1$.
@@ -288,16 +288,15 @@ status $D=\{0,1\}\ \forall_{i\neq j} \in N$.
 all units.  We allow SUTVA to be violated in a specific manner:
 \begin{assumption}{4}{A}
 \label{Sass:SUTVAl}
-\textbf{Violations of SUTVA are observably local:} \\ 
-For those individuals $i\notin J$ (ie for whom SUTVA does not hold), SUTVA is
-violated due to observable spillovers $R(i,t)$, where 
-$R(i,t)=\mathbf{1}_{X_i\leq d}$, with the indicator function $\mathbf{1}$
-depending upon the covariate $X$ being less than some fixed, but unknown, 
-scalar $d$.
+\textbf{Assignment to close to treatment depends on observable $X(i,t)$:} \\ 
+There exists an assignment rule $\delta\Big(X(i,t)\Big)=\{0,1\}$ which maps 
+individuals to close to treatment status $R(i,t)$, where $\delta\Big(X(i,t)\Big)=
+\mathbf{1}_{X(i,t)<d}$, $X(i,t)$ is an observed covariate, and $d$ is a fixed but 
+unknown scalar cutoff. 
 \end{assumption}
 \vspace{-4mm}
-\noindent This restriction is quite general however.  It simply states that
-violations of SUTVA occur in an observable way.  For example, if SUTVA does
+\noindent This restriction is quite general.  In other words, it simply states 
+that violations of SUTVA occur in an observable way.  For example, if SUTVA does
 not hold locally to the treatment area, assumption \asref{Sass:SUTVAl}{A} implies
 that we are able to define what `local' is.  While this article focuses on
 an $X_i$ representing geographic distance, these derivations do not imply that 
@@ -383,7 +382,8 @@ investigates a class of policies that have partial participation at a point in t
 so there is a ``treatment'' group and a ``comparison'' group. It is not helpful in 
 evaluating policies that have universal participation.'}  From (\ref{Seqn:Runpack}) 
 and the preceding logic, this suggests that $d$ can be recovered following the 
-iterative procedure laid out below.
+iterative procedure laid out below, so long as $R(i,t)=f(X(i,t))$ is montononic in 
+$X$.
 
 If we start by estimating a typical DD specification like (\ref{Seqn:cDDconc}),
 our estimated treatment effect, which we now denote $\hat\alpha^0$ is:
@@ -483,6 +483,20 @@ cannot be rejected for the marginal parameter.
 
 \subsection{Estimating with Multidimensional Spillovers}
 \label{Ssscn:multi}
+Previously it has been assumed that $R(i,t)$ us a function of a unidimensional 
+distance measure $X(i,t)$.  I now generalise this to a multidimensional case where
+$R(i,t)$ may depend upon an arbitrary number of variables $\mathbf{X}(i,t)$.  For
+example, this allows for cases where distance to treatment may interact with some 
+other variable, such as income, ownership of a vehicle, etc.  Now:
+\begin{equation}
+\nonumber
+ R(i,t) =
+  \begin{cases}
+   f\Big(\mathbf{X}(i,t)\Big)   & \text{if an individual resides close to, but not in, a treatment area} \\
+   0                            & \text{otherwise} 
+  \end{cases}
+\end{equation}
+
 In order to allow for spillovers to depend upon a range of observable variables,
 we must generalise assumption \asref{Sass:SUTVAl}{A}.  In order to do this, the
 following new terminology is introduced, following \citet{Zajonc2012}. An 

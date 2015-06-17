@@ -329,7 +329,7 @@ and economic variables.
 \label{Pass:ATT}
 Under assumptions \ref{Sass:PT} to \asref{Sass:SUTVAl}{A}, the ATT and ATC can be 
 consistently estimated by least squares when controlling, parametrically or
-non-parametrically, for $C(i,t)=\mathbf{1}_{X_i\leq d}$.
+non-parametrically, for $C(i,t)=\mathbf{1}_{X(i,t)\leq d}$.
 \end{proposition}
 \noindent In the following two subsections we examine these estimands in turn. 
 
@@ -342,22 +342,23 @@ close to treatment status, along with outcomes $Y(i,t)$ at each point in time. I
 a typical DD framework, we observe $Y(i,t)$ and $D(i,t)$, however, do not fully 
 observe $C(i,t)$, an individual's close/non-close status.
 
-We do however, assume that $X_i$, the variable measuring `distance' to treatment 
-is observed.  From assumption \asref{Sass:SUTVAl}{A}, we could thus map $X_i$ to 
-$C(i,t)$ (and later to the heterogeneous function $R(i,t)$) using the indicator 
-function, \emph{if} we know the scalar value $d$, which represents the threshold 
-of what is considered `close to treatment'.  \emph{Ex ante}, in the absence some
-economic model, there is no reason to believe that $d$ will be observed by 
-researchers.\footnote{That is not to say that economic intuition cannot play a 
-role in suggesting what a reasonable value of $d$ might be.  For example, if 
-treatment is the receipt of a program with a clear expected value and travel 
-costs to access the program increase with distance, there will exist a clear 
-cut-off point beyond which individuals will be unwilling to travel. Similarly, if 
-treatment must be accessed in a fixed amount of time and propogation of treatment
-is not instantaneous, a limit for $d$ may be calculable.  This is a point we
-return to in empirical estimates where one illustration is based on access to the 
-emergency contraceptive pill.}  In the remainder of this section we discuss how 
-to determine $C(i,t)$ based on $X(i,t)$, in the absence of a known value for $d$.
+We do however, assume that $X(i,t)$, the variable measuring `distance' to 
+treatment is observed. From assumption \asref{Sass:SUTVAl}{A}, we could thus map 
+$X(i,t)$ to $C(i,t)$ (and later to the heterogeneous function $R(i,t)$) using the 
+indicator function, \emph{if} we know the scalar value $d$, which represents the 
+threshold of what is considered `close to treatment'. \emph{Ex ante}, in the 
+absence some economic model, there is no reason to believe that $d$ will be 
+observed by researchers.\footnote{That is not to say that economic intuition 
+cannot play a role in suggesting what a reasonable value of $d$ might be. For 
+example, if treatment is the receipt of a program with a clear expected value and 
+travel costs to access the program increase with distance, there will exist a 
+clear cut-off point beyond which individuals will be unwilling to travel. 
+Similarly, if treatment must be accessed in a fixed amount of time and 
+propogation of treatment is not instantaneous, a limit for $d$ may be calculable. 
+This is a point we return to in empirical estimates where one illustration is 
+based on access to the emergency contraceptive pill.}  In the remainder of this 
+section we discuss how to determine $C(i,t)$ based on $X(i,t)$, in the absence of 
+a known value for $d$.
 
 In order to do so, we re-write (\ref{Seqn:cDD}) as:
 \begin{equation}
@@ -447,7 +448,7 @@ H_1: \alpha^0\neq\alpha^1.
 \]
 If we reject $H_0$ in favour of the alternative, this suggests that partially 
 correcting for spillovers affects the estimated coefficient $\alpha$, implying that
-spillovers occur at least up to distance $c$, and that further tests are required.  
+spillovers occur at least up to distance $h$, and that further tests are required.  
 
 Rejection of the null suggests that another iteration should be performed, this time
 removing $R^1(i,t)$ and $R^2(i,t)$ from the error term $\upsilon(i,t)$ in 
@@ -462,22 +463,25 @@ H_0: \alpha^1=\alpha^2 \hspace{1cm}
 H_1: \alpha^1\neq\alpha^2,
 \]
 where rejection of the null implies that spillovers occur at least up to distance
-$2c$, while failure to reject the null suggests that spillovers only occur up to 
-distance $c$.
+$2h$, while failure to reject the null suggests that spillovers only occur up to 
+distance $h$.
 
+%-------------------------------------------------------------------------------
 This process should be followed iteratively up until the point that the marginal 
-estimate $\hat\alpha^{k+1}$ is equal to the preceding estimate $\hat\alpha^{k}$.  At
-this point, we can conclude that units at a distance of at least $kc$ from the 
-nearest treatment unit are not affected by spillovers, and hence a consistent 
-estimate of $\alpha$ can be produced.  Finally, this leads to a conclusion regarding
-$d$ and the indicator function $R(i,t)=\mathbf{1}_{X_i\leq d}$.  When controlling
-for the marginal distance to treatment indicator no longer affects the estimate of 
-the treatment effect $\alpha^k$, we can conclude that $d=kc$, and thus correctly 
-identify $R(i,t)=\mathbf{1}_{X_i\leq kc}$ in data.
+estimate $\hat\alpha^{k+1}$ is equal to the preceding estimate $\hat\alpha^{k}$.  
+At this point, we can conclude that units at a distance of at least $kh$ from 
+the nearest treatment unit are not affected by spillovers, and hence a 
+consistent estimate of $\alpha$ can be produced. Finally, this leads to a 
+conclusion regarding $d$ and the indicator function $C(i,t)=\mathbf{1}_{X(i,t)
+\leq d}$.  When controlling for the marginal distance to treatment indicator no 
+longer affects the estimate of the treatment effect $\alpha^k$, we can conclude 
+that $d=kh$, and thus correctly identify $C(i,t)=\mathbf{1}_{X(i,t)\leq kh}$ in 
+data.
 
 %We follow \citet{PorterYu2014} in treating the cutoff point $d$ as a
 %nuisance parameter which must be estimated.
 
+%-------------------------------------------------------------------------------
 \subsection{Estimation the Magnitude of Spillovers}
 \label{Ssscn:SE}
 In section \ref{Ssscn:TE} we discuss the consistent estimation of $\alpha$, the
@@ -485,29 +489,33 @@ effect of being in a treatment area.  The extension of this methodology to
 consistently estimate $\beta$, the effect of being close to treatment, is 
 reasonably straightforward.  Once the scalar value $d$ has been determined, and
 with data $\{Y(i,t), D(i,t), X(i,t): i=1, \ldots, N, t=0, 1\}$ in hand, we can 
-use $d$ to map $X(i,t)$ into $R(i,t)$. Given the above we can now estimate 
-(\ref{Seqn:cDD}), and form consistent estimates $\hat\beta$ and $\hat\alpha$ using 
-OLS.
+use $d$ to map $X(i,t)$ into $C(i,t)$. Given the above we can now estimate 
+(\ref{Seqn:cDD}), and form consistent estimates $\hat\beta$ and $\hat\alpha$ 
+using OLS.
 
-The estimate $\hat\beta$ will be the average treated effect on the close to treated
-(ATC), and will be one summary value for all areas to which spillovers occur.  
-However, more information regarding the precise manner of propogation can be observed
-by re-parametrizing $R(i,t)$ as in (\ref{Seqn:Runpack}).  This suggests an 
-alternative spillover test, in the style of that proposed in section \ref{Ssscn:TE}.
-Rather than observing $\hat\alpha^j$ at each stage of the estimation process, 
-$\hat\beta^j$ can be directly observed.  If $\hat\beta_j\neq 0$, this suggests that
-the effect on the marginal close to treatment area is different to the effect in 
-the (remaining) control area.  If spillovers are the estimand of interest, 
-additional $R^j(i,t)$ controls can be added until the hypothesis: $H_0: \beta_j = 0$ 
-cannot be rejected for the marginal parameter.
+The estimate $\hat\beta$ will be the average treated effect on the close to 
+treated (ATC), and will be one summary value for all areas to which spillovers 
+occur. However, more information regarding the precise manner of propogation can 
+be observed by estimating with the re-parametrized $R(i,t)$ from 
+(\ref{Seqn:Runpack}) instead of the indicator variable $C(i,t)$. This suggests 
+an alternative spillover test, in the style of that proposed in section 
+\ref{Ssscn:TE}.  Rather than observing $\hat\alpha^j$ at each stage of the 
+estimation process, $\hat\beta^j$ can be directly observed. If 
+$\hat\beta_j\neq 0$, this suggests that the effect on the marginal close to 
+treatment area is different to the effect in the (remaining) control area. If 
+spillovers are the estimand of interest, additional $R^j(i,t)$ controls can be 
+added until the hypothesis: $H_0: \beta_j = 0$ cannot be rejected for the 
+marginal parameter.
 
+%-------------------------------------------------------------------------------
 \subsection{Estimating with Multidimensional Spillovers}
 \label{Ssscn:multi}
-Previously it has been assumed that $R(i,t)$ us a function of a unidimensional 
-distance measure $X(i,t)$.  I now generalise this to a multidimensional case where
-$R(i,t)$ may depend upon an arbitrary number of variables $\mathbf{X}(i,t)$.  For
-example, this allows for cases where distance to treatment may interact with some 
-other variable, such as income, ownership of a vehicle, etc.  Now:
+Previously it has been assumed that $R(i,t)$ is a function of a unidimensional 
+distance measure $X(i,t)$. I now generalise this to a multidimensional case 
+where $R(i,t)$ may depend upon an arbitrary number of variables 
+$\mathbf{X}(i,t)$. For example, this allows for cases where distance to 
+treatment may interact with some other variable, such as income, ownership of 
+a vehicle, etc. Now:
 \begin{equation}
 \nonumber
  R(i,t) =
@@ -540,33 +548,33 @@ more general version of assumption \asref{Sass:SUTVAl}{A}:
 %\addtocounter{assumption}{-1}
 \begin{assumption}{4}{B}
 \label{Sass:SUTVAlM}
-\textbf{Violations of SUTVA are observably local:} \\ 
-For those individuals $i\notin J$ (ie for whom SUTVA does not hold), SUTVA is
-violated due to observable spillovers $R(i,t)$, where 
-$R(i,t)=\mathbf{1}_{\mathbf{x}\in \mathbb{T}}$, with the indicator function 
-$\mathbf{1}$ now depending upon potentially multidimensional
-$\mathbf{X=x}$
-fulfilling the treatment assignment rule $\mathbb{T}$.
+\textbf{Assignment to close to treatment depends on observable $\mathbf{X}(i,t)$:} \\ 
+An multidimensional assignment rule $\delta(x)=\mathbf{1}_{\mathbf{x}\in \mathbb{T}}$ 
+exists which maps individuals to close to treatment status $C(i,t)$, where 
+$\mathbf{X(i,t)}$ are observed covariates, and $\mathbb{T}$ is a fixed 
+%but unknown (though reveal this and how to estimate it later)
+function of $\mathbf{X(i,t)}$.
 \end{assumption}
 
 \begin{proposition}
 \label{Pass:ATTnonP}
-Under assumptions \ref{Sass:PT} to \ref{Sass:SUTVAs} and
-\asref{Sass:SUTVAlM}{B}, the ATT and ATC can be consistently estimated
-by least squares when controlling, parametrically or
-semi-parametrically, for $R(i,t)=\mathbf{1}_{\mathbf{x}\in
-  \mathbb{T}}$. 
+%-------------------------------------------------------------------------------
+Under assumptions \ref{Sass:PT}--\ref{Sass:SUTVAs} and \asref{Sass:SUTVAlM}{B}, 
+the ATT and ATC can be consistently estimated by least squares when controlling, 
+parametrically or non-parametrically, for $C(i,t)=\mathbf{1}_{\mathbf{x}\in
+\mathbb{T}}$. 
 \end{proposition}
 
-Now, in the same manner, we can go about generating our estimands of
-interest, replacing $R(i,t)=\mathbf{1}_{X_i\leq d}$ with
-$R(i,t)=\mathbf{1}_{\mathbf{x}\in \mathbb{T}}$.  The most compuationally
-demanding step in this estimation procedure is in forming a parametric
-version of $R(i,t)$.  In a unidimensional framework it is reasonably straightforward
-to form local linear bins for $R(i,t)$.  However, in the multidimensional framework
-this is no longer the case.  Additionally, as the dimensionality of $\mathbf{X}$
-rises, the number of search dimensions for spillovers also rises, leading to 
-curse of dimensionality type considerations in the estimation of $\alpha$.
+Now, in the same manner, we can go about generating our estimands of interest, 
+replacing $C(i,t)=\mathbf{1}_{X_i\leq d}$ with $C(i,t)=\mathbf{1}_{\mathbf{x}\in 
+\mathbb{T}}$. The most compuationally demanding step in this estimation procedure 
+is in forming a parametric or non-parametric version of the underlying function 
+$R(i,t)$ to search over.  In a unidimensional framework it is reasonably 
+straightforward to form local linear bins for $R(i,t)$.  However, in the 
+multidimensional framework this is no longer the case.  Additionally, as the 
+dimensionality of $\mathbf{X}$ rises, the number of search dimensions for 
+spillovers also rises, leading to curse of dimensionality type considerations in 
+the estimation of $\alpha$.
 
 The particular functional form assigned to $R(i,t)$ will be context-specific,
 and ideally driven by economic theory.  As mode of example, below we consider the
@@ -589,8 +597,8 @@ an updated estimate $\hat\alpha^1$.  If the hypothesis $H_0: \alpha^0=\alpha^1$
 cannot be rejected this suggests that spillovers are not a relevant phenomenon 
 for either group, and the estimate of $\hat\alpha^0$ is accepted as the ATT.  
 Otherwise, an additional iteration is made until the inclusion of the marginal 
-$X_2^k(i,t)$ indicators for $X_1 \in (0,1)$ no longer affect the estimated effect 
-$\alpha^k$.
+$X_2^k(i,t)$ indicators for $X_1 \in \{0,1\}$ no longer affect the estimated 
+effect $\alpha^k$.
 
 %================================================================================
 \section{An Empirical Illustration: Spillovers and Contraceptive Reforms}
@@ -837,17 +845,19 @@ and effects on nearby neighbourhoods.
 
 \newpage
 
+%-------------------------------------------------------------------------------
 \appendix
-\section{Proof of Proposition \ref{Pass:ATT}}
+\section{Proofs}
 \renewcommand{\qedsymbol}{$\blacksquare$}
-\begin{proof}
+\begin{proof}[Proof of Proposition \ref{Pass:ATT}]
 \begin{footnotesize}
 $Y(i,t)$ is generated according to (\ref{Seqn:COV}), and from (\ref{Seqn:cDD}),
-a regression of $Y(i,t)$ on $D(i,t)$ and $R(i,t)$ can be estimated.  It is assumed that
-we have at a representative sample of size $N$ consisting of $\{Y(i,t), D(i,t), 
-X(i,t): i=1, \ldots, N, t=0, 1\}$.  By assumption \ref{Sass:SUTVAl}, the assignment
-rule $\delta$ forms $R(i,t)$ (binary equivalent), allowing for the estimation of
-(\ref{Seqn:cDD}).  By definition, $\alpha$ in this regression is equal to:
+a regression of $Y(i,t)$ on $D(i,t)$ and $C(i,t)$ can be estimated.  It is 
+assumed that we have at a representative sample of size $N$ consisting of 
+$\{Y(i,t),D(i,t),X(i,t): i=1, \ldots, N, t=0, 1\}$.  By assumption 
+\asref{Sass:SUTVAl}{A}, the assignment rule $\delta$ forms $C(i,t)$ allowing for 
+the estimation of (\ref{Seqn:cDD}). By definition, $\alpha$ in this regression 
+is equal to:
 \begin{equation}
 \nonumber
 \label{Seqn:alphaProof1}
@@ -856,9 +866,9 @@ rule $\delta$ forms $R(i,t)$ (binary equivalent), allowing for the estimation of
       &-\{\mathbb{E}[Y(i,0)|D(i,1)=1,R(i,1)=0]-\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)=0]\},
 \end{split}
 \end{equation}
-and from assumption \ref{Sass:SUTVAs}, each of the expectation terms exists, as there
-are both fully treated and completely untreated units.  Using the potential outcomes 
-framework, we are free to re-write the above expression as:
+and from assumption \ref{Sass:SUTVAs}, each of the expectation terms exists, as 
+there are both fully treated and completely untreated units. Using the potential 
+outcomes framework, we are free to re-write the above expression as:
 \begin{equation}
 \nonumber
 \label{Seqn:alphaProof2}
@@ -873,12 +883,13 @@ of the expectations operator, this can finally be re-written as:
 \begin{equation}
 \nonumber
 \label{Seqn:alphaProof3}
-\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0] - \mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,R(i,1)=0].
+\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0] - 
+       \mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,R(i,1)=0].
 \end{equation}
 
-Now, from assumption \ref{Sass:PT}, we can appeal to parallel trends, and replace
-the second expectation term in the above expression with $\mathbb{E}[Y^0(i,1)-
-Y^0(i,0)|D(i,1)=1,R(i,1)=0]$:
+Now, from assumption \ref{Sass:PT}, we can appeal to parallel trends, and 
+replace the second expectation term in the above expression with $\mathbb{E}
+[Y^0(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0]$:
 \begin{equation}
 \nonumber
 \label{Seqn:alphaProof4}
@@ -891,42 +902,30 @@ the above items gives:
 \label{Seqn:alphaProof5}
 \alpha=\mathbb{E}[Y^1(i,1)|D(i,1)=1,R(i,1)=0] - \mathbb{E}[Y^0(i,1)|D(i,1)=1,R(i,1)=0].
 \end{equation}
-which finally, once again by the linearity of expectations, can be combined to give
-$\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|D(i,1)=1,R(i,1)=0]$, which can be rewritten as
-$\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|D(i,1)=1]$ given that $D(i,1)=1 \implies R(i,1)=0$.  
-From (\ref{Seqn:estimATT}) we thus have that $\alpha=ATT$ as required.
+%-------------------------------------------------------------------------------
+which finally, once again by the linearity of expectations, can be combined to 
+give $\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|D(i,1)=1,R(i,1)=0]$, which can be 
+rewritten as $\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|D(i,1)=1]$ given that $D(i,1)=1 
+\implies R(i,1)=0$.  From (\ref{Seqn:estimATT}) we thus have that $\alpha=ATT$ 
+as required.
 
 Turning to the ATC, the same set of steps can be followed for $\beta$ on the 
 coefficient $R(i,t)$, however now instead of assumption \ref{Sass:PT} we must
-rely on parallel-trend assumption \ref{Sass:PTC}. This leads to 
-$\beta=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|R(i,1)\neq 1]$, and from (\ref{Seqn:estimATC}) 
-we have that $\beta=ATC$.
-
+rely on parallel-trend assumption \ref{Sass:PTC}. This leads to $\beta=
+\mathbb{E}[Y^1(i,1)-Y^0(i,1)|R(i,1)\neq 1]$, and from (\ref{Seqn:estimATC}) we 
+have that $\beta=ATC$.
 \end{footnotesize}
 \end{proof}
 
+\begin{proof}[Proof of Proposition \ref{Pass:ATTnonP}]
+\begin{footnotesize}
+With the representative sample $\{Y(i,t), D(i,t), \mathbf{X}(i,t): i=1, \ldots, N, 
+t=0, 1\}$, assumption \asref{Sass:SUTVAlM}{B} implies that $\mathbf{X}(i,t)$ can
+be $C(i,t)$ using assignment rule $\delta$.  The remainder of the proof follows
+the same steps as the proof for proposition \ref{Pass:ATT}.
+\end{footnotesize}
+\end{proof}
 
-
-
-
-%\emph{Sketch of Proof of proposition \ref{Pass:ATT}}: Consider the regression 
-%model $Y(i,t)=\mu+\tau D(i,1) + \gamma R(i,1) + \delta t + \alpha D(i,t) + 
-%\beta R(i,t) + \varepsilon(i,t)$.  Now consider concentrating out $R(i,1)$, 
-%$R(i,t)$ to form $\tilde{y}(i,t)$.  Then appealing to SUTVA between $i$ such 
-%that $D(i,1)=1$ and $j$, (assumption 3), and appealing to assumption 1, we have 
-%that least squares estimation of $\tilde{y}(i,t)$ on a constant $D(i,1)$,
-%$D(i,t)$ and $t$ (ie concentrated sum of squares) gives
-%$E(\hat\alpha)=\alpha=ATT$.  
-
-%\textcolor{red}{Note, could show this
-%  last equality, especially if concentrating out all, in line with
-%  Hansen 2000 ECTA.}
-
-%Now, from the above model consider concentrating out $D(i,1)$ and $D(i,t)$
-%to form \emph{\"{y}}$(i,t)$.  Then appealing to SUTVA between $i$ such 
-%that $D(i,1)=0$ and $j$, (assumption 3), and appealing to assumption 2, we 
-%have that least squares estimation of \"{y}$(i,t)$ on a constant $R(i,1)$,
-%$R(i,t)$ and $t$ gives $E(\hat\beta)=\beta=ATC$. $\qed$
 
 \clearpage
 

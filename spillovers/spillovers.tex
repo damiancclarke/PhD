@@ -58,7 +58,7 @@ increases.
 Turning to empirics, this methodology is illustrated with two examples.
 I examine how spillovers of reforms across municipal boundaries may 
 contaminate `traditional' difference-in-differences (DD) estimators.  This is 
-applied to two contraceptive reforms, where individuals from contiguous or nearby 
+applied to two contraceptive reforms where individuals from contiguous or nearby 
 areas can travel to a treatment region to access the reform.  It is shown that 
 both the arrival of the morning after pill to certain municipalities of Chile, 
 and abortion to certain districts in Mexico, results in a reduction of births in 
@@ -66,6 +66,18 @@ the given area, as well as in close-by quasi-control areas.  As a result, the
 spillover-robust DD estimator propsed here flexibly captures this effect, 
 correcting for any (local) spillover bias that traditional DD fails to 
 identify.
+
+Although in both these examples distance is a geographic measure, calculated
+variously as Euclidean distance, shortest distance over roads, and shortest 
+travel times between areas, this methodology should not be considered as limited 
+to spatial spillovers.  Univariate measures of distance including propogation 
+through nodes in a network, ethnic distance, ideological distance, or other 
+quantifiable measures of difference between units can be used in precisely the 
+same manner.  I also show how multivariate measures of distance, or interactions 
+between distance and other variables, can be similarly employed.  This is 
+particularly useful for cases where the effects of spillovers may be expected to 
+vary by individual characteristics such as age, socioeconomic status, access to 
+transport or access to information.
 
 This paper joins recent literature which aims to loosen the strong structure 
 imposed by the SUTVA.  Perhaps most notably, it is (in broad terms) an 
@@ -120,15 +132,16 @@ treatment effect:
 \begin{equation}
 \label{Seqn:DD}
 \begin{split}
-\alpha&=\{\mathbb{E}[Y(i,1)|D(i,1)=1]-\mathbb{E}[Y(i,1)|D(i,1)=0]\} \\
-      &-\{\mathbb{E}[Y(i,0)|D(i,1)=1]-\mathbb{E}[Y(i,0)|D(i,1)=0]\}.
+\alpha&=\{E[Y(i,1)|D(i,1)=1]-E[Y(i,1)|D(i,1)=0]\} \\
+      &-\{E[Y(i,0)|D(i,1)=1]-E[Y(i,0)|D(i,1)=0]\}
 \end{split}
 \end{equation}
+where $E$ is the expectations operator.
 
 Assume now, however, that treatment is not precisely geographically bounded.  
-Specifically, imagine that those living in control areas `close to' treatment 
+Specifically, I propose that those living in control areas `close to' treatment 
 areas are able to access treatment, either partially or completely.  Such a 
-case allows for a case where individuals `defy' their treatment status, by 
+case allows for a situation where individuals `defy' their treatment status, by 
 travelling or moving to treated areas, or where spillovers from treatment 
 areas is diffused through general equilibrium processes.  Define $R(i,t)$ 
 where:
@@ -136,12 +149,13 @@ where:
 \nonumber
  R(i,t) =
   \begin{cases}
-   f\Big(X(i,t)\Big)   & \text{if an individual resides close to, but not in, a treatment area} \\
+   f\Big(X(i,t)\Big)>0   & \text{if an individual resides close to, but not in, a treatment area} \\
    0                            & \text{otherwise} 
   \end{cases}
 \end{equation}
 Where $X(i,t)$ is an individual covariate measuring distance (in a very general 
-sense) to treatment. As treatment occurs only in 
+sense) to treatment and $f(\cdot)$ is a positive monotone function. As treatment 
+occurs only in 
 period 1, $R(i,0)=0$ for all $i$.  Similarly, as living in a treatment area 
 itself excludes individuals from living `close to' the same treament area, 
 $R(i,t)=0$ for all $i$ such that $D(i,t)=1$.
@@ -160,36 +174,44 @@ P(R(i,1)\neq 0|\nu(i,t))=P(R(i,1)\neq 0) \ \forall\ t\in\{0,1\}.
 \end{equation}
 This requires that both treatment, and being close to treatment cannot depend 
 upon individual-specific time-variant components. To see this, write 
-(\ref{Seqn:COV2}), adding and subtracting $\mathbb{E}[\eta(i)|D(i,1),
-R(i,1)]$:
+(\ref{Seqn:COV2}), adding and subtracting the individual-specific component
+$E[\eta(i)|D(i,1),R(i,1)]$:
 \begin{equation}
 \label{Seqn:addsub}
-Y(i,t)=\delta(t) + \alpha D(i,t)+\beta R(i,t)+\mathbb{E}[\eta(i)|D(i,1),R(i,1)]+\varepsilon(i,t)
+Y(i,t)=\delta(t) + \alpha D(i,t)+\beta R(i,t)+E[\eta(i)|D(i,1),R(i,1)]+\varepsilon(i,t)
 \end{equation}
-where, following \citet{Abadie2005}, $\varepsilon(i,t)=\eta(i)-\mathbb{E}[\eta(i)|D(i,1),R(i,1)]
+where, following \citet{Abadie2005}, $\varepsilon(i,t)=\eta(i)-E[\eta(i)|D(i,1),R(i,1)]
 +\nu(i,t)$.  We can write $\delta(t)=\delta(0)+[\delta(1)-\delta(0)]t$, and write
-$\mathbb{E}[\eta(i)|D(i,1),R(i,1)]$ as the sum of the expectation of the individual-specific 
-component $\eta(i)$ over treatment status and `close' status\footnote{$\mathbb{E}[\eta(i)|
-D(i,1),R(i,1)]=\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]+(\mathbb{E}[\eta(i)|D(i,1)=1,
-R(i,1)=0]-\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0])\cdot D(i,1)+(\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)\neq 0]-
-\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0])\cdot R(i,1)$.}.  Finally define $\mu$ as 
-$\mu=\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]+\delta_0$, $\tau$ as $\tau=\mathbb{E}[\eta(i)|D(i,1)=1,R(i,1)
-=0]-\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]$, $\gamma$ as $\gamma=\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)\neq 0]-
-\mathbb{E}[\eta(i)|D(i,1)=0,R(i,1)=0]$ and $\delta$ as $\delta=\delta(1)-\delta(0)$.  Then 
-from the above and (\ref{Seqn:addsub})
-we have:
+$E[\eta(i)|D(i,1),R(i,1)]$ as the sum of the expectation of the individual-specific 
+component $\eta(i)$ over treatment status and `close' status\footnote{$E[\eta(i)|
+D(i,1),R(i,1)]=E[\eta(i)|D(i,1)=0,R(i,1)=0]+(E[\eta(i)|D(i,1)=1,
+R(i,1)=0]-E[\eta(i)|D(i,1)=0,R(i,1)=0])\cdot D(i,1)+(E[\eta(i)|D(i,1)=0,R(i,1)\neq 0]-
+E[\eta(i)|D(i,1)=0,R(i,1)=0])\cdot R(i,1)$.}.  Finally define $\mu$ (the intercept at
+time 0) as:
+\[
+\mu=E[\eta(i)|D(i,1)=0,R(i,1)=0]+\delta_0,
+\]
+$\tau$, a fixed effect for treated individuals, as 
+\[
+\tau=E[\eta(i)|D(i,1)=1,R(i,1)=0]-E[\eta(i)|D(i,1)=0,R(i,1)=0], 
+\]
+$\gamma$, a similar fixed effect for individuals close to treatment, as 
+\[
+\gamma=E[\eta(i)|D(i,1)=0,R(i,1)\neq 0]-E[\eta(i)|D(i,1)=0,R(i,1)=0]
+\] and $\delta$, a time trend, as $\delta=\delta(1)-\delta(0)$.  Then 
+from the above and (\ref{Seqn:addsub}) we have:
 \begin{equation}
 \label{Seqn:cDD}
 Y(i,t)=\mu+\tau D(i,1) + \gamma R(i,1) + \delta t + \alpha D(i,t) + \beta R(i,t) + 
        \varepsilon(i,t).
 \end{equation}
-Notice that this equation now includes the typical DD fixed effects $\tau$ and $\delta$
-and the double difference term $\alpha$.  However it also includes `close' analogues
-$\gamma$ (an initial fixed effect), and $\beta$: the effect of being `close to' a 
-treatment area.
+Notice that this (estimable) equation now includes the typical DD fixed effects 
+$\tau$ and $\delta$ and the double difference term $\alpha$.  However it also 
+includes `close' analogues $\gamma$ (an initial fixed effect), and $\beta$: the 
+effect of being `close to' a treatment area.
 
 From the assumptions in (\ref{Seqn:ID}) and (\ref{Seqn:ID2}) it holds that 
-$\mathbb{E}[(1,D(i,1),R(i,1),D(i,t),$
+$E[(1,D(i,1),R(i,1),D(i,t),$
 $R(i,t))\cdot\varepsilon(i,t)]=0$, which 
 implies that all parameters from (\ref{Seqn:cDD}) are consistently estimable 
 by OLS.  Importantly, this includes consistent estimates of $\alpha$ and 
@@ -200,8 +222,8 @@ of interest $\alpha$ and $\beta$ are:
 \nonumber
 \label{Seqn:DDa}
 \begin{split}
-\alpha&=\{\mathbb{E}[Y(i,1)|D(i,1)=1,R(i,1)=0]-\mathbb{E}[Y(i,1)|D(i,1)=0,R(i,1)=0]\} \\
-      &-\{\mathbb{E}[Y(i,0)|D(i,1)=1,R(i,1)=0]-\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)=0]\}, 
+\alpha&=\{E[Y(i,1)|D(i,1)=1,R(i,1)=0]-E[Y(i,1)|D(i,1)=0,R(i,1)=0]\} \\
+      &-\{E[Y(i,0)|D(i,1)=1,R(i,1)=0]-E[Y(i,0)|D(i,1)=0,R(i,1)=0]\}, 
 \end{split}
 \end{equation}
 and 
@@ -209,8 +231,8 @@ and
 \nonumber
 \label{Seqn:DDb}
 \begin{split}
-\beta&=\{\mathbb{E}[Y(i,1)|D(i,1)=0,R(i,1)\neq 0]-\mathbb{E}[Y(i,1)|D(i,1)=0,R(i,1)=0]\} \\
-      &-\{\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)\neq 0]-\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)=0]\}. 
+\beta&=\{E[Y(i,1)|D(i,1)=0,R(i,1)\neq 0]-E[Y(i,1)|D(i,1)=0,R(i,1)=0]\} \\
+      &-\{E[Y(i,0)|D(i,1)=0,R(i,1)\neq 0]-E[Y(i,0)|D(i,1)=0,R(i,1)=0]\}. 
 \end{split}
 \end{equation}
 where the sample estimate of each parameter is generated by a least squares
@@ -232,9 +254,9 @@ $Y^0(i,t)$ if the person were not to receive treatment.  Our ATT and ATC are
 thus:
 \begin{eqnarray}
 \label{Seqn:estimATT}
-ATT=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|D(i,1)=1]\  \\
+ATT=E[Y^1(i,1)-Y^0(i,1)|D(i,1)=1]\  \\
 \label{Seqn:estimATC}
-ATC=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|C(i,1)= 0],
+ATC=E[Y^1(i,1)-Y^0(i,1)|C(i,1)= 0],
 \end{eqnarray}
 where we define a new binary variable $C(i,t)$, which indicates if individuals 
 are close or not close to treatment.  This is simply a redefinition of $R(i,t)$,
@@ -258,14 +280,14 @@ case of treatment \emph{and} local spillovers, this relies on:
 \begin{assumption}{1}{}
 \label{Sass:PT}
 \textbf{Parallel trends in treatment and control:} \\
-$\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=1,C(i,1)=0]=
-\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,C(i,1)=0]$,
+$E[Y^0(i,1)-Y^0(i,0)|D(i,1)=1,C(i,1)=0]=
+E[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,C(i,1)=0]$,
 \end{assumption}
 \begin{assumption}{2}{}
 \label{Sass:PTC}
 \textbf{Parallel trends in close and control:} \\
-$\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,C(i,1)=1]=
-\mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,C(i,1)=0]$.
+$E[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,C(i,1)=1]=
+E[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,C(i,1)=0]$.
 \end{assumption}
 
 In other words, assumption \ref{Sass:PT} and \ref{Sass:PTC} state that in the 
@@ -275,7 +297,8 @@ untreated units.  This is the fundamental DD identifying assumption of parallel
 trends, generalised to hold for treatment \emph{and} close to treatment status.  
 Note that in the above, we no longer need to make \emph{any} assumptions 
 regarding parallel trends between treatment and close to treatment units 
-allowing for direct interactions between close to treatment and treatment units. 
+allowing for direct interactions between those living in treatment areas, and
+those living close by.
 
 However, as a matter of course, in order to consistently estimate any treatment 
 effect, some form of the SUTVA must be invoked.  Typically, this requires that 
@@ -315,7 +338,8 @@ individuals to close to treatment status $C(i,t)$, where $\delta\Big(X(i,t)\Big)
 scalar cutoff. 
 \end{assumption}
 \vspace{-4mm}
-\noindent This restriction is quite general.  In other words, it simply states 
+\noindent This restriction is quite strong, and is loosened in coming sections.  
+In other words, it simply states 
 that violations of SUTVA occur in an observable way.  For example, if SUTVA does
 not hold locally to the treatment area, assumption \asref{Sass:SUTVAl}{A} implies
 that we are able to define what `local' is.  While this article focuses on
@@ -367,12 +391,12 @@ In order to do so, we re-write (\ref{Seqn:cDD}) as:
 \end{equation}
 where $\upsilon(i,t)=\beta R(i,t)+\varepsilon(i,t)$, and for ease of notation
 the fixed effects $D(i,1), R(i,1)$ and $t$ have been concentrated out to form
-$\tilde{Y}(i,t)$.  If we were to estimate $\hat\alpha$ from the above regression
-ignoring the potential presence of spillovers, then we have that the expectation 
-of $\hat\alpha$ is:
+$\tilde{Y}(i,t)$ in line with the  Frisch--Waugh--Lovell (FWL) theorem.  If we 
+were to estimate $\hat\alpha$ from the above regression ignoring the potential 
+presence of spillovers, then we have that the expectation of $\hat\alpha$ is:
 \begin{eqnarray}
 \label{Seqn:alphaExp}
-\mathbb{E}[\hat\alpha] &=& \alpha + \beta\Bias{D(i,t)}{R(i,t)}+\Bias{D(i,t)}{\varepsilon(i,t)} \nonumber \\ 
+E[\hat\alpha] &=& \alpha + \beta\Bias{D(i,t)}{R(i,t)}+\Bias{D(i,t)}{\varepsilon(i,t)} \nonumber \\ 
               &=& \alpha + \beta\Bias{D(i,t)}{R(i,t)},
 \end{eqnarray}
 where the second line comes from (\ref{Seqn:ID}), which implies that 
@@ -411,7 +435,7 @@ our estimated treatment effect, which we now denote $\hat\alpha^0$ is:
 \begin{equation}
 \nonumber
 \begin{split}
-\mathbb{E}[\hat\alpha^0]=\alpha + \beta\beta_1\Bias{D(i,t)}{R^1(i,t)}
+E[\hat\alpha^0]=\alpha + \beta\beta_1\Bias{D(i,t)}{R^1(i,t)}
                                 + \beta\beta_2\Bias{D(i,t)}{R^2(i,t)}
                                 + \\ \ldots
                                 + \beta\beta_K\Bias{D(i,t)}{R^K(i,t)}.
@@ -421,7 +445,7 @@ If spillovers exist below some distance $d$, then $\Cov[D(i,t),R^k(i,t)]>0 \ \
 \forall \ \ kh<d$, given that $D(i,t)$---the treatment status in a treated area%
 ---affects the close to treated status in nearby areas. If this is the case, and 
 if spillovers work in the same direction as treatment, then 
-$|\mathbb{E}[\hat\alpha^0]|<|\alpha|$, implying that the estimated treatment 
+$|E[\hat\alpha^0]|<|\alpha|$, implying that the estimated treatment 
 effect will be attenuated by treatment spillover to the control group.  
 
 We can then re-estimate (\ref{Seqn:cDDconc}), however now \emph{also} condition
@@ -430,7 +454,7 @@ $\hat\alpha^1$, will have the expectation:
 \begin{equation}
 \nonumber
 \begin{split}
-\mathbb{E}[\hat\alpha^1]=\alpha + \beta\beta_2\Bias{D(i,t)}{R^2(i,t)}
+E[\hat\alpha^1]=\alpha + \beta\beta_2\Bias{D(i,t)}{R^2(i,t)}
                                 + \ldots
                                 + \beta\beta_K\Bias{D(i,t)}{R^K(i,t)}.
 \end{split}
@@ -438,33 +462,37 @@ $\hat\alpha^1$, will have the expectation:
 Once again, if spillovers exist and are of the same sign as treatment, then the
 estimate $\hat\alpha^1$ will be attenuated, but not as badly as $\hat\alpha^0$ 
 given that we now partially correct for spillovers up to a distance of $h$.  In 
-this case: $|\mathbb{E}[\hat\alpha^0]|<|\mathbb{E}[\hat\alpha^1]|<|\alpha|$.  If, 
-on the other hand, spillovers do not exist, then we will have that 
-$|\mathbb{E}[\hat\alpha^0]|=|\mathbb{E}[\hat\alpha^1]|=|\alpha|$.  This leads to 
-the following hypothesis test:
+this case: $|E[\hat\alpha^0]|<|E[\hat\alpha^1]|<|\alpha|$.  If, on the other 
+hand, spillovers do not exist, then we will have that 
+$|E[\hat\alpha^0]|=|E[\hat\alpha^1]|=|\alpha|$.  This leads to 
+the following hypothesis test, where for efficiency reasons $\hat\alpha^0$
+and $\hat\alpha^1$ are estimated by seemingly unrelated regression:
 \[
 H_0: \alpha^0=\alpha^1 \hspace{1cm}
 H_1: \alpha^0\neq\alpha^1.
 \]
-If we reject $H_0$ in favour of the alternative, this suggests that partially 
-correcting for spillovers affects the estimated coefficient $\alpha$, implying that
-spillovers occur at least up to distance $h$, and that further tests are required.  
+From \citet{Zellner1962}, the test statistic has a $\chi^2_1$ distribution. If 
+we reject $H_0$ in favour of the alternative, this indicates that partially 
+correcting for spillovers affects the estimated coefficient $\alpha$, implying 
+that spillovers occur at least up to distance $h$, and that further tests are 
+required.  
 
-Rejection of the null suggests that another iteration should be performed, this time
-removing $R^1(i,t)$ and $R^2(i,t)$ from the error term $\upsilon(i,t)$ in 
-(\ref{Seqn:cDDconc}), and the corresponding 
-parameter $\alpha^2$ be estimated.  If spillovers do occur at least up to distance 
-$2c$, we expect that $|\mathbb{E}[\hat\alpha^0]|<|\mathbb{E}[\hat\alpha^1]|<
-|\mathbb{E}[\hat\alpha^2]|<|\alpha|$, however if spillovers only occur up to distance
-$c$, we will have $|\mathbb{E}[\hat\alpha^0]|<|\mathbb{E}[\hat\alpha^1]|=
-|\mathbb{E}[\hat\alpha^2]|=|\alpha|$.  This leads to a new hypothesis test:
+Rejection of the null suggests that another iteration should be performed, this 
+time removing $R^1(i,t)$ and $R^2(i,t)$ from the error term $\upsilon(i,t)$ in 
+(\ref{Seqn:cDDconc}), and the corresponding parameter $\alpha^2$ be estimated.  
+If spillovers do occur at least up to distance $2h$, we expect that 
+$|E[\hat\alpha^0]|<|E[\hat\alpha^1]|<|E[\hat\alpha^2]|<|\alpha|$, however if 
+spillovers only occur up to distance $h$, we will have 
+$|E[\hat\alpha^0]|<|E[\hat\alpha^1]|=|E[\hat\alpha^2]|=|\alpha|$.  This leads 
+to a new hypothesis test:
 \[
 H_0: \alpha^1=\alpha^2 \hspace{1cm}
 H_1: \alpha^1\neq\alpha^2,
 \]
-where rejection of the null implies that spillovers occur at least up to distance
-$2h$, while failure to reject the null suggests that spillovers only occur up to 
-distance $h$.
+where the test statistic is distributed as outlined above.  Here, rejection of 
+the null implies that spillovers occur at least up to distance $2h$, while 
+failure to reject the null suggests that spillovers only occur up to distance 
+$h$.
 
 %-------------------------------------------------------------------------------
 This process should be followed iteratively up until the point that the marginal 
@@ -505,7 +533,9 @@ $\hat\beta_j\neq 0$, this suggests that the effect on the marginal close to
 treatment area is different to the effect in the (remaining) control area. If 
 spillovers are the estimand of interest, additional $R^j(i,t)$ controls can be 
 added until the hypothesis: $H_0: \beta_j = 0$ cannot be rejected for the 
-marginal parameter.
+marginal parameter. The empirical illustrations in section \ref{Sscn:empirics} 
+estimate both the treatment effect, as well as spillovers at varying distances 
+from treatment.
 
 %-------------------------------------------------------------------------------
 \subsection{Estimating with Multidimensional Spillovers}
@@ -513,9 +543,9 @@ marginal parameter.
 Previously it has been assumed that $R(i,t)$ is a function of a unidimensional 
 distance measure $X(i,t)$. I now generalise this to a multidimensional case 
 where $R(i,t)$ may depend upon an arbitrary number of variables 
-$\mathbf{X}(i,t)$. For example, this allows for cases where distance to 
-treatment may interact with some other variable, such as income, ownership of 
-a vehicle, etc. Now:
+$\mathbf{X}(i,t)$. This allows for cases where distance to treatment may 
+interact with some other variable, such as income, ownership of a vehicle or
+access to information (among other things). Now:
 \begin{equation}
 \nonumber
  R(i,t) =
@@ -538,12 +568,15 @@ This leads to a close-to-treatment assignment set $\mathbb{T}$ defined as:
 \mathbb{T}\equiv \{ \mathbf{x}\in\mathcal{X}: \delta(\mathbf{x})=1 \}
 \]
 whose complement $\mathbb{T}^c$ is known as the control assignment
-set. Finally then, we can write the treatment assignment rule:
+set. Finally then, we can write the treatment assignment rule\footnote{The
+uni-dimensional case discussed up to this point is just a particular application
+of the treatment assignment rule where $\mathbf{X}(i,t)=X(i,t)$ and 
+$\mathbb{T}\equiv \{ x<d: \delta(x)=1 \}$}:
 \begin{equation}
 \delta(x)\equiv \mathbf{1}_{\mathbf{x}\in\mathbb{T}}.
 \end{equation}
-Having defined the treatment assignment rule, we can now provide a
-more general version of assumption \asref{Sass:SUTVAl}{A}:
+With this (multidimensional) treatment assignment rule in hand, a more general 
+version of assumption \asref{Sass:SUTVAl}{A} can now be provided:
 
 %\addtocounter{assumption}{-1}
 \begin{assumption}{4}{B}
@@ -569,7 +602,7 @@ Now, in the same manner, we can go about generating our estimands of interest,
 replacing $C(i,t)=\mathbf{1}_{X_i\leq d}$ with $C(i,t)=\mathbf{1}_{\mathbf{x}\in 
 \mathbb{T}}$. The most compuationally demanding step in this estimation procedure 
 is in forming a parametric or non-parametric version of the underlying function 
-$R(i,t)$ to search over.  In a unidimensional framework it is reasonably 
+$R(i,t)$ over which to search.  In a unidimensional framework it is reasonably 
 straightforward to form local linear bins for $R(i,t)$.  However, in the 
 multidimensional framework this is no longer the case.  Additionally, as the 
 dimensionality of $\mathbf{X}$ rises, the number of search dimensions for 
@@ -588,7 +621,8 @@ R(i,t)&=&f(X_1,X_2) \nonumber \\
       &=&X_1\cdot[\beta_{0,1}X_2^1(i,t)+ \cdots + \beta_{0,K}X_2^K(i,t)] \nonumber \\
       &+& (1-X_1)\cdot[\beta_{1,1}X_2^1(i,t)+ \cdots + \beta_{1,K}X_2^K(i,t)]. \nonumber
 \end{eqnarray}
-where $X_2^k(i,t)$ is defined as per (\ref{Seqn:Rpar}).  Estimation of $\alpha$ 
+where $X_2^k(i,t) \forall k \in 1\ldots K$ is defined as per (\ref{Seqn:Rpar}).  
+Estimation of $\alpha$ 
 can then proceed iteratively as in section \ref{Ssscn:TE}.  First a traditional 
 DD parameter is estimated ignoring the possiblity that spillovers exist, leading 
 to the proposed estimate $\hat\alpha^0$.  Then $X_1\cdot[\beta_{0,1}X_2^1(i,t)]$ 
@@ -602,6 +636,7 @@ effect $\alpha^k$.
 
 %================================================================================
 \section{An Empirical Illustration: Spillovers and Contraceptive Reforms}
+\label{Sscn:empirics}
 We consider two empirical examples to motivate and demonstrate spillover-robust 
 DD estimation.
 We focus on two localised contraceptive reforms in different countries. The first
@@ -707,20 +742,21 @@ even outside of treatment municipalities, suggesting that the spillover robust
 specification is necessary to estimate causal effects $\hat\alpha$ and 
 $\hat\beta$.
 
+%================================================================================
 \subsection{Emergency Contraceptive Reform in Chile}
 After considerable juridical challenges against the legality of emergency 
 (post-coital) contraception in the country, a Chilean constitutional tribunal in 
-2008 issued a summary expressly allowing the morning after pill\footnote{The morning
-  after pill is a hormonal treatment composed of progestin and estrogen which acts
-to prevent ovulation after sexual intercourse in which alternative forms of 
-contraceptives were not used, or believed to have failed.} to be prescribed
-to women.  However, this finding was limited to municipal health centres, which
-are administered by mayors and local governing councils.  This resulted in a 
-period of approximately 4 years where the morning after pill was available to
-women \emph{only} if the mayor of her municipality deemed it appropriate.  The
-reform eventually resulted in morning after pill availability in approximately
-150 of the 346 municipalities of the country (further figures and details of the
-reform are discussed in \citet{Clarke2014}).
+2008 issued a summary expressly allowing the morning after pill\footnote{The 
+morning after pill is a hormonal treatment composed of progestin and estrogen 
+which acts to prevent ovulation after sexual intercourse in which alternative 
+forms of contraceptives were not used, or believed to have failed.} to be 
+prescribed to women.  However, this finding was limited to municipal health 
+centres, which are administered by mayors and local governing councils.  This
+resulted in a period of approximately 4 years where the morning after pill was 
+available to women \emph{only} if the mayor of her municipality deemed it 
+appropriate.  The reform eventually resulted in morning after pill availability in 
+approximately 150 of the 346 municipalities of the country (further figures and 
+details of the reform are discussed in chapter \ref{chap:pill}).
 
 As for the case of the Mexico abortion reform, a `traditional' DD specification
 is estimated, and compared with a spillover-robust DD estimator as proposed in
@@ -764,40 +800,43 @@ the previous section.
 \label{Sfig:ChileAlpha}
 \vspace{2mm}
 \begin{footnotesize}
-\textsc{Notes to figure}: Each point represents a treatment effect on the treatment
-area, conditioning on close controls for $d\in [0,45]$ km from the nearest treatment 
-municipality.  As such, the point at 0 includes all municipalities with the exception
-of treatment municipalities in the control group.  Standard errors are clustered at 
-the level of the municipality.  Dotted lines display the 90\% confidence interval for 
-all estimates.
+\textsc{Notes to figure}: Each point represents a treatment effect on the 
+treatment area, conditioning on close controls for $d\in [0,45]$ km from the 
+nearest treatment municipality.  As such, the point at 0 includes all 
+municipalities with the exception of treatment municipalities in the control 
+group.  Standard errors are clustered at the level of the municipality.  Dotted 
+lines display the 90\% confidence interval for all estimates.
 \end{footnotesize}
 \end{figure}
 
-These results clearly suggest that we \emph{can} reject the null that $\beta=0$, as
-a number of `close' coefficients are significant, in some cases even up to $p=0.01$.
-However, tests directly on $\alpha$ do not allow for us to reject that values 
-estimated for various models are significantly different.  Examining estimates 
-$\hat\alpha$ more carefully suggests that as we move further away from the reform,
-the effect size monotonically decreases (figure \ref{Sfig:ChileAlpha}).  This is
-precisely in-line with what we would expect if SUTVA were violated locally, and
-the cost (both psychic and economic) of travelling to treatment municipalities
-increased with distance.
+These results clearly suggest that we \emph{can} reject the null that $\beta=0$, 
+as a number of `close' coefficients are significant, in some cases even up to 
+$p=0.01$.  However, tests directly on $\alpha$ do not allow for us to reject that 
+values estimated for various models are significantly different.  Examining 
+estimates $\hat\alpha$ more carefully suggests that as we move further away from 
+the reform, the effect size monotonically decreases (figure 
+\ref{Sfig:ChileAlpha}).  This is precisely in-line with what we would expect if 
+SUTVA were violated locally, and the cost (both psychic and economic) of 
+travelling to treatment municipalities increased with distance.
 
+%================================================================================
 \subsection{Running Additional Placebo Tests}
-Typically, DD estimates are presented along with placebo tests which define `false'
-lagged reforms.  In other words, by examining outcomes entirely \emph{before} the
-policy of interest has been implemented, null results are presented as evidence
-in favour of an appropriately specified functional form of the DD set-up.
+Typically, DD estimates are presented along with placebo tests which define 
+`false' lagged reforms.  In other words, by examining outcomes entirely 
+\emph{before} the policy of interest has been implemented, null results are 
+presented as evidence in favour of an appropriately specified functional form of 
+the DD set-up.
 
 In the case of the spillover-robust DD estimate, there are now (at least) two
 relevant placebos which should be tested.  Firstly, the reform must not have any
 effect on outcomes \emph{before} treatment in treatment municipalities.  This is
 precisely the same as the `traditional' placebo test described above.  Secondly
-however, the reform should have no effect on predetermined outcomes in municipalites
-\emph{close} to treatment municipalities.  Below we present an example of such 
-placebo tests from the Mexico City abortion reform.  Now, as well as having a 
-treatment estimate not significantly different from 0 (ie confidence intervals
-at $distance=0$), the same result should hold for close municipalities ($distance>0$).
+however, the reform should have no effect on predetermined outcomes in 
+municipalites \emph{close} to treatment municipalities.  Below we present an 
+example of such placebo tests from the Mexico City abortion reform.  Now, as well
+as having a treatment estimate not significantly different from 0 (ie confidence 
+intervals at $distance=0$), the same result should hold for close municipalities 
+($distance>0$).
 \begin{figure}[h!]
 \includegraphics[scale=0.76]{\sdidloc/figures/ClosePlacebo1.eps}
 \caption{Treatment and Close, Placebo Tests: 15-19 year olds Mexico}
@@ -812,6 +851,67 @@ lines display the 90\% confidence interval for all estimates.
 \end{footnotesize}
 \end{figure}
 
+A more demanding series of placebo tests involves the estimation of a full event
+study based on the DD specification. In this case, instead of estimating a single
+treatment effect for all periods following the arrival of the natural experiment
+in question, being a treatment area is interacted with a series of lags and leads
+around the date of the reform.  This allows for a direct test of the timing of
+effect.  In a \citet{Granger1969} causality framework, any difference between 
+treatment and control states should only emerge following the introduction of the
+reform: not prior to the date of the reform.  
+
+In traditional DD this leads to estimations of event study where coefficients
+and standard errors are plotted which compare treated to control areas.  
+Insignificant differences prior to the reform and significant differences after
+the reform are evidence in favour of the parallel trend assumption.  In the case
+of spillover robust DD estimates, there are no two logical tests to employ.  
+These (seperately) test both parallel trend assumptions (assumption \ref{Sass:PT}
+and \ref{Sass:PTC}).  Both treated \emph{and} close to treated areas can be 
+compared with control areas in an event study framework.  
+
+Figures \ref{Sfig:eventT} and \ref{Sfig:eventC} present these event studies for
+the case of Chile.  The omitted base year is 3 birth cohorts prior to the reform
+(a group which gave birth entirely before the year in which the emergency 
+contraceptive pill arrived to Chile).  Comparing treatment to control 
+municipalities (\ref{Sfig:eventT}), the parallel trend assumption appears to
+be valid, with all estimates being close to zero and tightly estimated.  Only
+in years following the reform does the effect diverge from zero, with 
+coefficients at least providing some evidence that the effect of the reform has
+grown as knowledge of the morning after pill has become more widespread.  For 
+close-to-treatment areas the event study is slightly noisier, however once again 
+the divergence between these areas and control areas occurs only \emph{after}
+the vertical line signalling the first cohort affected by the reform. In this
+case there is more variation in the magnitude of pre-reform coefficients, though
+at a 95\% confidence level, equality with zero cannot be rejected in any case 
+(evidence broadly in favour of assumption \ref{Sass:PTC}).
+
+\begin{figure}[htpb!]
+\begin{center}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[scale=0.32]{\sdidloc/figures/Event1519treat.eps}
+  \caption{Full Event Study: Treatment}
+  \label{Sfig:eventT}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[scale=0.32]{\sdidloc/figures/Event1519close.eps}
+  \caption{Full Event Study: Close to Treatment}
+  \label{Sfig:eventC}
+\end{subfigure}
+\caption{Chile Event Study for ATT and ATC}
+\label{Sfig:eventStudy}
+\end{center}
+\begin{footnotesize}
+\textsc{Notes to figure}: In each figures the horizontal dotted line represents
+an effect size of 0.  The vertical solid line represents the first birth cohort
+affected by the reform.  Each point on the plot represents the effect of living 
+in a treatment (panel A) or close to treatment (panel B) municipality $x$ years
+before or after the reform took effect.  Error bars are 95\% confidence intervals
+of these estimates.
+
+\end{footnotesize}
+\end{figure}
 
 %\section{Extensions}
 %\label{Sscn:extend}
@@ -862,8 +962,8 @@ is equal to:
 \nonumber
 \label{Seqn:alphaProof1}
 \begin{split}
-\alpha&=\{\mathbb{E}[Y(i,1)|D(i,1)=1,R(i,1)=0]-\mathbb{E}[Y(i,1)|D(i,1)=0,R(i,1)=0]\} \\
-      &-\{\mathbb{E}[Y(i,0)|D(i,1)=1,R(i,1)=0]-\mathbb{E}[Y(i,0)|D(i,1)=0,R(i,1)=0]\},
+\alpha&=\{E[Y(i,1)|D(i,1)=1,R(i,1)=0]-E[Y(i,1)|D(i,1)=0,R(i,1)=0]\} \\
+      &-\{E[Y(i,0)|D(i,1)=1,R(i,1)=0]-E[Y(i,0)|D(i,1)=0,R(i,1)=0]\},
 \end{split}
 \end{equation}
 and from assumption \ref{Sass:SUTVAs}, each of the expectation terms exists, as 
@@ -873,8 +973,8 @@ outcomes framework, we are free to re-write the above expression as:
 \nonumber
 \label{Seqn:alphaProof2}
 \begin{split}
-\alpha&=\{\mathbb{E}[Y^1(i,1)|D(i,1)=1,R(i,1)=0]-\mathbb{E}[Y^0(i,1)|D(i,1)=0,R(i,1)=0]\} \\
-      &-\{\mathbb{E}[Y^0(i,0)|D(i,1)=1,R(i,1)=0]-\mathbb{E}[Y^0(i,0)|D(i,1)=0,R(i,1)=0]\},
+\alpha&=\{E[Y^1(i,1)|D(i,1)=1,R(i,1)=0]-E[Y^0(i,1)|D(i,1)=0,R(i,1)=0]\} \\
+      &-\{E[Y^0(i,0)|D(i,1)=1,R(i,1)=0]-E[Y^0(i,0)|D(i,1)=0,R(i,1)=0]\},
 \end{split}
 \end{equation}
 given that only in the case where $t=1$ and $D(i,1)=1$ we observe the potential 
@@ -883,37 +983,38 @@ of the expectations operator, this can finally be re-written as:
 \begin{equation}
 \nonumber
 \label{Seqn:alphaProof3}
-\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0] - 
-       \mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,R(i,1)=0].
+\alpha=E[Y^1(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0] - 
+       E[Y^0(i,1)-Y^0(i,0)|D(i,1)=0,R(i,1)=0].
 \end{equation}
 
 Now, from assumption \ref{Sass:PT}, we can appeal to parallel trends, and 
-replace the second expectation term in the above expression with $\mathbb{E}
+replace the second expectation term in the above expression with $E
 [Y^0(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0]$:
 \begin{equation}
 \nonumber
 \label{Seqn:alphaProof4}
-\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0] - \mathbb{E}[Y^0(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0].
+\alpha=E[Y^1(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0] - E[Y^0(i,1)-Y^0(i,0)|D(i,1)=1,R(i,1)=0].
 \end{equation}
 Expanding the expectations operator and cancelling out the second term in each of
 the above items gives:
 \begin{equation}
 \nonumber
 \label{Seqn:alphaProof5}
-\alpha=\mathbb{E}[Y^1(i,1)|D(i,1)=1,R(i,1)=0] - \mathbb{E}[Y^0(i,1)|D(i,1)=1,R(i,1)=0].
+\alpha=E[Y^1(i,1)|D(i,1)=1,R(i,1)=0] - E[Y^0(i,1)|D(i,1)=1,R(i,1)=0].
 \end{equation}
 %-------------------------------------------------------------------------------
 which finally, once again by the linearity of expectations, can be combined to 
-give $\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|D(i,1)=1,R(i,1)=0]$, which can be 
-rewritten as $\alpha=\mathbb{E}[Y^1(i,1)-Y^0(i,1)|D(i,1)=1]$ given that $D(i,1)=1 
-\implies R(i,1)=0$.  From (\ref{Seqn:estimATT}) we thus have that $\alpha=ATT$ 
-as required.
+give $\alpha=E[Y^1(i,1)-Y^0(i,1)|D(i,1)=1,R(i,1)=0]$, which can be 
+rewritten as $\alpha=E[Y^1(i,1)-Y^0(i,1)|D(i,1)=1]$ given that 
+$D(i,1)=1 \implies R(i,1)=0$.  Combining (\ref{Seqn:estimATT}) and $\alpha=
+E[Y^1(i,1)-Y^0(i,1)|D(i,1)=1]$ we thus have that $\alpha=ATT$ as 
+required.
 
 Turning to the ATC, the same set of steps can be followed for $\beta$ on the 
 coefficient $R(i,t)$, however now instead of assumption \ref{Sass:PT} we must
 rely on parallel-trend assumption \ref{Sass:PTC}. This leads to $\beta=
-\mathbb{E}[Y^1(i,1)-Y^0(i,1)|R(i,1)\neq 1]$, and from (\ref{Seqn:estimATC}) we 
-have that $\beta=ATC$.
+E[Y^1(i,1)-Y^0(i,1)|R(i,1)\neq 1]$, and from (\ref{Seqn:estimATC}) 
+and the previous expression it holds that that $\beta=ATC$.
 \end{footnotesize}
 \end{proof}
 
@@ -926,8 +1027,36 @@ the same steps as the proof for proposition \ref{Pass:ATT}.
 \end{footnotesize}
 \end{proof}
 
-
 \clearpage
+%-------------------------------------------------------------------------------
+\section{Measuring Distance to Treatment Clusters}
+Principal measures of distance from treatment is calculated by taking a 
+Euclidean distance from the midpoint of non-treatment clusters, and the nearest
+cluster which did receive treatment.  However, alternative measures may more
+optimally capture the true distance of an individual to treatment.  As a 
+robustness check, two alternative measures of distance to treatment are used.
+
+Firstly, I calculated the shortest distance over roads from non-treatment to 
+treatment areas.  This was calculated using repeated calls to the Google 
+Distance Matrix API\footnote{Full details can be found at:
+\url{https://developers.google.com/maps/documentation/distancematrix/\#api\_key}.
+I have made the computational routine used available on the web at:
+\url{https://github.com/damiancclarke/spillovers/blob/master/source/distCalc/queryDist.py}.}, 
+which finds the shortest path over roads.  In the case of Chile, this requires 
+calculating the distances between all 346  municipalities ($346^2/2=59,858$ 
+distance pairs), while in the case of M\'exico this requires calculating only 
+the distance from each municipality outside of Mexico DF to each municipality 
+inside Mexico DF ($2457\times 16=39,312$).  Secondly, rather than distance in 
+kilometres, as in Euclidean or road distance, a measure of travel \emph{time} 
+was calculated.  As a proxy for total travel time, travel time by car was 
+caclulated between areas.  This was similarly generated using calls to Google 
+Maps, resulting in one value for each municipality pair.  In each case 
+``distance to treatment'' is then the minimum value to the nearest treatment 
+area, which varies by municipality and year.
+
+Results 
+\clearpage
+
 
 \section{Appendix Figures}
 \label{Sscn:Agraphs}

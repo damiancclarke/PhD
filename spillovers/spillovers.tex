@@ -105,7 +105,7 @@ within this treatment cluster.}
 Define $Y(i,t)$ as the outcome for individual $i$ and time $t$.  The population
 of interest is observed at two time periods, $t\in \{0,1\}$. Assume that between
 $t=0$ and $t=1$, some fraction of the population is exposed to a 
-quasi-experimental treatment.  As per \citet{Abadie2005}, we will denote 
+quasi-experimental treatment.  As per \citet{Abadie2005}, I will denote 
 treatment for individual $i$ in time $t$ as $D(i,t)$, where $D(i,1)=1$ implies 
 that the individual was treated, and $D(i,1)=0$ implies that the individual was
 not directly treated.  Given that treatment only exists between periods 0 and 1,
@@ -160,7 +160,7 @@ period 1, $R(i,0)=0$ for all $i$.  Similarly, as living in a treatment area
 itself excludes individuals from living `close to' the same treament area, 
 $R(i,t)=0$ for all $i$ such that $D(i,t)=1$.
 
-Generalising from (\ref{Seqn:COV}), now we assume that $Y(i,t)$ is generated 
+Generalising from (\ref{Seqn:COV}), now I assume that $Y(i,t)$ is generated 
 by:
 \begin{equation}
 \label{Seqn:COV2}
@@ -243,12 +243,12 @@ $\{Y(i,t), D(i,t), R(i,t): i=1, \ldots, N, t=0, 1\}$.
 \section{A Spillover-Robust Double Differences Estimator}
 \label{Sscn:estim}
 We are interested in estimating difference-in-difference parameters $\alpha$ and 
-$\beta$ from (\ref{Seqn:cDD}).  We will refer to these estimators respectively
+$\beta$ from (\ref{Seqn:cDD}).  I will refer to these estimators respectively
 as the average treatment effect on the treated (ATT), and the average treatment
 effect on the close to treated (ATC).  Average treatment effects are cast in 
 terms of the \citet{Rubin1974} Causal Model.
 
-Following a potential outcome framework, we denote $Y^1(i,t)$ as the potential
+Following a potential outcome framework, I denote $Y^1(i,t)$ as the potential
 outcome for some person $i$ at time $t$ if they were to receive treatment, and
 $Y^0(i,t)$ if the person were not to receive treatment.  Our ATT and ATC are
 thus:
@@ -258,7 +258,7 @@ ATT=E[Y^1(i,1)-Y^0(i,1)|D(i,1)=1]\  \\
 \label{Seqn:estimATC}
 ATC=E[Y^1(i,1)-Y^0(i,1)|C(i,1)= 0],
 \end{eqnarray}
-where we define a new binary variable $C(i,t)$, which indicates if individuals 
+where I define a new binary variable $C(i,t)$, which indicates if individuals 
 are close or not close to treatment.  This is simply a redefinition of $R(i,t)$,
 where $C(i,t)=\mathbf{1}_{R(i,t)\neq 0}$.  Given that for now we are interested
 in the \emph{average} effect on those close to treatment we condition only on
@@ -303,7 +303,7 @@ those living close by.
 However, as a matter of course, in order to consistently estimate any treatment 
 effect, some form of the SUTVA must be invoked.  Typically, this requires that 
 each individual's treatment status does not affect each other individual's 
-potential outcome.  Here, we loosen SUTVA. In the remainder of this article, it 
+potential outcome.  Here, I loosen SUTVA. In the remainder of this article, it 
 will be assumed that:
 \begin{assumption}{3}{}
 \label{Sass:SUTVAs}
@@ -326,7 +326,7 @@ time so there is a ``treatment'' group and a ``comparison'' group. It is not
 helpful in evaluating policies that have universal participation.' (or in this 
 case, universal participation and spillovers.}
 
-Finally, we assume that spillovers, or violations of SUTVA, do not occur randomly
+Finally, I assume that spillovers, or violations of SUTVA, do not occur randomly
 in the population:
 \begin{assumption}{4}{A}
 \label{Sass:SUTVAl}
@@ -346,16 +346,16 @@ that we are able to define what `local' is.  While this article focuses on
 an $X_i$ representing geographic distance, these derivations do not imply that 
 this must be the case.  The `close' indicator $C(i,t)$ could depend on a range 
 of phenomena including euclidean space, ethnic distance, edges between
-nodes in a network, or, as we return to discuss in section
-\ref{Ssscn:multi}, multi-dimensional interactions between measures such as these 
-and economic variables. 
+nodes in a network, or, as I return to discuss in section \ref{Ssscn:multi}, 
+multi-dimensional interactions between measures such as these and economic 
+variables. 
 \begin{proposition}
 \label{Pass:ATT}
 Under assumptions \ref{Sass:PT} to \asref{Sass:SUTVAl}{A}, the ATT and ATC can be 
 consistently estimated by least squares when controlling, parametrically or
 non-parametrically, for $C(i,t)=\mathbf{1}_{X(i,t)\leq d}$.
 \end{proposition}
-\noindent In the following two subsections we examine these estimands in turn. 
+\noindent In the following two subsections I examine these estimands in turn. 
 
 %================================================================================
 \subsection{Estimating the Treatment Effect in the Presence of Spillovers}
@@ -379,9 +379,9 @@ travel costs to access the program increase with distance, there will exist a
 clear cut-off point beyond which individuals will be unwilling to travel. 
 Similarly, if treatment must be accessed in a fixed amount of time and 
 propogation of treatment is not instantaneous, a limit for $d$ may be calculable. 
-This is a point we return to in empirical estimates where one illustration is 
+This is a point I return to in empirical estimates where one illustration is 
 based on access to the emergency contraceptive pill.}  In the remainder of this 
-section we discuss how to determine $C(i,t)$ based on $X(i,t)$, in the absence of 
+section I discuss how to determine $C(i,t)$ based on $X(i,t)$, in the absence of 
 a known value for $d$.
 
 In order to do so, we re-write (\ref{Seqn:cDD}) as:
@@ -400,7 +400,7 @@ E[\hat\alpha] &=& \alpha + \beta\Bias{D(i,t)}{R(i,t)}+\Bias{D(i,t)}{\varepsilon(
               &=& \alpha + \beta\Bias{D(i,t)}{R(i,t)},
 \end{eqnarray}
 where the second line comes from (\ref{Seqn:ID}), which implies that 
-$E[\Cov(D(i,t),\varepsilon(i,t))]=0$.  So far we have attached no functional form 
+$E[\Cov(D(i,t),\varepsilon(i,t))]=0$.  So far I have attached no functional form 
 to $R(i,t)$.  Define $R(i,t)$ as:
 \begin{equation}
 \label{Seqn:Runpack}
@@ -431,7 +431,7 @@ suggests that $d$ can be recovered following the iterative procedure laid out
 below, so long as $R(i,t)=f(X(i,t))$ is montononic in $X$.
 
 If we start by estimating a typical DD specification like (\ref{Seqn:cDDconc}),
-our estimated treatment effect, which we now denote $\hat\alpha^0$ is:
+our estimated treatment effect, which I now denote $\hat\alpha^0$ is:
 \begin{equation}
 \nonumber
 \begin{split}
@@ -512,7 +512,7 @@ data.
 %-------------------------------------------------------------------------------
 \subsection{Estimation the Magnitude of Spillovers}
 \label{Ssscn:SE}
-In section \ref{Ssscn:TE} we discuss the consistent estimation of $\alpha$, the
+In section \ref{Ssscn:TE}, I discuss the consistent estimation of $\alpha$, the
 effect of being in a treatment area.  The extension of this methodology to 
 consistently estimate $\beta$, the effect of being close to treatment, is 
 reasonably straightforward.  Once the scalar value $d$ has been determined, and
@@ -637,31 +637,35 @@ effect $\alpha^k$.
 %================================================================================
 \section{An Empirical Illustration: Spillovers and Contraceptive Reforms}
 \label{Sscn:empirics}
-We consider two empirical examples to motivate and demonstrate spillover-robust 
-DD estimation.
-We focus on two localised contraceptive reforms in different countries. The first
-is the legalisation of abortion in Mexico city in April of 2007, and the second
-the expansion of morning after pill availability in certain municipalities of 
-Chile in 2008.  Both reforms were sharp, resulting in a large jump in reported
-rates of contraceptive access, and arrived to only certain areas of the country.
-In both cases, the geographic location of the reform was defined by the nature
-of local municipal-level policies, resulting in seperate policies in different
-municipalities in the country.\footnote{We refer to geographic units in each case
-as municipalities.  In Mexico these are referred to as \emph{municipios}, or in 
-the case of Mexico City \emph{delegaciones} and are the level below the State 
-(there are 2,473 in total).  In Chile these are known as \emph{comunas}, (of 
-which there are 346) and are also the level below the state.}
+I consider two empirical examples to motivate and demonstrate spillover-robust 
+DD estimation.  I focus on two localised contraceptive reforms in different 
+countries. The first is the legalisation of abortion in Mexico city in April of 
+2007, and the second the expansion of morning after pill availability in certain 
+municipalities of Chile in 2008.  Both reforms were sharp, resulting in a large 
+jump in reported rates of contraceptive access, and arrived to only certain areas 
+of the country.  In both cases, the geographic location of the reform was defined 
+by the nature of local municipal-level policies, resulting in seperate policies 
+in different municipalities in the country.\footnote{I refer to geographic units 
+in each case as municipalities.  In Mexico these are referred to as 
+\emph{municipios}, or in the case of Mexico City \emph{delegaciones} and are the 
+level below the State (there are 2,473 in total).  In Chile these are known as 
+\emph{comunas}, (of which there are 346) and are also the level below the state.}
 
 Contraceptive reform provides a useful test of a spillover-robust DD methodology.
-Firstly, the arrival is plausibly exogenous at the level of the treated woman.
+Firstly, the arrival is plausibly exogenous at the level of the treated woman.%
+\footnote{Both reforms in question were due to legislative changes which were
+eventually upheld by the supreme court of the country.  Additional details 
+regarding the Chile reform are described in appendix \ref{TEENscn:applegislate}
+and additional details on the Mexican reform are provided in appendix 
+\ref{Sscn:MAbort}.}
 Secondly, the incentives to access contraceptives, especially post-coital 
 treatments such as the morning after pill and abortion is high.  Even if a woman
 is geographically excluded from a treatment municipality, given that the economic
 and psychic costs of an undesired birth are very high, considerable incentives
-will exist to travel to a treatment area from a non-treatment area to control
-fertility.  Thirdly, contraceptive information may also be important in
-determining contraceptive behaviour, and this information may travel through
-(local) friendship networks.
+will exist to travel from a non-treatment area to a treatment area in order to 
+access fertility control policies.  Thirdly, contraceptive information may also 
+be important in determining contraceptive behaviour, and this information may 
+travel through (local) friendship networks.
 
 Some further details regarding each reform are provided in the sections below.
 In each case we estimate traditional difference-in-differences parameters under
@@ -670,6 +674,7 @@ then augment these estimates with the estimator discussed in the previous
 sections.
 
 \subsection{Abortion Reform in Mexico}
+\label{Ssscn:MexAbort}
 On April 24, 2007 Mexico City passed a law which which legalised abortion 
 under all circumstances in the first 12 weeks of pregnancy (see for example
 \citet{Fraser2014} for a discussion).  This was a radical change from previous 
@@ -679,59 +684,98 @@ to save the mother's life, or in the case of fetal inviability.  This law was
 administrative capital, and a region of Mexico containing approximately 8\% 
 of the population.
 
-This reform has had an important effect on birth rates among all age groups,
-both according to administrative records, and to microeconometric estimates
-(\citet{ClarkeMuhlrad2014} provide introductory figures of the effect of the
-reform).  In this paper we examine only the effect of the reform on the total
-number of teenage births.  Basic statistics for other age-groups, which show 
-broadly similar patterns, are appended.  Full tables are available upon 
-request.
+This reform resulted in free and legal access, with legal abortions being
+widely used.  This service has accounted for slightly than 89,000 abortions
+between 2007 and 2012 \citet{Beckeretal2013}.  Women of all reproductive ages
+have accessed abortion (ages 11-50), with slightly more than 20\% of users 
+being teenaged women.  In this paper I focus on the effect of legal abortion 
+usage on teenagers, however figures for non-teenagers (showing broadly similar 
+patterns) are provided in appendices \ref{Sscn:Agraphs} and \ref{Sscn:Atables}.  
+A more comprehensive discussion of the Mexico abortion reform is provided in 
+appendix \ref{Sscn:MAbort}.
 
-Table \ref{Stab:headline} provides estimates of the effect of the reform on
+The effect of this reform on the number of teenage births is examined.\footnote{%
+Numbers of births are used rather than rates given the difficulty in obtaining
+precise measures of the number of women of each age living in each municipality 
+in each year.  Although censal counts of women \emph{are} available at the 
+municipality level, this is only for census years (2000, 2005 and 2010).}  In 
+order to do so, data from various sources is collected.  Microdata on all 
+registered births is collated from yearly vital statistics registers provided by 
+the Mexican National Institute of Statistics and Geography for the years 2001--%
+2010. This is crossed with a range of municipality$\times$year varying measures 
+including spending on medical staff by municipalities, educational investments
+and stocks, municipal involvement in the \emph{Seguro Popular} program,%
+\footnote{\emph{Seguro Popular} is one of the largest publicly-funded health 
+insurance programs in the world, offering coverage to all individuals not covered 
+by private (employer financed) health insurance \citep{BoschCampos2014}.  This 
+covers (among many other things) basic antenatal care and contraceptive access.} 
+and access to other types of contraceptives.  This results in data on 22.20 
+million births, of which 1.47 million are to teenage mothers. Basic descriptive 
+statistics of births in Mexico DF, births in municipalities close ($<$30 km) 
+from Mexico DF, births in other states, along with municipal controls are provided 
+in table \ref{Stab:MexDescriptives}.
+
+\input{\sdidloc/tables/MexSum.tex}
+
+Table \ref{Stab:Mex1519} provides estimates of the effect of the reform on
 the total number of births by teenagers in treatment municipalities.  In 
 column 1 we estimate a specification similar to (\ref{Seqn:cDDconc}): the 
 traditional DD estimate which does not account for spillovers.\footnote{Rather 
 than estimating (\ref{Seqn:cDDconc}) precisely as written, we estimate a more 
 flexible specification including time varying controls, full time and
 municipality fixed effects, and municipal trends.  The intution however is
-unchanged.}  This is then extended in columns 2 and 3 to account for spillovers
-(if necessary).  Columns 2 and 3 present spillover-robust DD estimates, as 
-described in section \ref{Sscn:estim} and equation (\ref{Seqn:cDD}).  In the
-case that spillovers exist, and that these spillovers work in the same 
-direction as the treatment effect itself, we should expect that we can reject
-the null that $\beta<0$.  If however, $\hat\beta$ is not significantly 
-different to zero, this suggests that areas `close to treatment' are not
-different from areas far away from treatment, and that augmenting the 
+unchanged.}  This is then extended in columns 2 to 5 to account for spillovers
+(if necessary).  These additional columns show the iterative estimation 
+process entailed in the spillover-robust DD process, as described in section 
+\ref{Sscn:estim} and equation (\ref{Seqn:cDD}).  In the case that spillovers 
+exist, and that these spillovers work in the same direction as the treatment 
+effect itself, we should expect that we can reject the null that $\beta<0$ for
+coefficient estimates on `Close' controls.  If however, $\hat\beta$ is not 
+significantly different to zero, this suggests that areas `close to treatment' 
+are not different from areas far away from treatment, and that augmenting the 
 specification to account for local spillovers is unnecessary.
 
-\input{\sdidloc/tables/Headline.tex}
+\input{\sdidloc/tables/AgeGroupN1.tex}
 
-Estimates from table \ref{Stab:headline} suggest that, firstly, the effect of
+Estimates from table \ref{Stab:Mex1519} suggest that, firstly, the effect of
 the abortion policy is significant in magnitude.  It reduces births among 
 teenagers by 125 births per municipality per year. When comparing this to the
 average level of 1632.1 in treatment municipalities, this is a sizeable (and
 statistically significant) effect.  When augmenting to control for local
-spillovers in columns 2 and 3, it appears that municipalities `close to' 
+spillovers in columns 2 to 5, it appears that municipalities `close to' 
 treatment also are affected by the reform.  For those municipalities within
 10km of treatment municipalities (but not themselves treated), the effect is 
 a highly statistically significant reduction of approximately 120 births.
 Column 3 extends to include a range of close controls.  Here it becomes
 apparent that statistically significant effects remain at least up to areas
 between 10 and 20km from the nearest treatment, and negative point estimates
-only disappear when travelling greater than 30km away from treatment.
+only disappear when travelling greater than 30km away from treatment.  
+
+In examining estimates of living in treatment and close to treatment areas, it 
+is worth noting that although spillover estimates are significantly different
+to zero over ranges of approximately 30 km, the correction for spillovers
+does not result in statistically significant changes in estimates of $\alpha$:
+the effect of living in Mexico DF, after the introduction of the reform 
+(though coefficients move as theoretically hypothesised).  Considering the
+relative small number of municipalities which are `close' to Mexico DF (only
+0.5\% of total municipalities, containing 1.5\% of total births in Mexico lie 
+within a 30km radius of Mexico DF), this is not remarkably surprising, as the 
+attenuation bias caused by these municipalitis is small. This is a point I 
+return to discuss more extensively when examining the case of Chile, where 
+treatment is geographically disperse, and a much larger proportion of the 
+population lies `close' to treatment areas.
 
 \begin{figure}[h!]
-\includegraphics[scale=0.8]{\sdidloc/figures/MexClose1.eps}
+\includegraphics[scale=1]{\sdidloc/figures/MexClose1.eps}
 \caption{Treatment and close to treatment effects: 15-19 year olds Mexico}
 \label{SFig:MexClose}
 \vspace{2mm}
-\begin{footnotesize}
+\floatfoot{
 \textsc{Notes to figure}: Each point represents a treatment effect for the group
 living $d\in [0,50]$ km from the nearest treatment municipality.  As such, the
 point at 0 includes all municipalities to directly receive treatment (Mexico DF).
 Standard errors are clustered at the level of the municipality.  Dotted lines 
-display the 90\% confidence interval for all estimates.
-\end{footnotesize}
+display the 90\% confidence interval for all estimates.}
 \end{figure}
 Figure \ref{SFig:MexClose} presents a graphical representation of estimates
 of a vector of $\beta$ coefficients from equation (\ref{Seqn:cDD}).\footnote{
@@ -755,8 +799,11 @@ centres, which are administered by mayors and local governing councils.  This
 resulted in a period of approximately 4 years where the morning after pill was 
 available to women \emph{only} if the mayor of her municipality deemed it 
 appropriate.  The reform eventually resulted in morning after pill availability in 
-approximately 150 of the 346 municipalities of the country (further figures and 
-details of the reform are discussed in chapter \ref{chap:pill}).
+approximately 150 of the 346 municipalities of the country.  Further figures and 
+details of the reform are discussed in chapter \ref{chap:pill}.  A description
+of the constitutional details of the reform are provided in appendix 
+\ref{TEENscn:applegislate}, and summary statistics for areas with and without
+the emergency contraceptive pill are provided in table \ref{TEENtab:SumStats}.
 
 As for the case of the Mexico abortion reform, a `traditional' DD specification
 is estimated, and compared with a spillover-robust DD estimator as proposed in
@@ -765,48 +812,59 @@ estimated (where full year and municipal fixed effects are added, and municipal
 linear trends and time-varying controls are included), and compared to an 
 identical version of the equation robust to spillovers between treatment and 
 close-to-treatment areas (\ref{Seqn:cDD}).  If the traditional DD approach 
-adequately captures the treatment, or in other words if SUTVA holds even locally,
-then we should see two things: firstly, our estimate of $\alpha$ from 
-(\ref{Seqn:cDDconc}) should not be significantly different to that from 
-(\ref{Seqn:cDD}). Secondly, the coefficient on $R(i,t)$ should not be 
+adequately captures the treatment---or in other words, if the SUTVA holds 
+globally---then we should see two things. Firstly, our estimate of $\alpha$ 
+from (\ref{Seqn:cDDconc}) should not be significantly different to that from 
+(\ref{Seqn:cDD}). Secondly, the coefficient on each $R^k(i,t)$ should not be 
 significantly different to zero.  Formally, if we cannot reject the null that 
 $\beta=0$, this is evidence against the need for spillover robust DD in this 
 case.
 
-Columns 4 to 6 of table \ref{Stab:headline} present estimates from the Chile
-reform.  In this case the variable $Y(i,t)$ represents the probability of giving
-birth at time $t$, a binary outcome taking either 0 or 1 for each individual aged 
-15-19 years. Column 4 presents an estimate where treatment is defined as having
-the morning after pill available in the municipality where a woman lives one
-year prior to the realised birth outcome (birth versus no birth).  The lag of
-one year accounts for the mechanical delay in realisations of $Y(i,t)$ due to 
-child gestation.  This alone suggests important effects of the reform: having the
-reform available in the municipality of residence of the woman is associated with
-a 4.2\% reduction in births the following year.  However, in columns (5) and (6),
-we see that na\"ive estimates which fail to account for (local) spillovers 
-\emph{understate} the true importance of the reform.  Column 5 suggests that
-for girls living very close to the reform area, the reform appears to be at least
-as important, even though their municipality is not directly treated.  Indeed,
-we cannot reject tests for the equality of coefficients between those living
-in treatment municipalities and those living within 10km of treatment 
-municipalities.  Column 6 includes additional `close' binary variables, and
-these tests suggest that the effect of the reform is able to travel around 30km;
-reasonably similar to the effects of the Mexico abortion reform discussed in 
-the previous section.
+\input{\sdidloc/tables/spill1519Chile.tex}
+
+Table \ref{Stab:spill1519} presents estimates from the Chile reform.  In this case 
+the variable $Y(i,t)$ represents the probability of giving birth at time $t$, a 
+binary outcome taking either 0 or 1 for each individual aged 15-19 years. Column 1 
+presents an estimate where treatment is defined as having the morning after pill 
+available in the municipality where a woman lives one year prior to the realised 
+birth outcome (birth versus no birth).  The lag of one year accounts for the 
+mechanical delay in realisations of $Y(i,t)$ due to child gestation.  This alone 
+suggests important effects of the reform: having the reform available in the 
+municipality of residence of the woman is associated with a 4.5\% reduction%
+\footnote{Each binary model is estimated by logistic regression and odds ratios
+are reported.  Hence, the percentage reduction in the outcome of interest for a
+coefficient of -0.046 is calculated as $1-\exp(-0.046)=0.045$, or 4.5\%.  In the
+remainder of this section, coefficients will always be converted to percentage
+reductions of the outcome variable when discussed.} in births the following year.  
+However, in columns (2) to (5), we see that na\"ive estimates which fail to account 
+for (local) spillovers \emph{understate} the true importance of the reform.  Column 
+2 suggests that for teenages living very close to the reform area, the reform 
+appears to be nearly as important (a 4.8\% versus a 5.6\% reduction in pregnancy
+rates), even though their municipality is not directly treated.  Columns 3-5 
+progressively  include additional `close' binary variables, up to a distance of
+40km.  These tests suggest that the effect of the reform is able to travel around 
+30km, after which point marginal areas are not significantly affected by the 
+reform, and the estimate of the treatment effect in other areas is not affected by
+additional distance controls. The spillover distance of this reform is reasonably 
+similar to the effects of the Mexico abortion reform discussed in the previous 
+section.  Similar tests are run with women aged over 20, as well as using 
+alternative distance measures (distance by road and travel time by road) in 
+appendices \ref{Sscn:distApp} and \ref{Sscn:Atables}.
 
 \begin{figure}[h!]
-\includegraphics[scale=0.8]{\sdidloc/figures/ChileClose1.eps}
+\includegraphics[scale=0.95]{\sdidloc/figures/ChileClose1.eps}
 \caption{Treatment Effects: 15-19 year olds Chile}
 \label{Sfig:ChileAlpha}
 \vspace{2mm}
-\begin{footnotesize}
-\textsc{Notes to figure}: Each point represents a treatment effect on the 
-treatment area, conditioning on close controls for $d\in [0,45]$ km from the 
-nearest treatment municipality.  As such, the point at 0 includes all 
+\floatfoot{
+\textsc{Notes to figure}: Each point represents the estimated treatment effect 
+on the treated ($\hat\alpha$), conditioning on close controls for $d\in [0,45]$ 
+km from the nearest treatment municipality. As such, the point at 0 includes all 
 municipalities with the exception of treatment municipalities in the control 
-group.  Standard errors are clustered at the level of the municipality.  Dotted 
-lines display the 90\% confidence interval for all estimates.
-\end{footnotesize}
+group.  The point at 2.5 controls for spillovers up to 2.5 km (removing these
+areas from the control group), and so forth at other distances.  Standard errors 
+are clustered at the level of the municipality.  Dotted lines display the 90\% 
+confidence interval for all estimates.}
 \end{figure}
 
 These results clearly suggest that we \emph{can} reject the null that $\beta=0$, 
@@ -817,7 +875,17 @@ estimates $\hat\alpha$ more carefully suggests that as we move further away from
 the reform, the effect size monotonically decreases (figure 
 \ref{Sfig:ChileAlpha}).  This is precisely in-line with what we would expect if 
 SUTVA were violated locally, and the cost (both psychic and economic) of 
-travelling to treatment municipalities increased with distance.
+travelling to treatment municipalities increased with distance.  This figure
+suggests that traditional DD estimates are attenuated when the presence of 
+spillovers are not accounted for, and that the bias in estimates of $\alpha$ are
+corrected once controlling adequately for spillover distance.  The reported
+estimates of $\hat\alpha^k$ in figure \ref{Sfig:ChileAlpha} demonstrate the
+result derived in section \ref{Ssscn:TE} that if spillovers occur, if they
+are monotonic in distance, and if they are of the same direction of the treatment
+itself, then:
+$|E[\hat\alpha^0]|<|E[\hat\alpha^1]|<\cdots<|E[\hat\alpha^{d/h}]|=|\alpha|$,
+where $d$ is the maxiumum distance at which spillovers occur, and $h$ is the
+bandwidth measure, which in the above is 2.5 km.
 
 %================================================================================
 \subsection{Running Additional Placebo Tests}
@@ -838,36 +906,43 @@ as having a treatment estimate not significantly different from 0 (ie confidence
 intervals at $distance=0$), the same result should hold for close municipalities 
 ($distance>0$).
 \begin{figure}[h!]
-\includegraphics[scale=0.76]{\sdidloc/figures/ClosePlacebo1.eps}
+\includegraphics[scale=0.95]{\sdidloc/figures/ClosePlacebo1.eps}
 \caption{Treatment and Close, Placebo Tests: 15-19 year olds Mexico}
 \label{SFig:MexClose}
 \vspace{2mm}
-\begin{footnotesize}
-\textsc{Notes to figure}: Each point represents a placebo treatment effect for the 
-group living $d\in [0,50]$ km from the nearest treatment municipality three years
-\emph{prior} to the reform.  All births were realised entirely before the reform
-began.  Standard errors are clustered at the level of the municipality.  Dotted 
-lines display the 90\% confidence interval for all estimates.
-\end{footnotesize}
+\floatfoot{
+\textsc{Notes to figure}: Each point represents a placebo treatment effect for 
+the group living $d\in [0,50]$ km from the nearest treatment municipality three 
+years \emph{prior} to the reform.  All births were realised entirely before the 
+reform began.  Standard errors are clustered at the level of the municipality.  
+Dotted lines display the 90\% confidence interval for all estimates.}
 \end{figure}
 
 A more demanding series of placebo tests involves the estimation of a full event
 study based on the DD specification. In this case, instead of estimating a single
 treatment effect for all periods following the arrival of the natural experiment
-in question, being a treatment area is interacted with a series of lags and leads
-around the date of the reform.  This allows for a direct test of the timing of
-effect.  In a \citet{Granger1969} causality framework, any difference between 
-treatment and control states should only emerge following the introduction of the
-reform: not prior to the date of the reform.  
+in question, a binary variable for living in a treatment area is interacted with 
+a series of lags and leads around the date of the reform.  This allows for a 
+direct test of the timing of effect. In a \citet{Granger1969} causality 
+framework, any difference between treatment and control states should only emerge 
+following the introduction of the reform: not prior to the date of the reform.  
 
 In traditional DD this leads to estimations of event study where coefficients
 and standard errors are plotted which compare treated to control areas.  
-Insignificant differences prior to the reform and significant differences after
-the reform are evidence in favour of the parallel trend assumption.  In the case
-of spillover robust DD estimates, there are no two logical tests to employ.  
-These (seperately) test both parallel trend assumptions (assumption \ref{Sass:PT}
-and \ref{Sass:PTC}).  Both treated \emph{and} close to treated areas can be 
-compared with control areas in an event study framework.  
+Insignificant differences prior to the reform and significant differences 
+posterior to the reform are evidence in favour of the parallel trend assumption,
+and that the reform causes the effect, rather than the other way around%
+\footnote{This is also a test for the presence of phenomena similar to 
+Ashenfelter's dip \citep{Ashenfelter1978,HeckmanSmith1999}, where a reform or 
+program may be the result of a poor outcome prior to the program.  Ashenfelter's 
+dip refers to the fact that earnings are often seen to fall prior to entry into 
+labour market training programs, though similar phenomena may ocurr where public 
+policy responds to particularly concerning social indicators such as high rates 
+of teenage pregnancy.}. In the case of spillover robust DD estimates, there are 
+now two logical tests to employ.  These (seperately) test both parallel trend 
+assumptions (assumption \ref{Sass:PT} and \ref{Sass:PTC}). Both treated 
+\emph{and} close to treated areas can be compared with control areas in an event 
+study framework.  
 
 Figures \ref{Sfig:eventT} and \ref{Sfig:eventC} present these event studies for
 the case of Chile.  The omitted base year is 3 birth cohorts prior to the reform
@@ -889,28 +964,25 @@ at a 95\% confidence level, equality with zero cannot be rejected in any case
 \begin{center}
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[scale=0.32]{\sdidloc/figures/Event1519treat.eps}
+  \includegraphics[scale=0.33]{\sdidloc/figures/Event1519treat.eps}
   \caption{Full Event Study: Treatment}
   \label{Sfig:eventT}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[scale=0.32]{\sdidloc/figures/Event1519close.eps}
+  \includegraphics[scale=0.33]{\sdidloc/figures/Event1519close.eps}
   \caption{Full Event Study: Close to Treatment}
   \label{Sfig:eventC}
 \end{subfigure}
 \caption{Chile Event Study for ATT and ATC}
 \label{Sfig:eventStudy}
 \end{center}
-\begin{footnotesize}
-\textsc{Notes to figure}: In each figures the horizontal dotted line represents
-an effect size of 0.  The vertical solid line represents the first birth cohort
-affected by the reform.  Each point on the plot represents the effect of living 
-in a treatment (panel A) or close to treatment (panel B) municipality $x$ years
-before or after the reform took effect.  Error bars are 95\% confidence intervals
-of these estimates.
-
-\end{footnotesize}
+\floatfoot{\textsc{Notes to figure}: In each figures the horizontal dotted line 
+represents an effect size of 0.  The vertical solid line represents the first 
+birth cohort affected by the reform.  Each point on the plot represents the
+effect of living in a treatment (panel A) or close to treatment (panel B) 
+municipality $x$ years before or after the reform took effect.  Error bars 
+represent 95\% confidence intervals of these estimates.}
 \end{figure}
 
 %\section{Extensions}
@@ -920,16 +992,18 @@ of these estimates.
 %Robinson style back fit to get the coefficient on treatment (but not close).
 %\citet{Imbens2004}.  Just Monte Carlo this.
 
+%================================================================================ 
 \section{Conclusion}
 Echoing \citet{Bertrandetal2004}, ``Differences-in-Differences (DD) estimation 
 has become an increasingly popular way to estimate causal relationships''.  
 It is important to consider the assumptions underlying these estimators.  
 In this paper we examine how DD estimates perform when the stable unit treatment 
-value assumption does not hold locally.  Such a situation may be common in estimates 
-of the causal effect of policy where compliance is imperfect.  If policies entail a 
-benefit to recipients, and if recipients living `close to' treatment areas who are 
-themselves untreated can somehow cross regional boundaries to receive treatment, we 
-may be concerned that, locally at least, SUTVA is violated.
+value assumption does not hold locally.  Such a situation may be common in 
+estimates of the causal effect of policy where compliance is imperfect. If 
+policies entail a benefit to recipients, and if recipients living `close to' 
+treatment areas who are themselves untreated can somehow cross regional 
+boundaries to receive treatment, we may be concerned that, locally at least, 
+SUTVA is violated.
 
 In this paper we derive a set of conditions by which DD estimates can produce 
 unbiased estimates even in the absence of SUTVA between all units.  It is shown
@@ -937,10 +1011,32 @@ that under a weaker set of conditions, both the average effect on the treated
 and the average effect on the `close to treated' can be estimated in a DD-type
 framework.  It is suggested that in the absence of this correction for local 
 violations of SUTVA that (if spillovers actually \emph{do} occur) the true 
-effect of the policy is likely to be attenuated.  Finally, using two empirical 
-examples from recent contraceptive policy expansions, it is shown that this is%
----at least in these cases---an important consideration for treatment effects, 
-and effects on nearby neighbourhoods.
+effect of the policy is likely to be attenuated.  
+
+Using two empirical examples from recent contraceptive policy expansions, it is 
+shown that this is---at least in these cases---an important consideration for 
+the estimation of treatment effects, and effects on nearby neighbourhoods.  For
+both Chile and Mexico, it is shown that pregnancy rates in neighbourhoods 
+located close to areas where contraceptive reforms took place had subsequent
+reductions in rates of teenage pregnancy.  What's more, in Chile (but not in 
+Mexico), the correction for spillovers results in a significant reduction in
+estimated treatment effects on the treated, correcting an attenuation bias when
+control units are partially treated.  This is a useful reflection on this 
+methodology: where treatment is geographically disperse, and hence many people
+live close to treatment areas (as in Chile), correcting for failures of the
+SUTVA is likely to be particularly important.  In cases where treatment is only
+available in a reduced geographic area (such as Mexico), the degree of
+importance of spillovers are likely to be considerably less when considering
+estimates of average effects on treated areas.
+
+These tests are easy to run, and indeed a software package that automates this
+methodology is released with this paper.  Given the nature of the assumptions
+underlying identification in many DD models in the literature, tests of this 
+nature should be included in a basic suite of falsification tests.  While the
+examples in this paper are illustrated using geographic spillovers, spillover-%
+robust DD estimation is certainly not limited to only geographic cases.  How
+(and whether) treatment travels between units should be of fundamental concern 
+to many applications in the economic literature.
 
 
 \newpage
@@ -1029,14 +1125,20 @@ the same steps as the proof for proposition \ref{Pass:ATT}.
 
 \clearpage
 %-------------------------------------------------------------------------------
-\section{Measuring Distance to Treatment Clusters}
-Principal measures of distance from treatment is calculated by taking a 
-Euclidean distance from the midpoint of non-treatment clusters, and the nearest
-cluster which did receive treatment.  However, alternative measures may more
-optimally capture the true distance of an individual to treatment.  As a 
-robustness check, two alternative measures of distance to treatment are used.
+\section{Additional Details: 2007 Mexico Abortion Reform}
+\label{Sscn:MAbort}
+\citet{Beckeretal2013}.
 
-Firstly, I calculated the shortest distance over roads from non-treatment to 
+\section{Measuring Distance to Treatment Clusters}
+\label{Sscn:distApp}
+Principal measures of distance from treatment is calculated by taking a 
+Euclidean distance from the centroid of non-treatment clusters, to the centroid 
+of the nearest cluster which did receive treatment. However, alternative 
+measures may more accurately capture the true distance of an individual to 
+treatment.  As a robustness check, two alternative measures of distance to 
+treatment are calculated and used.
+
+Firstly, I collated the shortest distance over roads from non-treatment to 
 treatment areas.  This was calculated using repeated calls to the Google 
 Distance Matrix API\footnote{Full details can be found at:
 \url{https://developers.google.com/maps/documentation/distancematrix/\#api\_key}.
@@ -1054,62 +1156,87 @@ Maps, resulting in one value for each municipality pair.  In each case
 ``distance to treatment'' is then the minimum value to the nearest treatment 
 area, which varies by municipality and year.
 
-Results 
+These alternative measures of distance do not majorly affect the quantitative 
+implication of findings in either Chile or Mexico.  Appendix figure 
+\ref{Sfig:ATTTime} is the analogue of figure \ref{Sfig:ChileAlpha},
+using travel time rather than Euclidean distance between municipalities as
+a measure of spillover distance.  Results from both figures suggest a 
+treatment effect of approximately -0.075 once accounting for spillovers of
+30 minutes travel time or 30km of distance respectively.  Regression results
+for all age groups and all measures did not result in significantly different
+estimates of the effect of treatment in any case.
+
 \clearpage
 
 
 \section{Appendix Figures}
 \label{Sscn:Agraphs}
-\begin{figure}[htpb!]
-\includegraphics[scale=0.77]{\sdidloc/figures/MexClose2.eps}
-\caption{Treatment and close to treatment effects: 20-24 year olds Mexico}
+\begin{figure}[h!]
+\includegraphics[scale=0.76]{\sdidloc/figures/birthDescriptives.eps}
+\caption{Birth and Abortion Descriptives: Mexico}
+\label{SFig:MexClose}
+\vspace{2mm}
+\floatfoot{
+\textsc{Notes to figure}: Total births are plotted between 2001 and 2010.
+Abortions are plotted from the date of reform (April 26, 2007) until 2011.
+The total quantity of births is 22.20 million (all of Mexico), and total
+abortions are 69,861 (Mexico DF only).  Births are calculated from 
+administrative data (INEGI) and abortions from administrative data (Secretary
+of Health, Mexico DF).}
 \end{figure}
+
+
 \begin{figure}[htpb!]
-\includegraphics[scale=0.77]{\sdidloc/figures/MexClose3.eps}
-\caption{Treatment and close to treatment effects: 25-29 year olds Mexico}
-\end{figure}
-\begin{figure}[htpb!]
-\includegraphics[scale=0.77]{\sdidloc/figures/MexClose4.eps}
-\caption{Treatment and close to treatment effects: 30-39 year olds Mexico}
+\caption{Estimate of Average Treatment Effect when Controlling for Travel Time}
+\label{Sfig:ATTTime}
+\vspace{-8mm}
+\includegraphics[scale=0.55]{\sdidloc/figures/Dist1519_TIME.eps}
 \end{figure}
 
-\section{A Structural Interpretation of Spillover-Robust Difference-in-Difference Estimation}
-The framework discussed in this paper can be motivated in terms of a simple
-structural model in the style of \citet{Roy1951}, or 
-\citet{HeckmanVytlacil2005}.\footnote{While the \citet{Roy1951} model is not
-cast in terms of causal effects, it does consider selection based on relative
-utility.  The so-called ``Generalised Roy Model'' laid out in 
-\citet{HeckmanVytlacil2005} is a more appropriate framework for this analysis.}
-To start, potential outcomes are written as:
-\[
-Y_0= \mu_0(X) + U_0
-\]
-and
-\[
-Y_1= \mu_1(X) + U_1.
-\]
-Treatment assignment $T=1$ and $T=0$ are observed.  Each individual decides
-whether to opt in to treatment $D$, given their realisation of $X$ and $T$,
-along with the costs of participation:
-\[
-C=\mu_c(Z,T)+U_c.
-\]
-Their decision rule depends upon net utility:
-\[
-D^{*}=Y_1-Y_0-C,
-\]
-and can be expressed as: $D=\mathbf{1}_{D^{*}\geq 0}$.  Structural estimation
-relies on the assumption $(X,Z,T) \independent (U_0,U_1,U_c)$.\footnote{Note
-that the parallel trend assumption is a linear form of this.}  Note that in 
-the above specification, the costs of participation are explicitly allowed 
-to depend upon treatment assignment status $T$. This is a cost associated with
-defying the treatment status.
-
-Attach functionl forms: $\mu_0(X)=X\beta_0$, $\mu_1(X)=X\beta_1$, 
-$\mu_c(Z,T)=Z\beta_{cz}+T\beta_{cT}$, and distributional assumptions for the
-unobserved components: $(U_0,U_1,U_c)\sim \mathcal{N}(0,\Sigma)$ 
+\newpage
+\section{Appendix Tables}
+\label{Sscn:Atables}
+\input{\sdidloc/tables/AgeGroupN2.tex}
+\input{\sdidloc/tables/AgeGroupN3.tex}
+\input{\sdidloc/tables/spill2034Chile.tex}
+\input{\sdidloc/tables/spill3549Chile.tex}
 
 
+%\section{A Structural Interpretation of Spillover-Robust Difference-in-Difference Estimation}
+%The framework discussed in this paper can be motivated in terms of a simple
+%structural model in the style of \citet{Roy1951}, or 
+%\citet{HeckmanVytlacil2005}.\footnote{While the \citet{Roy1951} model is not
+%cast in terms of causal effects, it does consider selection based on relative
+%utility.  The so-called ``Generalised Roy Model'' laid out in 
+%\citet{HeckmanVytlacil2005} is a more appropriate framework for this analysis.}
+%To start, potential outcomes are written as:
+%\[
+%Y_0= \mu_0(X) + U_0
+%\]
+%and
+%\[
+%Y_1= \mu_1(X) + U_1.
+%\]
+%Treatment assignment $T=1$ and $T=0$ are observed.  Each individual decides
+%whether to opt in to treatment $D$, given their realisation of $X$ and $T$,
+%along with the costs of participation:
+%\[
+%C=\mu_c(Z,T)+U_c.
+%\]
+%Their decision rule depends upon net utility:
+%\[
+%D^{*}=Y_1-Y_0-C,
+%\]
+%and can be expressed as: $D=\mathbf{1}_{D^{*}\geq 0}$.  Structural estimation
+%relies on the assumption $(X,Z,T) \independent (U_0,U_1,U_c)$.\footnote{Note
+%that the parallel trend assumption is a linear form of this.}  Note that in 
+%the above specification, the costs of participation are explicitly allowed 
+%to depend upon treatment assignment status $T$. This is a cost associated with
+%defying the treatment status.
+%
+%Attach functionl forms: $\mu_0(X)=X\beta_0$, $\mu_1(X)=X\beta_1$, 
+%$\mu_c(Z,T)=Z\beta_{cz}+T\beta_{cT}$, and distributional assumptions for the
+%unobserved components: $(U_0,U_1,U_c)\sim \mathcal{N}(0,\Sigma)$ 
 
-%\section{Appendix Tables}
-%\input{./Appendix.tex}
+
+

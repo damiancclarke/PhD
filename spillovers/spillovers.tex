@@ -4,8 +4,15 @@ where the stable unit treatment value assumption is violated locally. This is
 relevant for a wide variety of cases where spillovers may occur between quasi-%
 treatment and quasi-control areas in a (natural) experiment. A flexible 
 methodology is described to test for such spillovers, and to consistently 
-estimate treatment effects in their presence. This methodology is applied to two 
-empirical examples.
+estimate treatment effects in their presence. This methodology is illustrated
+using two recent examples of contraceptive reform.  It is shown that with both
+the arrival of abortion to Mexico DF, as well as the arrival of the emergency
+contraceptive pill to certain areas of Chile, reductions in teenage pregnancy
+occurred in both reform neighbourhoods as well as nearby (but theoretically
+untreated) neighbourhoods.  Where reforms are geographically disperse, I 
+demonstrate that spillovers can cause considerable concern regarding the 
+unbiasedness of the traditional DD estimates widely employed in the economic 
+literature.
 \end{chapabstract}
 
 \newpage
@@ -1005,12 +1012,12 @@ treatment areas who are themselves untreated can somehow cross regional
 boundaries to receive treatment, we may be concerned that, locally at least, 
 SUTVA is violated.
 
-In this paper we derive a set of conditions by which DD estimates can produce 
-unbiased estimates even in the absence of SUTVA between all units.  It is shown
-that under a weaker set of conditions, both the average effect on the treated
-and the average effect on the `close to treated' can be estimated in a DD-type
-framework.  It is suggested that in the absence of this correction for local 
-violations of SUTVA that (if spillovers actually \emph{do} occur) the true 
+In this paper I derive a set of conditions by which DD estimates can produce 
+unbiased estimates even in the absence of the SUTVA holding between all units.  
+It is shown that under a weaker set of conditions, both the average effect on the 
+treated and the average effect on the `close to treated' can be estimated in a 
+DD-type framework.  It is suggested that in the absence of this correction for 
+local violations of SUTVA that (if spillovers actually \emph{do} occur) the true 
 effect of the policy is likely to be attenuated.  
 
 Using two empirical examples from recent contraceptive policy expansions, it is 
@@ -1127,7 +1134,39 @@ the same steps as the proof for proposition \ref{Pass:ATT}.
 %-------------------------------------------------------------------------------
 \section{Additional Details: 2007 Mexico Abortion Reform}
 \label{Sscn:MAbort}
-\citet{Beckeretal2013}.
+On April 26, 2007 the legislative assembly of the Federal District of Mexico
+City (Mexico DF), voted to legalise abortion (termed legal interruption of
+pregnancy) whenever requested by the woman up to 12 weeks of gestation,
+reforming article 144 of the penal code of Mexico DF. This immediately 
+permitted women from DF to request (free) legal interruption of pregnancy in 
+public health clinics, with a large influx of requests 
+\citep{Contrerasetal2011}. On August 29, 2008 this decision was ratified by the 
+Supreme Court of Mexico.
+
+As well as decriminalising abortion, the law dictated that Mexico DF Department
+of Health facilities offer free abortion to residents of DF, and on a variable
+pay scale for women from other areas of the country \citep{Beckeretal2013}. 
+Prior to the April 2006 findings, abortion was illegal in Mexico DF (and all of
+Mexico) in all but a very limited set of circumsances (depending on the state,
+these circumstances include none, some, or all of rape, fetal inviability or 
+grave danger to the health of the mother).  Along with free pregnancy 
+terminations at Ministry of Health clinics, following the reform private 
+health centres were also allowed to provide abortions.  
+%Finally, in 2011, the
+%Federal Commission of Protection Against Sanitary Risk (COFEPRIS) authorised
+%the sale of Mifepristona...
+
+Abortion services were widely accessed following the reform.  Between April 
+of 2007 and the end of 2011, 80,000 abortions were performed.  These were 
+accessed by women over the entire age range of the fertility distribution,
+reasonably closely mirroring mother's age at birth in birth data (figure
+\ref{SFig:MexBirthAbort}), though with a slightly higher rate for younger
+women.  Prior to April 2007 very few legal abortions were performed (n line
+with the restrictions listed above).  Between 2001 and 2007 only 62 legal
+abortions were performed, though clandestine abortion was very common 
+\citep{Beckeretal2013}.  Further details regarding the reform, demand and
+subsequent state decisions can be found in \citep{Beckeretal2013}, and 
+references therein.
 
 \section{Measuring Distance to Treatment Clusters}
 \label{Sscn:distApp}
@@ -1174,7 +1213,7 @@ estimates of the effect of treatment in any case.
 \begin{figure}[h!]
 \includegraphics[scale=0.76]{\sdidloc/figures/birthDescriptives.eps}
 \caption{Birth and Abortion Descriptives: Mexico}
-\label{SFig:MexClose}
+\label{SFig:MexBirthAbort}
 \vspace{2mm}
 \floatfoot{
 \textsc{Notes to figure}: Total births are plotted between 2001 and 2010.

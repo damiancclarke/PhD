@@ -1,0 +1,173 @@
+%-------------------------------------------------------------------------------
+Fertility decisions are fundamental to human welfare. As animals we are driven 
+to reproduce, while a deep desire for the wellbeing of our offspring promotes 
+investments to maximise their chances of success.  These behaviours play out 
+continually over our lives: first as the subjects of fertility choices, and 
+later as their architects.
+
+This thesis examines fertility choices and their effects on human well-being.
+It joins an enormous range of literature, both academic and non-academic, and
+from economics as well as other fields.  Particularly, this thesis is a 
+collection of papers which discuss how to estimate the causal effects of
+fertility decisions on the individuals and families which make them.  The 
+estimation of causal effects in an area of life (child-bearing) that is related 
+to and affects many other areas of life is not trivial.  However, in the 
+existing economic literature a number of techniques have been developed to 
+circumnavegate the difficulties involved in the estimation of causal links
+between child-bearing and other human outcomes.  In the chapters contained in 
+this thesis I provide extensions and caveats to these techniques.
+
+The body of this thesis consists of four chapters.  Three of these are central
+to the thesis and contain new empirical and theoretical considerations and 
+results.  The fourth provides a survey of the state of the art,
+along with a much more precise definition of the terminology and field in
+which this thesis is located.  This overview chapter is the first chapter,
+and a useful starting point for a reader interested in quickly gaining an
+understanding of the methodologies which are commonly employed to estimate the
+causal effects of fertility, and the empirical results in the literature.
+
+%-------------------------------------------------------------------------------
+The research contribution of this thesis begins with chapter \ref{chap:twins}.
+This chapter focuses on twins, and their use as an instrumental variable. The
+prevailing logic is that twin births are (at least conditionally) randomly 
+assigned to women who conceive.  If this is the case, twins are the perfect
+example of an instrumental variable: they have strong effects on completed
+fertility, while being unrelated to all other parental and family 
+characteristics.  This has given rise to a number of influential papers using
+twin births to estimate the effect of fertility at the extensive margin on
+women's and men's labour supply, as well as sibling quality.
+
+Chapter \ref{chap:twins} documents that the assumption of conditional 
+exogeneity of twin birth does not hold in the many cases examined.  It is 
+argued (and demonstrated) that healthier women are more likely to give birth 
+to twins.  It is shown that conditional on twin conception (which may or may 
+not be random), healthier mothers are more likely to take twins to term. This 
+is shown to be true prior to the introduction of assisted reproductive 
+technologies like IVF, and to hold in a large number of contexts, including 
+administrative data from the USA, UK, and Spain, and  survey data from Africa, 
+Asia and Latin America.
+
+The nature of this violation of exogeneity is problematic.  We document that
+healthy mothers are more likely to give live birth to twins.  Maternal health
+is very hard (or impossible) to fully capture in data.  In various contexts
+we show that health as proxied by height, alcohol and drug consumption prior
+to birth, maternal stress, smoking, and access to prenatal care all predict
+twinning.  It seems unlikely that all such measures (and the many which we
+don't observe) could ever be fully observable in data.  What's more, these
+measures are very likely to be correlated with unobserved factors which predict
+the very outcomes we are interested in analysing (labour force participation
+or child quality).
+
+In order to illustrate the problems involved in this methodology we turn to
+the quantity-quality (QQ) trade-off.  Recent empirical analysis has suggested 
+that an additional birth within a family may have very little causal impact 
+on existing children in a family.  As we demonstrate, any two-stage least 
+squares estimates which ignore the role of maternal health in twinning are
+likely to attenuate estimates of the QQ trade-off.  We partially correct for
+this bias, and show that upon partial correction, a significant trade-off
+does begin to emerge in data from the developing world, as well as in data
+from the USA.
+
+The estimates we produce are at best lower bounds of the trade-off. In closing
+the chapter we turn to ways to tighten the bounds on the estimate of the effect 
+of interest.  We use partial identification techniques to bound both IV as well 
+as OLS estimates, and then use our IV and OLS estimates (which are likely to 
+suffer different biases) to find the range in which the QQ trade-off lies.
+
+%-------------------------------------------------------------------------------
+Chapter \ref{chap:pill} turns to the effect of contraceptive technologies on 
+women's outcomes.  I focus on the effect of the emergency contraceptive pill in
+Chile.  This is a particularly interesting context given the high rates of 
+adolescent (and unplanned) pregnancy, and the absence of any other legal post-%
+coital birth control technologies.  The arrival of the emergency contraceptive
+pill heralded a large shift in the ability to post-coitally contracept, which
+previously was illegal and risky.
+
+The few existing studies of the effects of the emergency contraceptive pill
+(which have been conducted in the USA) on fertility suggest that its role may be 
+minor when considering rates of pregnancy.  However, these studies are conducted 
+in considerably different circumstances: namely, where free or cheap options to
+interrupt pregnancy already existed (via surgical abortion).  The evidence from 
+Chile, however, suggests that in the absence of alternative post-coital 
+technologies, the emergency contraceptive pill can act as an important technology 
+in reducing rates of pregnancy in the short term.
+
+In order to identify the effect, I focus on the staggered arrival of the 
+emergency contraceptive pill to the country. Following juridical and 
+constitutional rulings in 2008, the decision of whether or not to freely 
+distribute the emergency contraceptive pill in municipal health centers was 
+left in the hands of the mayor of each municipality. This interim legislation
+(which existed from 2008 until 2011) resulted in a situation in which 
+approximately half of the municipalities stated that they would prescribe the 
+pill, while the remainder did not. In this period, over 15,000 pills were 
+freely prescribed and issued to women.
+
+I document the effect of this reform on rates of child-bearing using a flexible 
+difference-in-differences (DD) methodology. Na\"ive DD estimates suggest a 4.5\% 
+reduction in rates of teen birth, and a 3\% reduction for women aged between 
+20-34.  I also document the effects of the reform on rates of fetal death.  DD 
+estimates suggest that the reform had important effects on rates of early term 
+fetal deaths reported by hospitals, but no similar effect on late term fetal 
+deaths. Although a reduction in fetal deaths in morning after pill 
+municipalities may be an indicator of many things, the fact that this reduction
+\emph{only} occurs early in gestation is suggestive of a reduction in illegal
+and risky abortions.
+
+In closing the chapter I examine the possibility that women may have crossed
+municipal boundaries (defying their treatment status) to access the emergency
+contraceptive pill. I demonstrate that there is evidence of reform `spillovers'
+which may travel up to 30km from the nearest treatment municipality, and which
+have important impacts on estimated treatment effects.
+
+%-------------------------------------------------------------------------------
+I return to the idea of spillovers much more extensively in chapter 
+\ref{chap:spill}---the final content chapter of the thesis.  Frequently in the
+economic literature, policy analysis is undertaken using a DD methodology. This
+is particularly the case where a reform arrives to certain areas or groups 
+within a country but not others, allowing for a clear classification between
+treatment and control individuals.  This methodology relies explicitly on the
+stable unit treatment value assumption (SUTVA), which, among other things,
+implies that no spillovers can occur between treatment and control areas.
+
+This is at odds with the incentives put in place in many policy reforms. Where
+policies are geographically (or otherwise) bounded, and where the policy offers
+clear benefits to those in treatment regions, nearby individuals will have the
+incentive to access treatment, violating their status, and the SUTVA. I propose
+a methodology to estimate causal treatment effects in the absence of SUTVA.
+Rather, I outline a weaker set of conditions, where this assumption need only 
+hold between \emph{some} units.  I derive a full set of conditions under which 
+the average treatment effect on the treated (ATT) and the average treatment 
+effect on the close to treatment (ATC) can be estimated in the presence of
+local spillovers.
+
+This spillover-robust DD methodology is demonstrated by examining two 
+contraceptive reforms.  Contraceptive reform is a perfect example of such a 
+situation given that the costs of having an undesired pregnancy are very high, 
+the arrival of new contraceptive technology to certain areas is often slowed by 
+legal challenges, and violation of treatment status is possible if individuals 
+from non-covered areas can travel and convince health care providers in covered 
+areas to prescribe treatment.  This is shown by using a 2007 abortion reform in 
+Mexico DF, and the aforementioned emergency contraceptive pill reform in Chile
+in 2008.
+
+In both cases of sub-national reform it is shown not only that the policy 
+reduced rates of teenage pregnancy treatment areas, but also that reductions
+occured in areas `close to' treatment.  In the case of Mexico DF (where 
+abortion was only available in one geographical area of the country), the 
+existence of spillovers is limited only to areas local to the state in question.
+These spillovers are shown to \emph{not} have significant effects on traditional
+DD estimates.  In the case of Chile, however, where treatment was geographically
+disperse, spillovers are seen, and once these spillovers are properly taken into
+account, the estimated treatment effect is \emph{larger} than that estimated 
+when SUTVA is assumed to hold.
+%-------------------------------------------------------------------------------
+
+Overall then, this thesis seeks to push forward the applied microeconometric 
+literature on the estimation of fertility and fertility control.  As more and
+more data on babies and long-term outcomes becomes available, significantly
+more precise effects of fertility on human outcomes can be estimated.  However,
+as this thesis documents, even with considerable amounts of information and
+carefully designed estimation strategies, the assumptions underlying our 
+methodologies should be tested demandingly.  Fertility decisions are complex, 
+and economic estimates must take account for this complexity when purporting to
+report causal estimates for policy and academics.

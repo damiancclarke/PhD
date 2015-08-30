@@ -48,28 +48,28 @@ In data from a large sample of developing countries, we show that taller women
 and women with a higher body-mass index are significantly more likely to give 
 birth to twins.\footnote{Height is an index of the stock of health of a woman 
 and is a function of investments over her growth period and, especially, the 
-early years of her life (see references in \citet{BhalotraRawlings2013}).} 
-Maternal health is likely to be an especially significant determinant of birth 
-outcomes in poorer countries where many women are chronically under-nourished 
-(an indicator of which is their final stature), exhibit anemia and low-BMI, and 
-are prone to infections. In these conditions only relatively healthy women will 
-have the resources to support a successful twin pregnancy. However, our critique 
-applies to richer countries too. Using administrative data from the Scotland,
-the USA, Sweden and Spain, and survey data from the UK and Chile, we find that 
-women who are taller and less likely to engage in risky behaviours such as 
-smoking, drug taking or alcohol consumption during pregnancy are significantly 
-more likely to have a (live) twin birth.\footnote{Simiarly, it is well known 
-that fertility treatments increase the likelihood of twinning. While we do not 
-discuss this extensively here, we note that this is likely to be less of an 
-identification challenge given that IVF treatment is an entirely observable 
-behaviour, unlike maternal health and pregnancy behaviours, which are 
+early years of her life (see \citet{BhalotraRawlings2013}, and references 
+therein).} Maternal health is likely to be an especially significant determinant 
+of birth outcomes in poorer countries where many women are chronically 
+under-nourished (an indicator of which is their final stature), exhibit anemia 
+and low-BMI, and are prone to infections. In these conditions, only relatively 
+healthy women will have the resources to support a successful twin pregnancy. 
+However, our critique also applies to richer countries. Using administrative 
+data from Scotland, the USA, Sweden and Spain, and survey data from the UK and 
+Chile, we find that women who are taller and less likely to engage in risky 
+behaviours such as smoking, drug taking or alcohol consumption during pregnancy 
+are significantly more likely to have a (live) twin birth.\footnote{Simiarly, 
+it is well known that fertility treatments increase the likelihood of twinning.
+While we do not discuss this extensively here, we note that this is likely to 
+be less of an identification challenge given that IVF treatment is an entirely 
+observable behaviour, unlike maternal health and pregnancy behaviours, which are
 multidimensional and largely unobservable.}
 
 Overall, our argument is that women who give birth to twins are positively 
 selected and that the common tendency to ignore this will result in under-%
-estimation of the Q--Q trade-off. We focus upon maternal health because no 
-previous work has highlighted it as a determinant of twinning, and because it is 
-inherently impossible to fully control for. Even if we had data that included 
+estimation of the Q--Q trade-off. We focus on maternal health because no 
+previous work has highlighted this as a determinant of twinning, and because it 
+is inherently impossible to fully control for. Even if we had data that included 
 all of the indicators of health we mention above, we may not observe whether 
 women skip breakfast \citep{MazumderSeeskin2014}, whether they are stressed 
 (\citet{Blacketal2014} and references therein), whether they seek and adhere to 
@@ -97,16 +97,16 @@ weakly positive. However, when taking into account this innovation we find that
 a significant trade-off does exist, and that an additional birth reduces 
 standardised schooling behaviour by at least 4\% of a standard deviation.
 
-The estimated effect of $\sim 4\%$ of an s.d.\ is at most the lower bound for 
-the true size of the Q--Q trade-off. Given that we suggest that maternal health 
-predicts twinning, and given that maternal health is multidimensional in nature 
-and difficult to observe fully, we will only ever be able to include a partial 
-set of controls to account for the inconsistency in IV estimates. As such, we 
-examine a number of methods to estimate plausible bounds on the Q--Q trade-off. 
-First, we argue that the true estimate is bounded by the OLS and IV estimtes. 
-We also follow \citet{Conleyetal2012} in conceptualizing twins as a plausibly 
-exogenous event, and derive estimates by assuming that the traditional exclusion 
-restriction is `close to' holding.
+The estimated effect of approximately 4\% of a s.d.\ is at most the lower bound 
+for the true size of the Q--Q trade-off. Given that we suggest that maternal 
+health predicts twinning, and given that maternal health is multidimensional in 
+nature and difficult to observe fully, we will only ever be able to include a 
+partial set of controls to account for the inconsistency in IV estimates. As 
+such, we examine a number of methods to estimate plausible bounds on the Q--Q 
+trade-off. First, we argue that in some circumstances, the true estimate is 
+bounded by the OLS and IV estimates. We then follow \citet{Conleyetal2012} in 
+conceptualizing twins as a plausibly exogenous event, and derive estimates by 
+assuming that the traditional exclusion restriction is `close to' holding.
 
 Empirically, work which further probes the Q--Q trade-off is important,
 especially in the developing country setting on which we place considerable 
@@ -138,7 +138,25 @@ estimation samples from both low- and high-income countries, and section
 section.
 
 %*******************************************************************************
-\section{Twins}                                    \label{TWINscn:literature}
+\section{The Quantity--Quality Trade-off and Twins}   \label{TWINscn:literature}
+\subsection{The Quantity--Quality Trade-off}
+\begin{itemize}
+\item Paragraph or two describing Q--Q theory
+\item Paragraph discussing identification challenges
+\item Paragraph discussing ways to circumnavigate this
+\item Paragraph or two discussing estimates using different methodologies
+\begin{itemize}
+\item Here talk about IV being less precise than DD and cite Angrist et al.
+\end{itemize}
+\end{itemize}
+
+Other instruments and methodologies are also used including gender mix of 
+children \citep{ConleyGlauber2006}, policy experiments such as the arrival and 
+loosening of the one child policy in China \citep{Qian2009,ArgysAverett2015}, 
+historical time series variation in schooling \citep{BleakleyLange2009}, or 
+fertility transitions during industrialisation \citep{DalgaardStrulik2015}.
+
+\subsection{Twins}
 The ocurrence of twins has fascinated people, not least of all social 
 scientists, for as long as recorded history exists. Stories of Romulus and 
 Remus, the mythological founders of Rome, date from at least the fourth century 
@@ -258,12 +276,7 @@ influence both fertility decisions, and investments in children's education
 %*******************************************************************************
 \subsection{Quantity-Quality with Twins}           \label{TWINsscn:methodQQ}
 One proposed solution has been to employ 2SLS estimation, where fertility is 
-is instrumented using twin births.\footnote{Other instruments and methodologies
-are also used including gender mix of children \citep{ConleyGlauber2006}, policy
-experiments such as the arrival and loosening of the one child policy in China
-\citep{Qian2009,ArgysAverett2015}, historical time series variation in schooling
-\citep{BleakleyLange2009}, or fertility transitions during industrialisation
-\citep{DalgaardStrulik2015}.} The corresponding first stage is:
+is instrumented using twin births. The corresponding first stage is:
 \begin{equation}
 \label{TWINeqn:firststage}
 fert_{j}=\pi_0+\pi_1 twins_{j}+\bm{X}\bm{\pi}+\nu_{j},
@@ -274,8 +287,13 @@ in each case is the so-called $n+$ group, consisting of children born before
 birth $n$ in families with at least $n$ births. As such the twins themselves are 
 excluded from the estimation sample.\footnote{Typically, the argument is made 
 that twins are different to single births, and hence should not be compared in 
-analysis.} The logic, in quasi-experimental terms, is that existing children 
-(the subjects) are randomly assigned either one (control group) or two 
+analysis.  This could be perceived as a weakness if we wish to adhere strictly 
+to the original Q--Q model, in which it is assumed that investments in all 
+children's quality are the same.  This is a point discussed extensively in 
+\citet{RosenzweigZhang2009}. However, in order for our estimates to be relevant 
+and comparable to existing estimates in the literature, we follow the accepted
+$n+$ structure.} the logic, in quasi-experimental terms, is that existing 
+children (the subjects) are randomly assigned either one (control group) or two 
 (treatment group) siblings at the $n^{th}$ birth.
 
 Consistent estimation of $\beta_1$ can thus proceed provided (among other
@@ -1063,7 +1081,8 @@ maternal health variables in these datasets do not exhaustively capture all
 aspects of health stocks and behaviours, it seems unlikely that all relevant 
 variables are included in these specifications. As such, we turn to 
 \citeauthor{Conleyetal2012}'s \citeyear{Conleyetal2012} methodology to estimate 
-bounds for the Q--Q trade-off.  
+bounds for the Q--Q trade-off.\footnote{A flexible computational implementation
+of this code is provided by \citet{Clarke2014b}.}
 
 As outlined in section \ref{TWINsscn:methodBounds} (and further in appendix
 \ref{TWINscn:gamma}), this involves the definition of some prior belief over 

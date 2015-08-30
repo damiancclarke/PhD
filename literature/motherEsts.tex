@@ -1,8 +1,9 @@
 \pgfplotstablegetrowsof{\dataB}
 \let\numberofrows=\pgfplotsretval
 
-\begin{table}
+\begin{table}[htpb!]
 \caption{Fertility and Mother's Labour Market Outcomes}
+\label{ferttab:motherIV}
 % Print the table
 \pgfplotstabletypeset[
 columns={name,error,beta},
@@ -10,7 +11,7 @@ columns={name,error,beta},
   every last row/.style={after row=[1ex]},
   columns/name/.style={string type,column name={}},
   columns/error/.style={
-    column name={$\hat\beta \pm$ se($\hat\beta$)},
+    column name={$\hat\beta \pm$ 1.96se($\hat\beta$)},
     assign cell content/.code={% use \multirow for Z column:
     \ifnum\pgfplotstablerow=1
     \pgfkeyssetvalue{/pgfplots/table/@cell content}
@@ -22,7 +23,7 @@ columns={name,error,beta},
   },
   % Format numbers and titles
   columns/name/.style={column name=Authors, string type, column type={l}},
-  columns/beta/.style={column name=$\beta$, string type, column type={S[table-format=-2.2]}},
+  columns/beta/.style={column name={$\hat\beta$}, string type, column type={c}},
   columns/ci/.style={column name=$95\%$ CI, string type, column type={S[table-format=-1.2]}},
  ]{\dataB}
 

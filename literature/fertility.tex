@@ -125,6 +125,7 @@ turn, outlining main results from relevant papers in the field.
 %-------------------------------------------------------------------------------
 \section{Causality and Fertility}
 \label{Fscn:causality}
+\subsection{A Framework}
 Consider an outcome $Y_i$, for each member $i$ of a sample, $i\ \in \{1,\ldots,
 N\}$, where $Y$ denotes an outcome variable of interest, and the sample is drawn
 from a population of child-bearing mothers (or, as discussed later, their 
@@ -179,6 +180,56 @@ considerably hinders the estimation of causal effects.  In the sections which
 follow we return to this system of equations, and outline the existing 
 techniques which aim to recover causal estimates despite the lack of explicit 
 exogenous manipulation of $F$.
+
+%-------------------------------------------------------------------------------
+\subsection{Questions and Applications}
+Discussions of causality can be entirely agnostic to the deeper questions of
+why effects are observed, or why we may want to quantify causal effects at 
+all.\footnote{Discussions of how one should estimate causal parameters, and 
+the limits of estimation without theoretical underpinnings are a topic of great 
+debate, and have been for many years. As early as 1947 in ``Measurement Without 
+Theory'', \citeauthor{Koopmans1947} states: 
+\begin{quote}
+for the purpose of systematic and large scale observation of such a many-sided 
+phenomenon, theoretical preconceptions about its nature cannot be dispensed with, 
+and the authors do so only to the detriment of the analysis.
+\end{quote}
+In discussions of parameter estimates, I do not zoom out to examine these
+deeper issues.  Many resources discussing inference in economics provide 
+fascinating insight into these issues, such as \citet{Keane2010}, 
+\citet{Wolpin2013} and references therein.}  Nonetheless, these are precisely 
+the reasons that research into these questions is undertaken.  In the first 
+instance, the estimation of causal effects can allow us to test well-specified 
+models or hypotheses regarding behavioural or biological mechanisms. A correctly
+estimated parameter in the fertility literature is generally of interest given 
+its relation to deeper behavioural or technological implications rather than as
+a curio in its own right.  And in the second case, these behavioural or 
+technological implications are extremely relevant for policies implicitly or
+explicitly designed to impact human wellbeing.  I discuss these `whys' in what
+remains of this section.
+
+A range of theories exists to explain why fertility choices may affect other 
+human outcomes.  Microeconomic theories of fertility choice have a number of
+roots, including biological\footnote{For example, the \citet{TriversWillard1973}
+hypothesis regarding mother's health, environment, and investment in offspring
+has been used to motivate economic applications \citep{AlmondEdlund2007}.}, 
+behavioural, or technological. The earliest work such as \citet{Becker1960} 
+approached the problem firmly through the lens of consumer behaviour.  Utility 
+maximising individuals (or families) were assumed to choose the number of 
+children that they would like to have in the same way that they were assumed to 
+decide on other consumption: based on relative prices (or shadow prices), and a 
+budget constraint.  In later work, \citep{Becker1965}, the idea of a household 
+production function was introduced, in which both monetary and time costs of 
+production and consumption were considered to motivate household decisions.
+
+These theories of ``demand for children'' gave rise to theoretical predictions 
+regarding household fertility decisions.  Perhaps most central to these
+
+
+\begin{itemize}
+\item Why important
+\item Discussion on Q--Q
+\end{itemize}
 
 %-------------------------------------------------------------------------------
 \section{The Effects of Family Size on Children}
@@ -527,6 +578,9 @@ $^c$ Estimate for states adopting 1974-1975. Estimate for 1971-1973 is
 \end{footnotesize}} \\
 \end{tabular}
 \end{table}
+
+\textcolor{red}{Add discussion of why reforms are used, and how this is
+different (in some cases) to the idea of the reform}.
 
 Of the large number of studies which use reforms of fertility-control policies%
 \footnote{For abortion: \citet{Ananatetal2007,Ananatetal2009,AngristEvans1996,

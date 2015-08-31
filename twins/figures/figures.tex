@@ -17,7 +17,9 @@
 \floatfoot{Note to figure \ref{TWINfig:trends}: Cohorts are made up of all individuals 
 from the DHS who are over 35 years (for fertility), and over 15 years (for education).  
 In each case the sample is restricted to those who have approximately completed fertility 
-and education respectively.}
+and education respectively.  Full summary statistics for these variables are provided 
+in table \ref{TWINtab:sumstats}, and a full list of country and survey years are 
+available in table \ref{TWINtab:countries}.}
 \end{figure}
 \vspace{1cm}
 
@@ -25,7 +27,13 @@ and education respectively.}
 \begin{center}
 \caption{Proportion of Twins by Birth Order}
 \label{TWINfig:bord}
-\includegraphics[scale=0.92]{\twinloc/figures/twinbybord.eps} 
+\includegraphics[scale=0.86]{\twinloc/figures/twinbybord.eps} 
+\vspace{-8mm}
+\floatfoot{Note to figure \ref{TWINfig:bord} The fraction of twin births are calculated
+from the full sample of DHS data.  The solid line represents the average fraction of 
+twins in the full sample (1.85\%), while the dotted line presents twin frequency by 
+birth order.  The dotted line joins points at each birth order $\in \{1,\ldots,10\}$.  
+The fraction of singleton births is $1-$frac(twin).}
 \end{center}
 \end{figure}
 
@@ -35,6 +43,10 @@ and education respectively.}
 \label{TWINfig:births}
 \includegraphics[scale=0.92]{\twinloc/figures/famsize.eps} 
 \end{center}
+\vspace{-8mm}
+\floatfoot{Note to figure \ref{TWINfig:births} Densities of family size come from the
+full sample of DHS data.  Kernel densities are plotted, and present the frequency of
+the total number of children per family by family type.}
 \end{figure}
 
 \begin{figure}[htpb!]
@@ -59,9 +71,7 @@ and education respectively.}
 \begin{center}
 \caption{Relaxing Strict Exogeneity (two plus)}
 \label{TWINfig:ltz2}
-\includegraphics[scale=0.88]{\twinloc/figures/LTZ_two.eps}
-\vspace{-8mm}
-\floatfoot{Note to figure \ref{TWINfig:ltz2}: See note to Figure \ref{TWINfig:ltz3}}
+\includegraphics[scale=0.84]{\twinloc/figures/LTZ_two.eps}
 \end{center}
 \end{figure}
 
@@ -69,19 +79,21 @@ and education respectively.}
 \begin{center}
 \caption{Relaxing Strict Exogeneity (three plus)}
 \label{TWINfig:ltz3}
-\includegraphics[scale=0.88]{\twinloc/figures/LTZ_three.eps} 
-\floatfoot{Note to figure \ref{TWINfig:ltz3}: Confidence intervals and point estimates 
-are calculated according to \citet{Conleyetal2012}.  Estimates reflect a range of priors 
-regarding the validity of the exclusion restriction required to consistently estimate 
-$\hat\beta_{fert}$ using twinning in a 2SLS framework.  The local to zero (LTZ) 
-approach applied here assumes that $\gamma$, the sign on the instrument when included
-in the first stage, is distributed $\gamma\sim U(0,\delta)$.  The vertical dashed line
-indicates 2$\times\hat\gamma$, the point at which the estimate for $\gamma$ lies 
-precisely halfway between [0,$\delta$]. Further discussion is provided in appendix
+\includegraphics[scale=0.84]{\twinloc/figures/LTZ_three.eps} 
+\vspace{-8mm}
+\floatfoot{Note to figure \ref{TWINfig:ltz2}-\ref{TWINfig:ltz3}: Confidence 
+intervals and point estimates are calculated according to \citet{Conleyetal2012}
+using DHS data.  
+Estimates reflect a range of priors regarding the validity of the exclusion 
+restriction required to consistently estimate $\hat\beta_{fert}$ using twinning in 
+a 2SLS framework.  The local to zero (LTZ) approach applied here assumes that 
+$\gamma$, the sign on the instrument when included in the first stage, is 
+distributed $\gamma\sim U(0,\delta)$.  The vertical dashed line indicates 
+2$\times\hat\gamma$, the point at which the estimate for $\gamma$ lies precisely 
+halfway between [0,$\delta$]. Further discussion is provided in appendix
 \ref{TWINscn:gamma} and table \ref{TWINtab:Conley}.}
 \end{center}
 \end{figure}
-
 
 \begin{figure}[htpb!]
 \begin{center}
@@ -100,8 +112,9 @@ precisely halfway between [0,$\delta$]. Further discussion is provided in append
   \label{TWINfig:PEx-USA2}
 \end{subfigure}
 \end{center}
-\floatfoot{\textsc{Notes to figure \ref{TWINfig:PEx-USA}}: See notes to figure
-\ref{TWINfig:ltz3}.}
+\floatfoot{Note to figure \ref{TWINfig:PEx-USA}: See notes to figure
+\ref{TWINfig:ltz3}. An identical approach is employed, however now using USA 
+(NHIS) data.}
 \end{figure}
 
 \begin{figure}[htpb!]
@@ -121,7 +134,8 @@ precisely halfway between [0,$\delta$]. Further discussion is provided in append
   \label{TWINfig:HPEx-USA2}
 \end{subfigure}
 \end{center}
-\floatfoot{\textsc{Notes to figure \ref{TWINfig:HPEx-USA}}: See notes to
-figure \ref{TWINfig:ltz3}.}
+\floatfoot{Note to figure \ref{TWINfig:HPEx-USA}: See notes to
+figure \ref{TWINfig:ltz3}. An identical approach is employed, however now using USA 
+(NHIS) data.}
 \end{figure}
 

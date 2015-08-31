@@ -62,17 +62,24 @@ spillovers, where a tightly applied program may have an economic effect on
 nearby markets, but where this effect disipates as distance to treatment 
 increases.
 
+Methodologically, this chapter extends and generalises the less formal 
+discussion of spillovers provided in chapter \ref{chap:pill}.  It is
+formally shown under what conditions an average treatement effect can 
+be identified, even when traditional SUTVAs do not hold.  Similarly, it is 
+shown that this methodology allows us to estimate additional parameters
+of interest, allowing for the global effects of a policy to be quantified.
+
 Turning to empirics, this methodology is illustrated with two examples.
 I examine how spillovers of reforms across municipal boundaries may 
-contaminate `traditional' difference-in-differences (DD) estimators.  This is 
+contaminate `traditional' difference-in-differences (DD) estimators. This is 
 applied to two contraceptive reforms where individuals from contiguous or nearby 
 areas can travel to a treatment region to access the reform.  It is shown that 
 both the arrival of the morning after pill to certain municipalities of Chile, 
-and abortion to certain districts in Mexico, results in a reduction of births in 
-the given area, as well as in close-by quasi-control areas.  As a result, the 
-spillover-robust DD estimator propsed here flexibly captures this effect, 
-correcting for any (local) spillover bias that traditional DD fails to 
-identify.
+(discussed extensively in the prior chapter) and abortion to certain districts 
+in Mexico, results in a reduction of births in the given area, as well as in 
+close-by quasi-control areas.  As a result, the spillover-robust DD estimator 
+proposed here flexibly captures this effect,  correcting for any (local) 
+spillover bias that traditional DD fails to identify.
 
 Although in both these examples distance is a geographic measure, calculated
 variously as Euclidean distance, shortest distance over roads, and shortest 
@@ -150,7 +157,7 @@ Specifically, I propose that those living in control areas `close to' treatment
 areas are able to access treatment, either partially or completely.  Such a 
 case allows for a situation where individuals `defy' their treatment status, by 
 travelling or moving to treated areas, or where spillovers from treatment 
-areas is diffused through general equilibrium processes.  Define $R(i,t)$ 
+areas are diffused through general equilibrium processes.  Define $R(i,t)$ 
 where:
 \begin{equation}
 \nonumber
@@ -214,7 +221,9 @@ Y(i,t)=\mu+\tau D(i,1) + \gamma R(i,1) + \delta t + \alpha D(i,t) + \beta R(i,t)
 Notice that this (estimable) equation now includes the typical DD fixed effects 
 $\tau$ and $\delta$ and the double difference term $\alpha$.  However it also 
 includes `close' analogues $\gamma$ (an initial fixed effect), and $\beta$: the 
-effect of being `close to' a treatment area.
+effect of being `close to' a treatment area.  This equation partitions observations
+into three mutually exclusive binary groups: treated, close to treated, and 
+un-treated, and, as such, $R(i,t)\cdot D(i,t)=0$ for all individuals. 
 
 From the assumptions in (\ref{Seqn:ID}) and (\ref{Seqn:ID2}) it holds that 
 $E[(1,D(i,1),R(i,1),D(i,t),$
@@ -331,7 +340,7 @@ in the population:
 \label{Sass:SUTVAl}
 \textbf{Assignment to close to treatment depends on observable $X(i,t)$:} \\ 
 There exists an assignment rule $\delta\Big(X(i,t)\Big)=\{0,1\}$ which maps 
-individuals to close to treatment status $R(i,t)$, where $R(i,t)=\delta
+individuals to close to treatment status $R(i,t)$, where $R(i,t)\equiv\delta
 \Big(X(i,t)\Big)=\mathbf{1}_{X(i,t)<d}$, $X(i,t)$ is an observed covariate, and 
 $d$ is a fixed scalar cutoff. 
 %but unknown (though reveal this and how to estimate it later)
@@ -421,16 +430,17 @@ In the above expression $h$ refers to a bandwidth type parameter, which
 partitions the continuous distance variable $X_i$ into groups of distance $h$.%
 \footnote{So, if for example $X_i$ refers to physical distance to treatment and 
 the minimum and maximum distances are 0 and 100km respectively, $h$ could be set 
-as 5km, resulting in 20 different indicators $R^k$, of which each individual $i$ 
+as 5km, resulting in at most 19 different indicators $R^k$ (and one omitted
+base for living between 95-100km from treatment), of which each individual $i$ 
 in time $t$ can have at most one switched on.}
 
 From the above, we have partitioned $X_i$ into $K$ different groups. However, we
 are still unable to say anything about the distance $d$ above which spillovers no 
 longer occur. From assumptions \ref{Sass:PTC} and \ref{Sass:SUTVAs}, we do 
-however know that $d<Kh$, implying that there are at least some units for whom 
-spillovers do not occur.  From (\ref{Seqn:Runpack}) and the preceding logic, this 
-suggests that $d$ can be recovered following the iterative procedure laid out 
-below.
+however know that $d<max(X_i)$, implying that there are at least some units for 
+whom spillovers do not occur.  From (\ref{Seqn:Runpack}) and the preceding logic, 
+this suggests that $d$ can be recovered following the iterative procedure laid 
+out below.
 %, so long as spillovers are montononic in $X$.
 
 If we start by estimating a typical DD specification like (\ref{Seqn:cDDconc}),
@@ -740,16 +750,26 @@ specification to account for local spillovers is unnecessary.
 Estimates from table \ref{Stab:Mex1519} suggest that, firstly, the effect of
 the abortion policy is significant in magnitude.  It reduces births among 
 teenagers by 125 births per municipality per year. When comparing this to the
-average level of 1632.1 in treatment municipalities, this is a sizeable (and
-statistically significant) effect.  When augmenting to control for local
+average level of 1632 in treatment municipalities (displayed in the 
+penultimate row of table \ref{Stab:MexDescriptives}), this is a sizeable and
+statistically significant effect.  When augmenting to control for local
 spillovers in columns 2 to 5, it appears that municipalities `close to' 
 treatment also are affected by the reform.  For those municipalities within
 10km of treatment municipalities (but not themselves treated), the effect is 
-a highly statistically significant reduction of approximately 120 births.
-Column 3 extends to include a range of close controls.  Here it becomes
-apparent that statistically significant effects remain at least up to areas
-between 10 and 20km from the nearest treatment, and negative point estimates
-only disappear when travelling greater than 30km away from treatment.  
+a highly statistically significant reduction of approximately 120 births.%
+\footnote{While here we focus on teenaged girls, appendix \ref{Sscn:Atables} 
+presents similar graphical results for other age groups.  As can be seen in
+tables \ref{Stab:Mex2034} and \ref{Stab:Mex3549}, the pattern of these
+results is very stable regardless of whether we examine teenages, 20-34
+year olds, or women aged over 35.  The effect of the reform is strongest
+in treatment areas, however also has important effects over short distances.
+It is interesting to note that in Mexico, the reform was accessed by women
+of all reproductive ages, largely in line with the frequency of births by
+age group (figure \ref{Sfig:MexBirthAbort}).} Column 3 extends to include a 
+range of close controls.  Here it becomes apparent that statistically 
+significant effects remain at least up to areas between 10 and 20km from the 
+nearest treatment, and negative point estimates only disappear when 
+travelling greater than 30km away from treatment.  
 
 In examining estimates of living in treatment and close to treatment areas, it 
 is worth noting that although spillover estimates are significantly different
@@ -778,13 +798,11 @@ Standard errors are clustered at the level of the municipality.  Dotted lines
 display the 90\% confidence interval for all estimates.}
 \end{figure}
 Figure \ref{SFig:MexClose} presents a graphical representation of estimates
-of a vector of $\beta$ coefficients from equation (\ref{Seqn:cDD}).\footnote{
-While here we focus on teenaged girls, appendix \ref{Sscn:Agraphs} presents
-similar graphical results for other age groups.}  While the largest effect of 
-treatment is felt in the treatment municipality itself, effects clearly remain 
-even outside of treatment municipalities, suggesting that the spillover robust 
-specification is necessary to estimate causal effects $\hat\alpha$ and 
-$\hat\beta$.
+of a vector of $\beta$ coefficients from equation (\ref{Seqn:cDD}). While the 
+largest effect of treatment is felt in the treatment municipality itself, effects 
+clearly remain even outside of treatment municipalities, suggesting that the 
+spillover robust specification is necessary to estimate causal effects 
+$\hat\alpha$ and $\hat\beta$.
 
 %================================================================================
 \subsection{Emergency Contraceptive Reform in Chile}
@@ -804,6 +822,11 @@ details of the reform are discussed in chapter \ref{chap:pill}.  A description
 of the constitutional details of the reform are provided in appendix 
 \ref{TEENscn:applegislate}, and summary statistics for areas with and without
 the emergency contraceptive pill are provided in table \ref{TEENtab:SumStats}.
+For convenience and ease of comparison with table \ref{Stab:MexDescriptives}, 
+limited summary statistics are also available below.
+
+\input{\sdidloc/tables/ChileSum.tex}
+
 
 As for the case of the Mexico abortion reform, a `traditional' DD specification
 is estimated, and compared with a spillover-robust DD estimator as proposed in
@@ -849,7 +872,11 @@ additional distance controls. The spillover distance of this reform is reasonabl
 similar to the effects of the Mexico abortion reform discussed in the previous 
 section.  Similar tests are run with women aged over 20, as well as using 
 alternative distance measures (distance by road and travel time by road) in 
-appendices \ref{Sscn:distApp} and \ref{Sscn:Atables}.
+appendices \ref{Sscn:distApp} and \ref{Sscn:Atables}.  Like in Mexico, it is 
+observed that spillovers also occur over distance for older age groups in tables
+\ref{Stab:spill2034} and \ref{Stab:spill3549}.  As discussed more extensively
+in \ref{Sscn:distApp}, the flavour of these results does not seem to depend 
+greatly on the way distance to treatment is measured.
 
 \begin{figure}[h!]
 \includegraphics[scale=0.95]{\sdidloc/figures/ChileClose1.eps}
@@ -904,7 +931,10 @@ municipalites \emph{close} to treatment municipalities.  Below we present an
 example of such placebo tests from the Mexico City abortion reform.  Now, as well
 as having a treatment estimate not significantly different from 0 (ie confidence 
 intervals at $distance=0$), the same result should hold for close municipalities 
-($distance>0$).
+($distance>0$).  This is what we see in figure \ref{SFig:MexClose}.  Although 
+the confidence intervals are very wide in treated areas, in no case can we
+formally reject the null that no difference exists between treated (and close
+to treated) and control areas in the years prior to the reform.
 \begin{figure}[h!]
 \includegraphics[scale=0.95]{\sdidloc/figures/ClosePlacebo1.eps}
 \caption{Treatment and Close, Placebo Tests: 15-19 year olds Mexico}
@@ -942,7 +972,8 @@ of teenage pregnancy.}. In the case of spillover robust DD estimates, there are
 now two logical tests to employ.  These (seperately) test both parallel trend 
 assumptions (assumption \ref{Sass:PT} and \ref{Sass:PTC}). Both treated 
 \emph{and} close to treated areas can be compared with control areas in an event 
-study framework.  
+study framework.  This leads to two event studies, which estimate complete lags
+and leads for both $\alpha$ and $\beta$.
 
 Figures \ref{Sfig:eventT} and \ref{Sfig:eventC} present these event studies for
 the case of Chile.  The omitted base year is 3 birth cohorts prior to the reform

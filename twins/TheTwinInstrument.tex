@@ -755,12 +755,13 @@ variables such as education (tests for the joint significance of socioeconomic
 variables and health variables are rejected with p-values of $<$0.00).  
 Regressions displayed here are estimated by OLS, however are robust to 
 alternative functional forms and estimation methods.\footnote{Significant and 
-quantitatively similar results are found if a logit model is estimated rather 
-than a linear probability model, and when running separate models for twinning at 
+quantitatively similar results are found if a probit model is estimated rather 
+than a linear probability model (displayed in appendix table 
+\ref{TWINtab:TwinDHSProbit}, and when running separate models for twinning at 
 each birth order. Similarly, if we run the regression at the level of the mother 
 or include any combination of fertility measures, similar patterns are observed.
-Alternatively, rather than running a regression we can run (unconditional) balance 
-of characteristics tests by twin status.  These are available in the 
+Alternatively, rather than running a regression we can run (unconditional) 
+balance of characteristics tests by twin status.  These are available in the 
 appendix (table \ref{TWINtab:Balance}).  The findings are similar.}
 
 Columns (2)--(5) suggest that these results are not due only to the most low 
@@ -780,10 +781,15 @@ evidence that healthy women (as proxied by height) are significantly more
 likely to have twins in nearly all of the 68 countries included in DHS surveys.  
 Along with higher average rates of twinning in countries with taller women, a 
 positive within-country gradient exists, with taller women in a given country 
-more likely to have twins than their shorter counterparts. The size of DHS 
-estimates are considerable. Increasing a woman's height by 1 standard deviation 
-increases the probability of twinning by 0.44\% (as compared to a mean rate of 
-twins of 1.85\%).
+more likely to have twins than their shorter counterparts.  In column (6) we
+present suggestive evidence that access to prenatal care also increases the 
+likelihood of giving live birth to twins: women who deliver in the presence of 
+a doctor are significantly more likely to twin, and those who have no birth
+attendant are significantly less likely to twin than those who deliver in the 
+presence of a community health representative (the omitted category). The size 
+of DHS estimates are considerable. Increasing a woman's height by 1 standard 
+deviation increases the probability of twinning by 0.44\% (as compared to a mean 
+rate of twins of 1.85\%).
 
 Results for the infant mortality test described in section \ref{TWINsscn:methodQQ} 
 are presented in table \ref{TWINtab:IMR}. In row 1, we regress IMR for first-borns
@@ -1205,8 +1211,16 @@ these are informative for 2+ (education) and 3+ and 4+ (health).  Once again,
 we generally find a mid-point average effect of approximately 5\% of a 
 standard deviation from an additional birth, although these values are slightly
 higher (and less precise) when considering education rather than health.
- 
 
+While the bounds estimates are generally quite similar when comparing within
+a given context (DHS and NHIS), it is worth noting that the lower bound (as
+well as the point estimate) increases in magnitude with parity.  In the nine
+cases estimated, only one case (USA, education, 3+) does not follow this order.
+This pattern suggests that additional births impact siblings more at higher
+parities, in both the USA and the developing world.  This is in-line with the
+evidence presented by \citet{Qian2009} (in a different context and using a 
+different methodology), where early births at low parity (two) were found to 
+\emph{benefit} their siblings.
 
 %*******************************************************************************
 \section{Conclusion}                               \label{TWINscn:conclusion}

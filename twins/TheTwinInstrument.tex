@@ -140,21 +140,74 @@ section.
 %*******************************************************************************
 \section{The Quantity--Quality Trade-off and Twins}   \label{TWINscn:literature}
 \subsection{The Quantity--Quality Trade-off}
-\begin{itemize}
-\item Paragraph or two describing Q--Q theory
-\item Paragraph discussing identification challenges
-\item Paragraph discussing ways to circumnavigate this
-\item Paragraph or two discussing estimates using different methodologies
-\begin{itemize}
-\item Here talk about IV being less precise than DD and cite Angrist et al.
-\end{itemize}
-\end{itemize}
+Models of the Q--Q trade-off hypothesise an inverse realtionship between child
+quantity and child quality. Child `quality' is typically measured empirically as
+completed schooling, or occasionally as labour market or health measures.  As
+outlined in chapter \ref{chap:fert} of this thesis, the Q--Q trade-off comes
+from a model of demand for goods.  Children are typically considered normal
+goods, and enter the parental utility like any other good. However, the analysis 
+of child quality and child quantity \emph{together} results in special 
+properties, given that the shadow price of both child quality and child quantity
+interact in the household budget constraint.  Holding all else constant, an 
+increase in child quality costs more when a family has many children than when
+a family is small.
 
-Other instruments and methodologies are also used including gender mix of 
-children \citep{ConleyGlauber2006}, policy experiments such as the arrival and 
-loosening of the one child policy in China \citep{Qian2009,ArgysAverett2015}, 
-historical time series variation in schooling \citep{BleakleyLange2009}, or 
-fertility transitions during industrialisation \citep{DalgaardStrulik2015}.
+Since its proposal in 1973 \citep{BeckerLewis1973,DeTray1973,Willis1973}, this 
+hypothesis has received considerable empirical and theoretical attention, in no 
+small part due to the clearly observed cross-sectional and time-series 
+relationships between child quality and child quantity in macro-level data.  
+Despite clear theoretical predictions of Q--Q models, the trade-off in these
+models is largely by definition. Microeconomic evidence of the trade-off within
+families has been mixed. This is potentially an empirical issue, given a number 
+of considerable threats to the validity of estimates of the trade-off.  
+Alternatively, it may very well be that the true effect of an additional birth 
+at the level of the family is null, or even positive. As \cite{Qian2009} 
+highlights, household economies of scale in child rearing may mean that child 
+quality and quantity are complements, while \citet{Iacovou2001} suggests that 
+social interaction from siblings may produce a net benefit.
+
+The estimation challenges in isolating the effect of quantity on quality 
+principally owe to the unobservable shadow prices for both quantity and
+quality, and their joint determination by the household. If neither the shadow 
+price of quality nor the shadow price of quality is observed, the only way to 
+estimate a causal effect is with the use of an alternative exogenous factor 
+shifting either fertility, or child quality \citep{RosenzweigWolpin1980,
+RosenzweigWolpin1980b}.  This discussion has lead to the proposal of a number
+of potentially exogenous factors including \citeauthor{RosenzweigWolpin1980}'s
+suggestion of the use of twin births.  Other instruments and methodologies also 
+used includr the gender mix of children \citep{ConleyGlauber2006}, policy 
+experiments such as the arrival and loosening of the one child policy in China 
+\citep{Qian2009,ArgysAverett2015}, historical time series variation in schooling
+\citep{BleakleyLange2009}, or fertility transitions during industrialisation 
+\citep{DalgaardStrulik2015}
+
+The evidence from these methodologies has been mixed. While early studies using 
+twins as an exogenous shock to fertility found that higher unexpected fertility
+reduced sibling educational attainment, more recent studies using large datasets
+and carefully controlling for birth order effects of twinning have often found
+null results.  Similarly, using the gender mix of children and the fact that
+families often aim for a balanced gender ratio, or children of each gender,
+no overwhelming support for a significant negative trade-off exists in the 
+literature.\footnote{A list of studies of the Q--Q trade-off using different
+methodologies as well as effect sizes found is provided in table 
+\ref{Ftab:childQQ} of this thesis.}  
+
+One concern is that IV estimates using shocks to family size as instruments may 
+be too imprecise to estimate a small negative coefficient if the Q--Q trade-off 
+were true.  This is examined in detail by \citet{Angristetal2010}, who combine a 
+number of instruments and birth parities to increase the precision of estimates, 
+but who still do not find evidence of the hypothesised trade-off. An alternative 
+way to avoid the problem of imprecise IV estimates is to combine sharp 
+time-series variation in the shadow price of child birth or child quality with 
+a methodology to capture any concurrent effects which may affect quality and
+quantity. Such a strategy has been used by \citet{BleakleyLange2009} for 
+variations in the cost of quality and \citep{DalgaardStrulik2015} for large 
+shifts in fertility, and both find evidence of a subsequent change in line with
+the predictions of the Q--Q model. While the disagreement between methodologies
+may be due to a range of factors including different samples, time-periods, or
+groups of compliers, in the remainder of this paper we further examine the Q--Q
+trade-off in an IV framework, restricting ourselves to the use of twins in the 
+last 50 years.
 
 \subsection{Twins}
 The ocurrence of twins has fascinated people, not least of all social 
@@ -232,10 +285,11 @@ Unrelated to health measures \emph{per se}, recent studies seek to control for
 the fact that multiple births are correlated with fertility treatments. 
 Typically, such an analysis requires either focusing on offspring born before
 the introduction of fertility treatments \citep{Caceres2006,Angristetal2010}, 
-or, in the case of sufficiently rich data, removing families undergoing fertility 
-treatment from estimation samples \citep{Braakman2014}. Once again, consistent 
-estimation in this case is based on the assumption that beyond fertility 
-treatment and family controls listed above, twin births are as good as random.
+or, in the case of sufficiently rich data, removing families undergoing 
+fertility treatment from estimation samples \citep{Braakman2014}. Once again, 
+consistent estimation in this case is based on the assumption that beyond 
+fertility treatment and family controls listed above, twin births are as good as 
+random.
 
 Finally, the twin instrument is not without critique for other reasons. Existing
 critiques of the twin instrument have focused on parental behaviours in response 
@@ -551,7 +605,7 @@ population.
 We pool all publicly available DHS data resulting in microdata on 3,297,318 
 children ever-born to women who responded fully to any DHS survey. A full list of 
 the DHS countries and years of surveys which make up this sample is provided in
-an online appendix (table \ref{TWINtab:countries}).  Of the 3,297,318 offspring 
+an appendix (table \ref{TWINtab:countries}).  Of the 3,297,318 offspring 
 reported in survey data, 2,033,510 remain living in the same household as their 
 mother.  The majority of these 2,033,510 children are aged 18 and under (92.96\%) 
 and hence make up our principal estimation sample (in future we will refer to this 
@@ -706,7 +760,7 @@ than a linear probability model, and when running separate models for twinning a
 each birth order. Similarly, if we run the regression at the level of the mother 
 or include any combination of fertility measures, similar patterns are observed.
 Alternatively, rather than running a regression we can run (unconditional) balance 
-of characteristics tests by twin status.  These are available in the online 
+of characteristics tests by twin status.  These are available in the 
 appendix (table \ref{TWINtab:Balance}).  The findings are similar.}
 
 Columns (2)--(5) suggest that these results are not due only to the most low 

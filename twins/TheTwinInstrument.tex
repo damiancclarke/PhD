@@ -164,7 +164,7 @@ Alternatively, it may very well be that the true effect of an additional birth
 at the level of the family is null, or even positive. As \cite{Qian2009} 
 highlights, household economies of scale in child rearing may mean that child 
 quality and quantity are complements, while \citet{Iacovou2001} suggests that 
-social interaction from siblings may produce a net benefit.
+social interaction between siblings may produce a net benefit.
 
 The estimation challenges in isolating the effect of quantity on quality 
 principally owe to the unobservable shadow prices for both quantity and
@@ -175,7 +175,7 @@ shifting either fertility, or child quality \citep{RosenzweigWolpin1980,
 RosenzweigWolpin1980b}.  This discussion has lead to the proposal of a number
 of potentially exogenous factors including \citeauthor{RosenzweigWolpin1980}'s
 suggestion of the use of twin births.  Other instruments and methodologies also 
-used includr the gender mix of children \citep{ConleyGlauber2006}, policy 
+used include the gender mix of children \citep{ConleyGlauber2006}, policy 
 experiments such as the arrival and loosening of the one child policy in China 
 \citep{Qian2009,ArgysAverett2015}, historical time series variation in schooling
 \citep{BleakleyLange2009}, or fertility transitions during industrialisation 
@@ -325,12 +325,32 @@ OLS with cross-sectional data will result in biased coefficients given that chil
 quality and quantity are jointly determined \citep{BeckerLewis1973,
 BeckerTomes1976}, and given that unobservable parental behaviours and attributes 
 influence both fertility decisions, and investments in children's education 
-\citep{Qian2009}.
+\citep{Qian2009}.  
+
+An explicit discussion of the direction of the OLS bias is often not provided in 
+existing papers, although frequently OLS estimates point to a larger trade-off 
+than their IV counterparts. However, beyond empirical results, there is nothing 
+which suggests that this must necessarily be the case. While historically and in 
+low-income countries, preferences for schooling and fertility overwhelmingly seem 
+to be inversely related\footnote{This is perhaps due to both both (a) preference: 
+where less educated women have a lower opportunity cost of their time (so higher 
+fertility is more acceptable) and a perception of lower returns to schooling (so 
+lower schooling is more acceptable) and (b) fertility control: where the rich 
+have better information and availability about contraception}, it is not clear 
+that this will be the case in all contexts, particularly in high-income countries 
+today. Indeed, there is some evidence to suggest that the relationship between 
+fertility preferences and socioeconomic level might be non-linear and J-shaped 
+where higher development is linked to lower fertility preferences only up to a 
+certain point, after which, the relationship changes direction 
+\citet{Myrskylaetal2009}.  If this is the case, expecting that the OLS bias will 
+be of the same direction in all contexts may be unrealistic, a point we can 
+return to once we estimate \ref{TWINeqn:RF}.
+
 
 %*******************************************************************************
 \subsection{Quantity-Quality with Twins}           \label{TWINsscn:methodQQ}
-One proposed solution has been to employ 2SLS estimation, where fertility is 
-is instrumented using twin births. The corresponding first stage is:
+One proposed solution to the OLS bias has been to employ 2SLS estimation, where 
+fertility is instrumented using twin births. The corresponding first stage is:
 \begin{equation}
 \label{TWINeqn:firststage}
 fert_{j}=\pi_0+\pi_1 twins_{j}+\bm{X}\bm{\pi}+\nu_{j},
@@ -972,16 +992,17 @@ should drive IV estimates in the direction of identifying the true Q--Q
 trade-off, as we partially correct for the bias introduced by the positive 
 correlation between twinning and maternal health.
 
-Conversely, OLS estimates are typically thought to over-estimate the true 
-magnitude of the Q--Q trade-off.  If unobserved parental behaviours favour both
-lower fertility and higher child human capital,\footnote{As a (highly stylised) 
-example, consider a prospective mother's eventual labour market plans. A mother 
-who plans to join the labour market may prefer fewer children, facilitating more 
-immediate labour force participation, but have more resources to invest in child
-quality.} OLS estimates of $\beta_1$ will be negatively biased, and hence 
-\emph{more} negative than the true trade-off.  As items are removed from the
-error term and included in the principal equation to be estimated by OLS, we thus 
-expect that these estimates should approach the true parameter from above.
+Conversely, OLS estimates are sometimes thought to over-estimate the true 
+magnitude of the Q--Q trade-off, particularly in low-income settings.  If 
+unobserved parental behaviours favour both lower fertility and higher child 
+human capital,\footnote{As a (highly stylised) example, consider a prospective 
+mother's eventual labour market plans. A mother who plans to join the labour 
+market may prefer fewer children, facilitating more immediate labour force 
+participation, but have more resources to invest in child quality.} OLS 
+estimates of $\beta_1$ will be negatively biased, and hence \emph{more} negative 
+than the true trade-off.  As items are removed from the error term and included 
+in the principal equation to be estimated by OLS, we thus expect that these 
+estimates should approach the true parameter from above.
 
 We examine this intuition by estimating $\beta_1$ from (\ref{TWINeqn:RF}) by OLS 
 and IV. Our principal data is the large DHS sample, where quality is measured by
@@ -1007,10 +1028,17 @@ long as any such variables remain unobserved and as part of the stochastic error
 term, OLS estimates \emph{will not} converge to unbiased values.  The following 
 sections examine alternative estimation methods to bound the Q--Q trade-off.
 
+In the top panel of table \ref{TWINtab:NHISAll}, OLS estimates are presented
+for data from the USA.  These estimates suggest a smaller trade-off than that
+seen in low-income country data discussed above.  When considering school 
+Z-score, an additional child is associated with approximately 0.02-0.04 of a
+s.d.\ reduction in their siblings' quality.  We return to contrast these to IV
+estimates in the following section.
+
 %*******************************************************************************
 \subsubsection{The Twin Instrument: Estimates of the Q--Q Trade-off}
-In table \ref{TWINtab:IVAll}, we turn to IV estimates using twins.  As we 
-outline in section \ref{TWINsscn:methodQQ}, the assumption of `as good as 
+In table \ref{TWINtab:IVAll}, we turn to IV estimates using twins with DHS data.  
+As we outline in section \ref{TWINsscn:methodQQ}, the assumption of `as good as 
 random' twin births is unlikely to hold, even when conditioning on the augmented
 set of controls proposed in (\ref{TWINeqn:twinreg}). If this is the case, we 
 will also be unable to consistently estimate $\beta_1$ using twin births.
@@ -1053,9 +1081,17 @@ attainment, we examine the effect of additional siblings on the reported health
 of children. Results for both variables show similar patterns to those reported 
 based on DHS data.  Focusing on the 3+ group, the inclusion of health and 
 socioeconomic controls results in OLS estimates moving closer to zero, and IV 
-results further away from zero. In nearly all cases examined, at all parity 
+results further away from zero.\footnote{Interestingly, in the case of the USA,
+the estimated OLS results suggest a smaller trade-off than IV estimates.  While
+this is the opposite to what is seen in low-income countries, it is in line 
+with discussions provided by \citet{Myrskylaetal2009}, who suggest that 
+relationships between fertility and development may reverse after a certain 
+point. Empirically, in one of the few papers using US data to estimate the 
+Q--Q trade-off, \citet{Caceres2006} also finds that IV estimates with 
+schooling outcomes (private school enrolment) actually suggest a \emph{larger}
+trade-off than OLS estimates.} In nearly all cases examined, at all parity 
 levels in both DHS and NHIS, the movements of point estimates is precisely as
- hypothesised in the series of inequalities described in (\ref{TWINeqn:moves}), 
+hypothesised in the series of inequalities described in (\ref{TWINeqn:moves}), 
 suggesting considerable improvements in IV estimates from accounting for twin
 endogeneity.  In the case of self reported health status, the inclusion of 
 additional twin predictors is sufficient to result in statistically significant 

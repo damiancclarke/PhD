@@ -46,7 +46,7 @@ or her child's \emph{other} outcomes must be independent of her labour market
 choice.
 
 Since the boom in fertility related research in microeconomics in the mid-%
-1970's,\footnote{From 1970 onwards, the frequency of the occurrence of the word 
+1970s,\footnote{From 1970 onwards, the frequency of the occurrence of the word 
 ``fertility'' 
 in titles of all articles published in the \emph{Journal of Political Economy} 
 is 46.5 per 100,000 words. Prior to the 1970s, the frequency was 1.45 per 
@@ -125,7 +125,7 @@ turn, outlining main results from relevant papers in the field.
 \section{Causality and Fertility}
 \label{Fscn:causality}
 \subsection{A Framework}
-Consider an outcome $Y_i$, for each member $i$ of a sample, $i\ \in \{1,\ldots,
+Consider an outcome $Y_i$, for each member $i$ of a sample, $i \in \{1,\ldots,
 N\}$, where $Y$ denotes an outcome variable of interest, and the sample is drawn
 from a population of child-bearing mothers (or, as discussed later, their 
 children). We are 
@@ -169,7 +169,7 @@ intensive margin).  We return to discussions of $b$ for different parities when
 discussing empirical results in the sections which follow.}
 \begin{equation}
 \label{Feqn:estimand}
-\beta\equiv\mathbb{E}_{U_i,\varepsilon_Y}[Y_i(b_i+1)-Y_i(b_i)]
+\beta\equiv E_{U_i,\varepsilon_Y}[Y_i(b_i+1)-Y_i(b_i)]
 \end{equation}
 
 The hypothetical manipulation envisioned by \citeauthor{Haavelmo1943} is 
@@ -223,32 +223,33 @@ production and consumption were considered to motivate household decisions.
 
 These theories of ``demand for children'' gave rise to theoretical predictions 
 regarding household fertility decisions.  Perhaps most central to these is the
-quantitly--quality (Q--Q) trade-off, which posits that an inverse relationship
+quantitly--quality (QQ) trade-off, which posits that an inverse relationship
 will exist between child quality and child quantity.  This relationship is
 suggested to exist given that children are a special composite ``good'', where 
 along with deciding how many are desired (an extensive decision), parents decide 
 on how much to invest in child quality (an intensive decision).  I return to 
-discuss the Q--Q trade-off later in this chapter, and, extensively in chapter
+discuss the QQ trade-off later in this chapter, and, extensively in chapter
 \ref{chap:twins} of this thesis.
 
-These demand-based theories which also incorporate time give rise to a number 
-of other hypothesised relationships, including an inverse relationship between 
-costs of child bearing (including outside labour market options for parents),
-and the number of children born.  Concerned with the narrow nature of demand-%
-based theories, where all variation in fertility is due to parental tastes and 
-the prices they face, \citet{Easterlin1975} proposed a more comprehensive 
-theory, in which demand for children, the supply of children (the theoretical
-quantity of children if parents do not contracept), and the cost of fertility
-regulation interact to determine completed fertility.\footnote{%
-\citeauthor{Easterlin1975} provides a deeper analysis of the machinery behind
-these decisions.  He discusses the ``basic'' and ``proximate'' determinants
-of fertility, which include (respectively) socioeconomic conditions, 
-modernisation variables, cultural factors and genetic factors; and exposure to
-intercourse, fecundability, duration of postpartum infecundability and the use
-of fertility control.} This theory conserved the most important predictions from 
-Becker and coauthors' models, while also opening new considerations regarding the 
-determinants and effects of fertility.  Perhaps most importantly, these theories 
-opened the door to external determinants of fertility such as fertility control 
+These demand-based theories which can also incorporate time endowments of 
+family members give rise to a number of other hypothesised relationships, 
+including an inverse relationship between costs of child bearing (including 
+outside labour market options for parents), and the number of children born.  
+Concerned with the narrow nature of demand-based theories where all variation 
+in fertility is due to parental tastes and the prices they face, 
+\citet{Easterlin1975} proposed a more comprehensive theory, in which demand for 
+children, the supply of children (the theoretical quantity of children if 
+parents do not contracept), and the cost of fertility regulation interact to 
+determine completed fertility.\footnote{\citeauthor{Easterlin1975} provides a 
+deeper analysis of the machinery behind these decisions.  He discusses the 
+``basic'' and ``proximate'' determinants of fertility, which include 
+(respectively) socioeconomic conditions, modernisation variables, cultural 
+factors and genetic factors; and exposure to intercourse, fecundability, 
+duration of postpartum infecundability and the use of fertility control.} This 
+theory conserved the most important predictions from Becker and coauthors' 
+models, while also opening new considerations regarding the determinants and 
+effects of fertility.  Perhaps most importantly, these theories opened the 
+door to external determinants of fertility such as fertility control 
 technologies as explicit determinants which may have a direct effect over 
 fertility outcomes.
 
@@ -268,7 +269,7 @@ including the Proclamation form the Cairo Program of Action in 1994, and in the
 current World Health Organisation defintion of reproductive rights. 
 
 Currently, the proportion of countries whose governments explicitly state that
-they are trying to alter population rights is very high.  In 2013, of the 66 
+they are trying to alter population levels is very high.  In 2013, of the 66 
 countries classified as ``high fertility'' (greater than 3.2 births per woman), 
 90\% of these have explicit policies in place to lower fertility rates 
 \citep{UN2013}.  In many cases, these policies' stated aim is to allow families
@@ -331,17 +332,17 @@ If we consider standard OLS with a linear model, we re-write
 \[
 Y=\beta F + U + \varepsilon_Y,
 \]
-where we assume that $\mathbb{E}[\varepsilon_Y]=0$.  To estimate $\beta$ from
+where we assume that $E[\varepsilon_Y]=0$.  To estimate $\beta$ from
 the above, we can consider conditioning on two distinct values of $F$:
 \begin{eqnarray}
-\mathbb{E}[\hat\beta] & = & \mathbb{E}[Y|F=b+1]-\mathbb{E}[Y|F=b]. \label{Feqn:OLS} \\
-                      & = & \mathbb{E}[\beta(b+1)+U|F=b+1] - \mathbb{E}[\beta(b)+U|F=b] 
+E[\hat\beta] & = & E[Y|F=b+1]-E[Y|F=b]. \label{Feqn:OLS} \\
+                      & = & E[\beta(b+1)+U|F=b+1] - E[\beta(b)+U|F=b] 
 \nonumber \\
-                      & = & \beta + \{\mathbb{E}[U|F=b+1] - \mathbb{E}[U|F=b]\} \nonumber
+                      & = & \beta + \{E[U|F=b+1] - E[U|F=b]\} \nonumber
 \end{eqnarray}
 Thus, (\ref{Feqn:OLS}) is only identical to the causal estimate in 
 (\ref{Feqn:estimand}) in a very limited set of circumstances: above this is when
-$\mathbb{E}[U|F=b+1] = \mathbb{E}[U|F=b]$.  This is simply a specific example of 
+$E[U|F=b+1] = E[U|F=b]$.  This is simply a specific example of 
 the well-known OLS requirement that the independent variable of interest ($F$) 
 must be uncorrelated with the omitted error term, given that 
 $\plim(\hat\beta)=\beta+\Cov(F,U)/\Var(F)$.  Where variation in fertility
@@ -368,13 +369,16 @@ confounded with birth order effects.  Indeed there are a number of reasons one
 could use to suggest bias.  These include parental education, discount rates,
 maternal health, or network effects driving both fertility and child quality.  
 Generally it seems likely that these factors will induce a negative bias in OLS
-estimates of the effect of fertility, given that 
-factors which lead to fewer births (contraceptive knowledge, opportunity cost of
-time, aspirations, and so forth) also seem likely to drive greater investments 
-in children who are eventually born.  Empirically, this overwhelmingly seems to
-be the case, with OLS estimates of the effect of fertility being universally 
-lower (more negative) than more credibly causal estimates.  We return to provide
-more details on these estimates in the sections which follow.
+estimates of the effect of fertility, given that factors which lead to fewer 
+births (contraceptive knowledge, opportunity cost of time, aspirations, and so 
+forth) also seem likely to drive greater investments in children who are 
+eventually born.  However, there is no reason why this theoretically must be the
+case, as fertility choices may interact in a range of ways with many different 
+unobserved characteristics of mothers or families.  Empirically, although it 
+largely seems to be the case that OLS estimates of the effect of fertility are 
+lower (more negative) than more credibly causal estimates, there are some cases, 
+particularly in more developed countries, where this is not the case. We return 
+to provide more details on these estimates in the sections which follow.
 
 %-------------------------------------------------------------------------------
 \subsection{Instrumental Variables}
@@ -409,7 +413,7 @@ be identified in the absence of any movement in $U$.  The most simple way to
 consider this is by observing the Wald estimator:
 \begin{eqnarray}
 \label{Feqn:Wald}
-\hat\beta = \frac{\mathbb{E}[Y|Z=1]-\mathbb{E}[Y|Z=0]}{\mathbb{E}[F|Z=1]-\mathbb{E}[F|Z=0]}.
+\hat\beta = \frac{E[Y|Z=1]-E[Y|Z=0]}{E[F|Z=1]-E[F|Z=0]}.
 \end{eqnarray}
 Here rather than explicitly being based on a movement from $F=b$ to $F=b+1$
 estimation is driven by the effect which $Z$ has on $Y$, scaled by the
@@ -444,10 +448,10 @@ $Z$ truly is independent of $U$.  This has been questioned in a number of ways.
 the fact that twins have lower health stocks at birth \citep{Almondetal2005}
 means that parents may change behaviours to reinforce or compensate for intra-%
 household human capital differences.  While this can be tested directly, it 
-requires data on early live human capital endowments such as birthweight.  
+requires data on early life human capital endowments such as birthweight.  
 \citet{BhalotraClarke2015} question the exogeneity assumption in another way.
 They demonstrate that healthier mothers are more likely to take twin births
-to term, and at the same time that healthier mothers are more likeley to have
+to term, and at the same time that healthier mothers are more likely to have
 additional resources to invest in child quality later in life.  This critique is
 laid out and estimated in chapter \ref{chap:twins} of this thesis.  At the very
 least however, both of these critiques will lead to predictable biases in 
@@ -550,19 +554,20 @@ inclusion in this table.
 Beyond general threats to inference discussed in this section, instrumental 
 variable estimates lead to the question of `inference for whom?'.  Estimates 
 based on IV lead to a local average treatment effect (LATE), not an average 
-treatment effect for the population in general \citep{ImbensAngrist1994}.  This 
-LATE implies that any estimates of $\beta$ holds for that group of the population 
-who would be induced to change their behaviour (ie their fertility) by the 
-instrument in question.  Thus, all instrumental estimates (even assuming causality)
-should be cast in terms of the sub-population (compliers) of interest.  This is
-a point explicitly discussed in \citet{Angristetal2010}, who suggest that the
-twin instrument is relevant for the whole population, while sex-composition 
-instruments are relevant for only certain groups. \citet{RosenzweigWolpin1980}'s 
-original article, although based on a reduced form equation, suggests that twin 
-births are relevant for a more specific group than that suggested by 
-\citet{Angristetal2010}: namely, those families who have a twin birth where
-the twin birth causes them to exceed their desired fertility.  I return to discuss 
-LATE and external validity in the following section of this paper.
+treatment effect for the population in general \citep{ImbensAngrist1994,
+Ebenstein2009}.  This LATE implies that any estimates of $\beta$ holds for that 
+group of the population who would be induced to change their behaviour (ie their 
+fertility) by the instrument in question. Thus, all instrumental estimates (even 
+assuming causality) should be cast in terms of the sub-population (compliers) of 
+interest.  This is a point explicitly discussed in \citet{Angristetal2010}, who 
+suggest that the twin instrument is relevant for the whole population, while 
+sex-composition instruments are relevant for only certain groups. 
+\citet{RosenzweigWolpin1980}'s original article, although based on a reduced 
+form equation, suggests that twin births are relevant for a more specific group 
+than that suggested by \citet{Angristetal2010}: namely, those families who have 
+a twin birth where the twin birth causes them to exceed their desired fertility. 
+I return to discuss LATE and external validity in the following section of this 
+paper.
 
 %Make table of potential biases...  Ie we know that coefficient between 
 %instrument and fertility is +/-.  Then if correlation between instrument
@@ -643,11 +648,17 @@ in the absence of any reproductive policy.  Similar examples exist in many other
 contexts.  An additional example is examined in chapter \ref{chap:pill} of this
 thesis.} The piecemeal and unexpected nature of these reforms makes it difficult 
 in many cases to quantify the effect of reforms on their stated aims due to the
-lack of centralised planning. However, given that these events have large 
-effects on fertility and are potentially divorced from other simulatenous 
-reforms or differential trends, makes historical contraceptive reforms the 
-perfect candidate for a first stage where the empirical aim is to identify the 
-effect of fertility on some other outcome.
+lack of centralised planning. Nevertheless, in some circumstances, comprehensive
+reviews can be conducted, focusing on the total effect of reproductive policy
+reforms on its actual aim.  For example, \citet{MolyneuxGertler2000} analyse 
+the effect of a national policy (Indonesia) while many analyses exist of the 
+local experimental policy in Matlab Bangladesh \citep{JoshiSchultz2013}. However,
+even in the absence of large-scale analyses of the effects of reproductive policy 
+reforms on their stated aims, historical contraceptive reforms are still an 
+excellent candidate to isolate the effect of changes in fertility on other
+outcomes of interest given that these events have large effects on fertility,
+and are potentially divorced from other simulatenous reforms or differential 
+trends.
 
 Of the large number of studies which use reforms of fertility-control policies%
 \footnote{For abortion: \citet{Ananatetal2007,Ananatetal2009,AngristEvans1996,
@@ -717,11 +728,12 @@ validity of such estimation methodologies is, of course, impossible, given
 that the counterfactual outcome--- the world where the pill was not available%
 ---is never observed.  This has lead to back-and-forth discussion, questioning 
 the validity of the use of policy-defined reforms to drive estimation (for 
-example, see \citet{Joyce2013}, who questions the exclusion restriction vs 
-\citet{Baileyetal2013} who defend current state-of-the-art results).  While 
-concerns that reforms may be systematically correlated with other unobservable 
-factors are of course justifiable, the best sets of studies aim to use 
-judiciously chosen control groups (including using women of different ages 
+example, see \citet{Joyce2013}, who questions the exclusion restriction vs.\ 
+\citet{Baileyetal2013} who defend current state-of-the-art results). 
+
+While concerns that reforms may be systematically correlated with other 
+unobservable factors are of course justifiable, the best sets of studies aim to 
+use judiciously chosen control groups (including using women of different ages 
 subject to the same geographic factors and institutions), to minismise concerns 
 such as these. An alternative concern in identification strategies of this type 
 surrounds the possiblity that \emph{local} reforms have more widely spread
@@ -765,15 +777,16 @@ estimation generally relies on an exclusion restriction similar to those
 discussed in section \ref{Fsscn:kidIV}.  \citet{RosenzweigWolpin1995} motivate 
 the estimation of a dynamic model to examine the effect of early fertility (teen 
 motherhood) on child birth outcomes (gestation and birthweight).  By formulating 
-an over-identified series of equations where identification (in a FE-IV framework) 
-comes from family background variables, and idiosyncratic elements shared by 
-siblings. \citet{RosenzweigSchultz1985} take advantage of variations in 
-fecundity, or births per attempt, which they suggest are unobserved by parents 
-prior to contraception attempts, but observable after the fact in data, as births 
-per period.  Identification in these studies usually depends on correct 
-functional form and distributional assumptions for the stochastic error term(s), 
-though it is important to point out that precisely the same conditions are the 
-case for parametric OLS (DD) and IV estimates discussed in previous subsections.
+an over-identified series of equations where identification (in a Fixed Effect-%
+IV framework) comes from family background variables, and idiosyncratic elements 
+shared by siblings. \citet{RosenzweigSchultz1985} take advantage of variations 
+in fecundity, or births per attempt, which they suggest are unobserved by 
+parents prior to contraception attempts, but observable after the fact in data, 
+as births per period.  Identification in these studies usually depends on 
+correct functional form and distributional assumptions for the stochastic error 
+term(s), though it is important to point out that precisely the same conditions 
+are the case for parametric OLS (DD) and IV estimates discussed in previous 
+subsections.
 
 %-------------------------------------------------------------------------------
 \section{The Effects of Child Birth on Mothers}
@@ -881,10 +894,10 @@ RosenzweigSchultz1987}.\footnote{\citet{Ribar1994} proposes three alternative
 exclusion restrictions (age at first period, availability of Ob/Gyn, and local
 abortion rates) for use in selection models.  While the identification 
 methodology is different to IV, the requirements for inferring causality are 
-identical.}  The effect sizes of existing estimates of the effect of fertility 
-on labour market outcomes largely point towards significant negative effects, 
-though not universally so.  A summary of point estimates and confidence 
-intervals of estimates is presented in table \ref{ferttab:motherIV}.
+identical.}  The signs and magnitude of existing estimates of the effect of 
+fertility on labour market outcomes largely point towards significant negative 
+impacts, though not universally so.  A summary of point estimates and 
+confidence intervals of estimates is presented in table \ref{ferttab:motherIV}.
 
 \input{\litrloc/motherEsts.tex}
 

@@ -401,9 +401,9 @@ variation in availability of the pill is by municipality and year.  Prior to
 the legal reform the pill was unavailable to all women, while posterior to the
 reform the pill was available to those women living in municipalities where the
 mayor did not restrict access.  This provides a flexible differences-in-%
-differences (hereafter diff-in-diff) framework, and allows us to causally 
+differences (hereafter DD) framework, and allows us to causally 
 estimate the effect of the morning after pill if we believe that typical 
-diff-in-diff assumptions hold.  Namely, we require that unobserved components 
+DD assumptions hold.  Namely, we require that unobserved components 
 $\varepsilon_{ijt}$ in the above specification evolve similarly over time in 
 the treated and untreated municipalities.
 
@@ -445,7 +445,7 @@ aggregate compositional change in the cohorts of women who give birth.
 
 \subsection{Identifying Spillovers Between Municipalities}
 \label{TEENsscn:spilloverID}
-Our diff-in-diff estimates in the previous section potentially underestimate the 
+Our DD estimates in the previous section potentially underestimate the 
 true effect of the morning after pill.  Principally, we may be concerned that
 there exist spillovers between treatment and control clusters due to the porous
 nature of municipal boundaries. Given that a woman can access municipal health
@@ -573,7 +573,7 @@ double-differences estimator, this would give:
 \end{equation}
 Here we clearly see that our naive estimator fails to recover the true parameter
 of interest $\delta$.\footnote{This estimator includes as a limiting case the
-typical diff-in-diff estimator, as in this case we assume that no spillovers are 
+typical DD estimator, as in this case we assume that no spillovers are 
 present and SUTVA holds, meaning that $\zeta=0$.  Similarly, if no municipalities 
 were close enough to experience spillovers, we would have that $N_c=0$, and once 
 again $\delta$ would be recovered.}  Generally, we would suspect that if 
@@ -641,7 +641,7 @@ The latter outcome captures just the effects of the emergency contraceptive pill
 at the extensive margin, while the prior outcome captures both extensive (first
 birth), and intensive (more births) effects.
 
-In each case we estimate first the simple diff-in-diff specification without 
+In each case we estimate first the simple DD specification without 
 time-varying controls, and then gradually add time varying controls which may 
 confound results of the original specification.  Initial results suggest that the 
 effect on pregnancies may be large, particularly so for teenagers.  Point 
@@ -775,7 +775,7 @@ In order for these methodologies to uncover a consistent estimate of $\delta$,
 all we require is that there actually are at least \emph{some} control 
 municipalities far enough away from treatment municipalities in which no 
 spillover effects are felt.  As described in (\ref{TEENeqn:DDaextend}), these 
-`non-close' municipalities act as the control group for our diff-in-diff estimator, 
+`non-close' municipalities act as the control group for our DD estimator, 
 so if no non-close municipalities exist, no consistent estimator can be formed.  
 Given the relatively large distance between some non-treated municipalities and 
 their nearest treated counterpart in the Chilean context, this seems unlikely in 
@@ -865,7 +865,7 @@ Bonferroni correction, finding a significant result would be even less likely.
 Robustness of the main estimates to the addition of time-varying controls and
 municipal-specific time trends provides some confidence in the results, however 
 does not directly examine the differential trends assumption underlying 
-diff-in-diff estimation.  In order to examine this assumption more closely, 
+DD estimation.  In order to examine this assumption more closely, 
 \person run a number of placebo tests.  These placebo tests allow us to examine
 whether the results are driven by pre-existing differences or trends in treatment
 and control municipalities. 
@@ -891,7 +891,7 @@ arrival of the EC pill in 2008.
 These results are presented in table \ref{TEENtab:Placebo}, both for 
 specification (\ref{TEENeqn:placebo}) and an analogous specification where 
 placebo close municipalities are defined.  These placebo tests support the 
-diff-in-diff specification estimated.  In all but 3 of 30 coefficients, small
+DD specification estimated.  In all but 3 of 30 coefficients, small
 and statistically insignificant results are observed on placebo treatments.  In
 3 of 30 cases, significant effects are found, although these are always on 
 placebo `close' treatments, and not on the main treatment itself.  Generally

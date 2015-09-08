@@ -42,14 +42,14 @@ require(stargazer)
 
 proj.dir <- getwd()
 
-brth.dir <- paste(proj.dir, "/data/births/"     , sep="")
-code.dir <- paste(proj.dir, "/source/"          , sep="")
-com.dir  <- paste(proj.dir, "/data/comunas/"    , sep="")
-deth.dir <- paste(proj.dir, "/data/deaths/"     , sep="")
-ma.dir   <- paste(proj.dir, "/data/pill/"       , sep="")
-pop.dir  <- paste(proj.dir, "/data/population/" , sep="")
-tab.dir  <- paste(proj.dir, "/tables/"          , sep="")
-graf.dir <- paste(proj.dir, "/figures/"         , sep="")
+brth.dir <- paste(proj.dir, "/planB/data/births/"     , sep="")
+code.dir <- paste(proj.dir, "/planB/source/"          , sep="")
+com.dir  <- paste(proj.dir, "/planB/data/comunas/"    , sep="")
+deth.dir <- paste(proj.dir, "/planB/data/deaths/"     , sep="")
+ma.dir   <- paste(proj.dir, "/planB/data/pill/"       , sep="")
+pop.dir  <- paste(proj.dir, "/planB/data/population/" , sep="")
+tab.dir  <- paste(proj.dir, "/planB/tables/"          , sep="")
+graf.dir <- paste(proj.dir, "/planB/figures/"         , sep="")
 
 Names <- c("dom_comuna","trend","trend2","pill","mujer","party","votes"      ,
            "outofschool","healthspend","healthstaff","healthtraining"        , 

@@ -1,4 +1,4 @@
-*
+* pillLocation v1.00             damiancclarke             yyyy-mm-dd:2014-01-01
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|----8
 *
 
@@ -18,7 +18,7 @@ global OUT  "./planB/figures"
 ********************************************************************************
 ***(2) Import, rename
 ********************************************************************************
-insheet using $PILL/PillDist.csv, delimiter(";")
+insheet using "$PILL/PillDist.csv", delimiter(";")
 keep if comuna_names!=""
 
 
@@ -60,7 +60,7 @@ spmap n using "$MAP/Chilecoord3" if id !=263, id(id) osize(vvthin)
   legend(label(1 "No municipal health") label(2 "No Pill") 
   label(3 "Available 1 year") label(4 "Available 2 years") 
   label(5 "Available 3 years" )) saving($OUT/avail, replace);
-graph export $OUT/Pill_l.eps, as(eps) replace;
+graph export "$OUT/Pill_l.eps", as(eps) replace;
 #delimit cr
 
 

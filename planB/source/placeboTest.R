@@ -21,13 +21,13 @@ rm(list=ls())
 #=== (1) Directories, libraries
 #===============================================================================
 proj.dir <- getwd()
-brth.dir <- paste(proj.dir, "/data/births/"    , sep="")
-cod.dir  <- paste(proj.dir, "/source/"         , sep="")
-com.dir  <- paste(proj.dir, "/data/comunas/"   , sep="")
-deth.dir <- paste(proj.dir, "/data/deaths/"    , sep="")
-ma.dir   <- paste(proj.dir, "/data/pill/"      , sep="")
-outt.dir <- paste(proj.dir, "/tables/"         , sep="")
-pop.dir  <- paste(proj.dir, "/data/population/", sep="")
+brth.dir <- paste(proj.dir, "/planB/data/births/"    , sep="")
+cod.dir  <- paste(proj.dir, "/planB/source/"         , sep="")
+com.dir  <- paste(proj.dir, "/planB/data/comunas/"   , sep="")
+deth.dir <- paste(proj.dir, "/planB/data/deaths/"    , sep="")
+ma.dir   <- paste(proj.dir, "/planB/data/pill/"      , sep="")
+outt.dir <- paste(proj.dir, "/planB/tables/"         , sep="")
+pop.dir  <- paste(proj.dir, "/planB/data/population/", sep="")
 
 
 require(sandwich)

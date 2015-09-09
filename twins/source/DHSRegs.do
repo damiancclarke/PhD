@@ -68,7 +68,7 @@ global Figs    "./twins/figures"
 global Tables  "./twins/results/DHS"
 
 cap mkdir "$Tables"
-foreach dirname in Summary Twin OLS RF IV Conley OverID MMR {
+foreach dirname in Summary Twin OLS IV Conley MMR {
 	cap mkdir "$Tables/`dirname'"
 }
 log using "$Log/DHSRegs.txt", text replace
@@ -382,6 +382,7 @@ gen twinave=`twinave'
 line twind bord if bord<11, lpattern(dash) ytitle("Fraction twins") ///
     xtitle("Birth Order") yline(0.0185) scheme(s1color)
 graph export "$Figs/twinbybord.eps", as(eps) replace
+restore
 
 preserve
 keep `cond'

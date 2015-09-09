@@ -291,6 +291,6 @@ replace motherHeight=0 if heightMiss==1
 
 drop smkev smkreg aheight _merge
 
-save $DAT/NHIS`yrr', replace
+save $DAT/../NHIS`yrr', replace
 }
 

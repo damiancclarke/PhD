@@ -187,7 +187,7 @@ style(tex) label collabels("N" "Mean" "S.Dev." "Min." "Max.")
 nomtitles nonumbers addnotes("All fetal deaths 2003-2012");
 #delimit cr
 
-insheet using "$FLE/sp.dyn.le00.fe.in_Indicator_en_csv_v2.csv", names comma
+insheet using "$FLE/sp.dyn.le00.fe.in_Indicator_en_csv_v2.csv", names comma clear
 keep if countryname=="United States"
 drop indicator*
 reshape long v, i(countryname) j(year)

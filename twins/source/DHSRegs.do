@@ -224,7 +224,6 @@ local nummothers "Number of Mothers"
 local ncou       "Number of Countries &"
 
 foreach num of numlist 1(1)4 {
-		cap drop count 
 		gen count = 1 `cond' & nonmiss==0
 		replace count=. if catnum!=`num'
 		foreach var of local sumstatsC {
@@ -239,8 +238,7 @@ foreach num of numlist 1(1)4 {
 		count if count==1&n==1
 		local mm = "`: display %9.0fc r(N)'"
 		local nummothers "`nummothers' `sep'" "`mm'"
-		drop n
-    
+		drop n count
 }
 
 levelsof _cou if income=="low"
@@ -301,7 +299,6 @@ esttab using "$Tables/Summary/`SumF'.txt", replace main(mean) aux(sd) /*
 */ nostar unstack noobs nonote nomtitle nonumber
 
 foreach num of numlist 1(1)4 {
-		cap drop count
 		gen count = 1 `cond' & nonmiss==0
 
 		replace count=. if catnum!=`num'
@@ -312,6 +309,7 @@ foreach num of numlist 1(1)4 {
 		local kk = "`: display %9.0fc r(N)'"
 
 		local numkidsF "`numkidsF' `sep'" "`kk'"
+    drop count
 }
 count `cond' & nonmiss==0
 local kidcountF = "`: display %9.0fc r(N)'"
@@ -361,7 +359,7 @@ esttab using "$Tables/Summary/Health.xls", cells("b pct") append
 	sort WBc _year
 	outsheet using "$Tables/Summary/Countries.csv", delimit(;) nonames replace
 	restore
-	*/
+*/
 
 *******************************************************************************
 *** (2b) Summary Stats: Graphical
@@ -467,17 +465,17 @@ foreach condtn in cond1 cond2 {
 }
 eststo: reg twind100 $twinpredict prenate* `wt', `se'
 
-estout est1 est2 est3 est4 est5 est6 using `out', keep($twinout pre*)   ///
-    title("Probability of Giving Birth to Twins (DHS)")                 ///
-    varlabels(motherage "Age" motheragesq "Age Squared"  agefirstbirth  ///
-    "Age First Birth" educf "Education (years)" educfyrs_sq             ///
-	  "Education squared" height "Height" bmi "BMI") `estopt' replace     ///
-	  note("Notes: All specifications include a full set of year of birth"///
-	  " and country dummies, and are estimated as linear probability  "   ///
-	  " models. Twin is multiplied by 100 for presentation.  Height is "  ///
-	  " measured in cm and BMI is weight in kg divided by height in "     ///
-	  "metres squared. Prenatal care variables are only recoreded for "   ///
-	  "recent births.  As such, column (6) is estimated only for that "   ///
+estout est1 est2 est3 est4 est5 est6 using `out', keep($twinout pre*)    ///
+    title("Probability of Giving Birth to Twins (DHS)")                  ///
+    varlabels(motherage "Age" motheragesq "Age Squared"  agefirstbirth   ///
+    "Age First Birth" educf "Education (years)" educfyrs_sq              ///
+	  "Education squared" height "Height" bmi "BMI") `estopt' replace      ///
+	  note("Notes: All specifications include a full set of year of birth" ///
+	  " and country dummies, and are estimated as linear probability  "    ///
+	  " models. Twin is multiplied by 100 for presentation.  Height is "   ///
+	  " measured in cm and BMI is weight in kg divided by height in "      ///
+	  "metres squared. Prenatal care variables are only recoreded for "    ///
+	  "recent births.  As such, column (6) is estimated only for that "    ///
 	  "subset of births where these observations are made.")
 estimates clear
 /*
@@ -533,7 +531,12 @@ foreach var of varlist $twinout pre* {
 ********************************************************************************
 preserve
 use "$Data/DHS_twins", clear
-	
+tab _cou, gen(_country)
+tab year_birth, gen(_yb)
+tab age, gen(_age)
+tab contracep_intent, gen(_contracep)
+tab bord, gen(_bord)
+
 gen tta=age if twind==1
 bys id: egen twinage=min(tta)
 gen twinagedif=twinage-age
@@ -561,7 +564,7 @@ foreach n in `gplus' {
 		local n3=`n3'+3
 }
 	
-local Iout "$Tables/Twins/PreTwinTest.xls"		
+local Iout "$Tables/Twin/PreTwinTest.xls"		
 estout `estimates' using `Iout', replace keep(treated malec $age $S $H) `estopt'	
 estimates clear
 
@@ -573,7 +576,7 @@ restore
 local out "$Tables/OLS/QQ_ols.xls"
 cap rm `out'
 cap rm "$Tables/OLS/QQ_ols.txt"
-7A	
+
 gen desiredbirth=bord<=idealnumkids
 gen fertXdesired=fert*desiredbirth
 
@@ -737,7 +740,7 @@ foreach n in two three four {
     graph(Ex) graphomega(om0 om1 om2 om3 om4 om5 om6 om7 om8 om9 om10)
     graphmu(mu0 mu1 mu2 mu3 mu4 mu5 mu6 mu7 mu8 mu9 mu10)
     graphdelta(`d0' `d1' `d2' `d3' `d4' `d5' `d6' `d7' `d8' `d9' `d10');
-		graph export "$Figs/Conley/LTZ_`n'.eps", as(eps) replace;
+		graph export "$Figs/LTZ_`n'.eps", as(eps) replace;
     #delimit cr
 
     restore
@@ -824,7 +827,7 @@ foreach n in `gplus' {
 		ereturn list
 
     #delimit ;
-		esttab using "$Tables/Balance/Balance_`n'.tex", nomtitle nonumbers noobs
+		esttab using "$Tables/Summary/Balance_`n'.tex", nomtitle nonumbers noobs
     title(Test of Balance of Observables: Twins versus Non-twins
           \label{TWINtab:comp}) label booktabs
 		cells("mu_1(fmt(a3)) mu_2 d(star pvalue(d_p))" " . . d_se(par)") replace;
@@ -967,9 +970,7 @@ graph export "$Figs/MMRcuts.eps", as(eps) replace
 restore
 
 
-
-
 ********************************************************************************
-**** (22) Clean up
+**** (X) Clean up
 ********************************************************************************
 log close

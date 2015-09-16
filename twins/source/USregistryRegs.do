@@ -27,6 +27,7 @@ clear all
 ********************************************************************************
 global DAT "./twins/data/NVSS"
 global OUT "./twins/results/NVSS"
+global FIG "./twins/figures"
 global LOG "./twins/log"
 global FLE "./twins/data/WB"
 
@@ -200,7 +201,10 @@ save `lifeexp'
 
 local files
 foreach y of numlist 1971(1)2012 {
-    use "$DAT/n`y'"
+    use "$DAT/natl`y'"
+    gen year=`y'
+    gen twin = dplural == 2 if dplural<=2
+
     collapse twin, by(year)
     list
     tempfile f`y'
@@ -216,7 +220,7 @@ twoway line twin year, xtitle("Year") ytitle("Proportion Twin") scheme(s1mono)
 note("Data from NVSS Birth Certificate Data."
      "Dotted line represents first ever IVF birth in USA.")
 xline(1981.9, lpattern(dash));
-graph export "$OUT/USTwin.eps", as(eps) replace;
+graph export "$FIG/USTwin.eps", as(eps) replace;
 
 local WB "Female Life Expectancy data from World Bank.";
 local lp lpattern(dash_dot);
@@ -226,7 +230,7 @@ xtitle("Year") scheme(s1mono) xline(1981.9, lpattern(dash))
 legend(label(1 "Proportion Twins") label(2 "Female Life Expectancy"))
 note("Twin data from NVSS Birth Certificate Data.  `WB'"             
      "Dotted line represents first ever IVF birth in USA.");
-graph export "$OUT/USTwinFLE.eps", as(eps) replace;
+graph export "$FIG/USTwinFLE.eps", as(eps) replace;
 #delimit cr
 
 ********************************************************************************

@@ -762,7 +762,7 @@ mat2txt, matrix(cbounds1) saving(`Cout') format(%6.4f) replace
 **** (8) Twin treated versus untreated balance
 ********************************************************************************
 estimates clear
-do "$Source/myttests.ado"
+do "$Source/ttests.ado"
 
 gen Treated=1 if twinfamily>0&twinfamily!=.
 replace Treated=0 if twinfamily==0
@@ -790,7 +790,7 @@ lab var childmortality "Child Mortality"
 lab var infantmortality "Infant Mortality"		
 
 		
-myttests $balance _wealth*, by(Treated)
+ttests $balance _wealth*, by(Treated)
 ereturn list
 
 #delimit ;
@@ -823,7 +823,7 @@ foreach n in `gplus' {
 		lab var school_zscore "School Z-score (pre-twin)"
 		lab var malec "Percent male child (pre-twin)"
 
-		myttests $balanceG, by(Treated)
+		ttests $balanceG, by(Treated)
 		ereturn list
 
     #delimit ;

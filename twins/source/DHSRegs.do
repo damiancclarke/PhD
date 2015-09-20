@@ -764,6 +764,7 @@ mat2txt, matrix(cbounds1) saving(`Cout') format(%6.4f) replace
 estimates clear
 do "$Source/ttests.ado"
 
+preserve
 gen Treated=1 if twinfamily>0&twinfamily!=.
 replace Treated=0 if twinfamily==0
 tab wealth, gen(_wealth)
@@ -799,9 +800,8 @@ title(Test of Balance of Observables: Twins versus Non-twins \label{TWINtab:comp
 label cells("mu_1(fmt(a3)) mu_2 d(star pvalue(d_p))" " . . d_se(par)") replace
 booktabs ;
 #delimit cr
+restore
 
-
-cap drop Treated
 global balanceG educf height prenateCluster motherage agefirstbirth fert /*
 */ infantmortality educ school_zscore malec
 	

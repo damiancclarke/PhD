@@ -27,6 +27,7 @@ cap log close
 ********************************************************************************
 global DAT "./twins/data/NHIS"
 global OUT "./twins/results/NHIS"
+global FIG "./twins/figures"
 global LOG "./twins/log"
 
 cap mkdir $OUT
@@ -250,7 +251,7 @@ foreach y of varlist `yvars' {
          */ graphomega(om0 om1 om2 om3 om4 om5)                        /*
          */ graphmu(mu0 mu1 mu2 mu3 mu4 mu5) graph(Ex)                 /*
          */ graphdelta(`d0' `d1' `d2' `d3' `d4' `d5')
-        graph export "$OUT/ConleyUSA_`y'_`f'.eps", as(eps) replace
+        graph export "$FIG/ConleyUSA_`y'_`f'.eps", as(eps) replace
             
         mat list ConleyBounds
         restore

@@ -1,3 +1,5 @@
+%NOTE: MAKE GRAPH OF ESTIMATES BY PARITY
+%
 %-------------------------------------------------------------------------------
 \begin{chapabstract}
 Child-bearing decisions are not made in isolation.  They are taken in concert 
@@ -330,7 +332,7 @@ particular circumstances. To see this, we return to equation \ref{Feqn:outcome}.
 If we consider standard OLS with a linear model, we re-write 
 (\ref{Feqn:outcome}) as:
 \[
-Y=\beta F + U + \varepsilon_Y,
+Y=\alpha + \beta F + U + \varepsilon_Y,
 \]
 where we assume that $E[\varepsilon_Y]=0$.  To estimate $\beta$ from
 the above, we can consider conditioning on two distinct values of $F$:
@@ -513,6 +515,7 @@ this suggests a positive bias in IV estimates of $\beta$.
 \citet{Dayiogluetal2009}         &Turkey   &Attendance           & 0.203(0.245)\\
 \citet{Sanhueza2009}             &Chile    &Years of Educ        &-0.280(0.092)\\
 \citet{Blacketal2010}            &Norway   &IQ (standardised 1-9)&-0.170(0.052)\\
+                                 &         &Complete Highschool  &-0.039(0.015)\\
 \citet{Angristetal2010}          &Israel   &Years of Educ        & 0.167(0.117)\\
                                  &         &Some college         & 0.059(0.036)\\
                                  &         &College grad         & 0.052(0.032)\\
@@ -521,13 +524,16 @@ this suggests a positive bias in IV estimates of $\beta$.
 \citet{SouzaPonczek2012}         &Brazil   &Years of Educ (F)    &-0.634(0.194)\\
                                  &         &Years of Educ (M)    &-0.060(0.164)\\ \midrule
 \multicolumn{4}{l}{\textbf{Panel B: Gender Mix}} \\
-\citet{ConleyGlauber2006}        &USA      &Private school       &-0.061(0.021) \\
-                                 &         &Grade repetition     &0.007(0.004)  \\
-\citet{Lee2008}                  &Taiwan   &Total ln(educ spend) &0.328(0.088)  \\
+\citet{Blacketal2005}            &Norway   &Years of Educ        & 0.280(0.060)\\
+\citet{ConleyGlauber2006}        &USA      &Private school       &-0.061(0.021)\\
+                                 &         &Grade repetition     & 0.007(0.004)\\
+\citet{Lee2008}                  &Taiwan   &Total ln(educ spend) & 0.328(0.088)\\
 \citet{Angristetal2010}          &Israel   &Years of Educ        &-0.067(0.120)\\
                                  &         &Some college         &-0.025(0.025)\\
                                  &         &College grad         &-0.032(0.022)\\
 \citet{Beckeretal2010}           &Prussia  &Enrolment            &-0.430(0.189)\\
+\citet{Blacketal2010}            &Norway   &IQ (standardised 1-9)& 0.065(0.074)\\
+                                 &         &Complete Highschool  &-0.019(0.021)\\
 \citet{KumarKugler2011}          &India    &Years of Educ        &-0.363(0.061)\\
 \citet{FitzsimonsMalde2014}      &Mexico   &Years of Educ (F)    &-0.015(0.125)\\ 
 \citet{MillimetWang2011}         &Indonesia&BMI for Age          & 0.049(0.013)\\

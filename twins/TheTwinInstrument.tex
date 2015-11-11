@@ -440,58 +440,69 @@ are more likely to give birth to twins, this should be captured in lower infant
 mortality rates (IMR) among twin mothers in early births.
 
 If, following the tests described above, twins are found to be positively selected
-among healthy mothers, traditional IV estimates of $\beta_1$ will be inconsistent.
-We turn to discuss this bias now.
-Assuming additive separability of the elements in the omitted error term\footnote{%
-This assumption can be loosened with little implication on the analysis which
-follows.  If we do not assume additive seperability, covariance terms between each
-error component must be included.  However, given that the covariance between 
-elements of $\bm{S}$ and $\bm{H}$ is likely to be positive, and given that the 
-covariance between each of these and $u^*_{ij}$ is likely to be of the same sign
-as the covariance between $twin$ and $u^*_{ij}$, the omission of the covariance
-terms does not effect the inequalities in equation \ref{TWINeqn:moves}.  This is
-something which we test empirically later in this paper.}, we can 
-re-write $u_{ij}$ from (\ref{TWINeqn:firststage}) and (\ref{TWINeqn:IVbias}) as:
-\[ u_{ij}=u^S_{ij}+u^H_{ij}+u^*_{ij}. \]
-Here $u^S_{ij}$ and $u^H_{ij}$ correspond to the (observable) elements included 
-as $\bm{S}$ and $\bm{H}$ in (\ref{TWINeqn:twinreg}), while $u^*_{ij}$ represents 
-the remaining (unobserved) components.  We can thus re-write our IV estimate for 
-$\beta_1$ as:
-\begin{equation}
-\label{TWINeqn:betabias}
-\hat\beta_1^{IV} = \beta_1 + 
-\plim_{N\to \infty} \frac{1}{N}\sum_{j=1}^N twin_j(u^S_{ij}+u^H_{ij}+u^*_{ij})
-\end{equation}
-Typically, this is the coefficient estimated in the existing twin literature 
-which assumes that twinning is a conditionally exogenous event.  If, however, the 
-likelihood of taking twin conceptions to term increases for healthier and/or 
-wealthier mothers, we should include $\bm{S}$ and $\bm{H}$ in the first and 
-second stages, giving
-\begin{equation}
-\label{TWINeqn:betacloser}
-\hat\beta_1^{IV,S+H} = \beta_1 +
-\plim_{N\to \infty} \frac{1}{N}\sum_{j=1}^N twin_ju^*_{ij},
-\end{equation}
-where the superscript $S+H$ signifies that socioeconomic and health variables 
-have been included as additional controls and, correspondingly, have been 
-removed from the stochastic error term.  What's more, if both the likelihood
-that a woman takes twins to term, and a family's subsequent investment in child 
-human capital, are positively correlated with positive health behaviours and 
-other positive socioeconomic variables such as parental education, we would 
-expect\footnote{This follows from the remainder terms in 
-(\ref{TWINeqn:betabias}) and (\ref{TWINeqn:betacloser}). If twinning is 
-positively correlated with the omitted error term in the second stage equation, 
-$twin_ju_{ij}^S>0$, $twin_ju_{ij}^H>0$ and $twin_ju_{ij}^*>0$, and resultingly, 
-any IV estimates of $\beta_1$ will be biased upwards.} that:
+among healthy mothers and mothers with more positive socioeconomic outcomes such
+as education, traditional IV estimates of $\beta_1$ will be inconsistent. What's 
+more, if maternal health and mother's socioeconomic status is associated with 
+higher children's human capital attainment, this leads to a predictable pattern
+of inconsistency in IV estimates.  Specifically:
+
+%%%
+%%%We turn to discuss this bias now.
+%%%Assuming additive separability of the elements in the omitted error term\footnote{%
+%%%This assumption can be loosened with little implication on the analysis which
+%%%follows.  If we do not assume additive seperability, covariance terms between each
+%%%error component must be included.  However, given that the covariance between 
+%%%elements of $\bm{S}$ and $\bm{H}$ is likely to be positive, and given that the 
+%%%covariance between each of these and $u^*_{ij}$ is likely to be of the same sign
+%%%as the covariance between $twin$ and $u^*_{ij}$, the omission of the covariance
+%%%terms does not effect the inequalities in equation \ref{TWINeqn:moves}.  This is
+%%%something which we test empirically later in this paper.}, we can 
+%%%re-write $u_{ij}$ from (\ref{TWINeqn:firststage}) and (\ref{TWINeqn:IVbias}) as:
+%%%\[ u_{ij}=u^S_{ij}+u^H_{ij}+u^*_{ij}. \]
+%%%Here $u^S_{ij}$ and $u^H_{ij}$ correspond to the (observable) elements included 
+%%%as $\bm{S}$ and $\bm{H}$ in (\ref{TWINeqn:twinreg}), while $u^*_{ij}$ represents 
+%%%the remaining (unobserved) components.  We can thus re-write our IV estimate for 
+%%%$\beta_1$ as:
+%%%\begin{equation}
+%%%\label{TWINeqn:betabias}
+%%%\hat\beta_1^{IV} = \beta_1 + 
+%%%\plim_{N\to \infty} \frac{1}{N}\sum_{j=1}^N twin_j(u^S_{ij}+u^H_{ij}+u^*_{ij})
+%%%\end{equation}
+%%%Typically, this is the coefficient estimated in the existing twin literature 
+%%%which assumes that twinning is a conditionally exogenous event.  If, however, the 
+%%%likelihood of taking twin conceptions to term increases for healthier and/or 
+%%%wealthier mothers, we should include $\bm{S}$ and $\bm{H}$ in the first and 
+%%%second stages, giving
+%%%\begin{equation}
+%%%\label{TWINeqn:betacloser}
+%%%\hat\beta_1^{IV,S+H} = \beta_1 +
+%%%\plim_{N\to \infty} \frac{1}{N}\sum_{j=1}^N twin_ju^*_{ij},
+%%%\end{equation}
+%%%where the superscript $S+H$ signifies that socioeconomic and health variables 
+%%%have been included as additional controls and, correspondingly, have been 
+%%%removed from the stochastic error term.  What's more, if both the likelihood
+%%%that a woman takes twins to term, and a family's subsequent investment in child 
+%%%human capital, are positively correlated with positive health behaviours and 
+%%%other positive socioeconomic variables such as parental education, we would 
+%%%expect\footnote{This follows from the remainder terms in 
+%%%(\ref{TWINeqn:betabias}) and (\ref{TWINeqn:betacloser}). If twinning is 
+%%%positively correlated with the omitted error term in the second stage equation, 
+%%%$twin_ju_{ij}^S>0$, $twin_ju_{ij}^H>0$ and $twin_ju_{ij}^*>0$, and resultingly, 
+%%%any IV estimates of $\beta_1$ will be biased upwards.} that:
+
 \begin{equation}
 \label{TWINeqn:moves}
-\hat\beta_1^{IV}>\hat\beta_1^{IV,H}>\hat\beta_1^{IV,S+H}>\beta_1.
+\hat\beta_1^{IV}>\hat\beta_1^{IV,H}>\hat\beta_1^{IV,S+H}>\beta_1,
 \end{equation}
-It should be noted in the above series of inequalities that even conditional upon
-socioeconomic and health variables, IV estimation will \emph{not} result in a
-consistent estimate of $\beta_1$ if twinning is correlated with unobservable
-elements in $u^*_{ij}$.  We return to this point, and how to bound $\beta_1$ in
-the following sub-section.
+where $\hat\beta_1^{IV}$ refers to IV estimates omitting health and socioeconomic
+controls, and $\hat\beta_1^{IV,H}$ and $\hat\beta_1^{IV,S+H}$ refer to IV 
+estimates controlling for maternal health, and both maternal health and 
+socioecomic outcomes respectively. It should be noted in the above series of 
+inequalities that even conditional upon socioeconomic and health variables, IV 
+estimation will \emph{not} result in a consistent estimate of $\beta_1$ if 
+twinning is correlated with remaining unobservable elements in the omitted error
+term $u$.  We return to this point, and how to bound $\beta_1$ in the following 
+sub-section.
 
 %NOTE: Angrist Pischke first stage F-statistics when more than one endogenous
 %regressor.
@@ -613,7 +624,7 @@ of birth (single or multiple), and the child's survival status. The other
 database contains one line for each member currently living in the survey
 household. This database includes each member's educational status. We merge
 these two databases where all children who live in the same household as their 
-mother merge without loss.  We are thus able to generate data for the educational 
+mothers merge perfectly.  We are thus able to generate data for the educational 
 attainment of each of a woman's children currently residing in the household as 
 well as their mother's health and educational status. This database is selected in 
 two ways: firstly it only contains children who have survived up until the survey 
@@ -803,13 +814,14 @@ Along with higher average rates of twinning in countries with taller women, a
 positive within-country gradient exists, with taller women in a given country 
 more likely to have twins than their shorter counterparts.  In column (6) we
 present suggestive evidence that access to prenatal care also increases the 
-likelihood of giving live birth to twins: women who deliver in the presence of 
-a doctor are significantly more likely to twin, and those who have no birth
-attendant are significantly less likely to twin than those who deliver in the 
-presence of a community health representative (the omitted category). The size 
-of DHS estimates are considerable. Increasing a woman's height by 1 standard 
-deviation increases the probability of twinning by 0.44\% (as compared to a mean 
-rate of twins of 1.85\%).
+likelihood of giving live birth to twins: women who have access to a doctor in
+their village (or more particularly, DHS cluster) are significantly more likely 
+to twin, and those who have no birth attendant available are significantly less 
+likely to twin than those who have only have access to a community health 
+representative (the omitted category). The size of DHS estimates are 
+considerable. Increasing a woman's height by 1 standard deviation increases the 
+probability of twinning by 0.44\% (as compared to a mean rate of twins of 
+1.85\%).
 
 Results for the infant mortality test described in section \ref{TWINsscn:methodQQ} 
 are presented in table \ref{TWINtab:IMR}. In row 1, we regress IMR for first-borns
@@ -883,27 +895,41 @@ mechanism, the gestation mechanism and the birth (survival) mechanism.
 
 When considering IV estimates with twins, any of these processes is sufficient 
 to invalidate causal inference insofar as observing twins depends upon hard-%
-to-measure maternal behaviours and characteristics.  Nonetheless, we may be 
-interested in determing which of these are the relevant channels in explaining 
-the results from the previous section.  Particularly, the mechanism may be 
-relevant when considering the use of the instrument.  For example, if twins are 
-less likely \emph{only} due to selective maternal death, then as mothers become 
-more likely to survive childbirth (ie moving from high maternal mortality 
-countries to low maternal mortality countries), threats to instrumental validity 
-become considerably less relevant.
+to-measure or unobservable maternal behaviours and characteristics. Nonetheless, 
+we may be in determining whether non-random conception of twins, non-random 
+miscarriage, or non-random maternal death appears to contribute more the 
+empirical observation that twin mothers are healthier than non-twin mothers.
+Particularly, the mechanism may be relevant when considering the use of the 
+instrument.  For example, if twins are less likely \emph{only} due to selective 
+maternal death, then as mothers become more likely to survive childbirth (ie
+moving from high maternal mortality countries to low maternal mortality 
+countries), threats to instrumental validity become considerably less 
+relevant.
 
-We test these mechanisms below.  In order to determine whether twin selection
-could be entirely explained by selective maternal survival, we follow 
-\citet{Aldermanetal2011} in simulating estimates under the counterfactual 
-scenario that unhealthy women---who are more likely to die in childbirth---%
-were all carrying twins. Using DHS data described in section 
-\ref{TWINsscn:data}, we observe a woman's height, BMI, pregnancy outcomes, and 
-the maternal mortality status of all her sisters.  As we do not observe health 
-stocks of women who died in childbirth, we assume that her sister's health 
-(height and BMI) is a reasonable proxy for the health of the woman who died 
-within 42 days of giving birth (which is classed as a maternal death).  Appendix 
-figure \ref{TWINfig:survival} shows that maternal mortality is much higher among 
-more unhealthy women.  Women shorter than the mean height of 155.5 cm are 
+We partially test these mechanisms below.  In order to determine whether twin 
+selection could be entirely explained by selective maternal survival, we 
+follow \citet{Aldermanetal2011} in simulating estimates under the 
+counterfactual scenario that unhealthy women---who are more likely to die in 
+childbirth---were all carrying twins.  From DHS data described in section
+\ref{TWINsscn:data}, we can observe the rate of maternal death in each country
+and survey year given that the DHS asks each women the maternal mortality 
+status of all of her sisters. By calculating the number of sisters and the
+total number who died within 42 days of childbirth (a maternal death), we can
+determine how many women are ``missing'' from the survey due to maternal death.
+
+While we can theoretically add these women back to the survey and examine
+what would happen if each mother who died in childbirth was theoretically a 
+twin mother, we unfortunately do not have health measures of non-surviving
+women.  While it seems logical to assume that those mothers dying in childbirth 
+are less healthy than their surviving counterparts, without observing microdata 
+on their health measures, we can not test this formally.  In order to infer the 
+health status of women who died in childbirth, we therefore must make an 
+identifying assumption.  We assume that a reasonble proxy for the health of the 
+woman dying in childbirth is her (surviving) sister's health measures (height 
+and BMI).  As a consistency check, we examine the health outcomes of the sisters 
+of women who have died in childbirth. Appendix figure \ref{TWINfig:survival} 
+shows that maternal mortality is much higher among women with less healthy 
+sisters.  Women whose sisters are shorter than the mean height of 155.5 cm are 
 considerably more likely to suffer maternal death, with this being particularly 
 so below heights of 145cm.
 
@@ -911,10 +937,12 @@ To test the potential importance of maternal survival in explaining twin
 selection, we simulate observations for the number of women who, according to 
 DHS data, would exist in the sample if it were not for the fact that they died 
 in childbirth.  We then examine the coefficients of interest in our twin 
-regression (\ref{TWINeqn:twinreg}), if all unhealthy women who died were 
-pregnant with twins, while all healthy women who died were not.  As this relies 
-on a binary `healthy vs unhealthy' distinction, we define this in various ways, 
-based on height and BMI.  These results are presented in table 
+regression (\ref{TWINeqn:twinreg}), if all unhealthy women (following the 
+assumption outlined above) who died were pregnant with twins, while all healthy 
+women who died were not.  As this relies on a binary `healthy vs unhealthy' 
+distinction, we define this in various ways, based on height and BMI.  
+
+Results for this simulation methodology are presented in table 
 \ref{TWINtab:Alderman}.  The first column shows the estimated coefficients on 
 height and BMI in the unaltered sample of women from DHS countries where 
 maternal mortality data is available.  In this sample, a BMI increase of 1 
@@ -1045,15 +1073,15 @@ will also be unable to consistently estimate $\beta_1$ using twin births.
 
 However, it is likely that the $\hat\beta_1$ which we estimate using twin births 
 will provide us with a strict lower bound of the magnitude of the QQ trade-off 
-as outlined in (\ref{TWINeqn:betacloser}). We expect that the bias in this 
-estimate is due to those mothers who invest more in their children in utero, or 
-who have greater initial health endowments, being more likely to give birth to 
-twins, thus resulting in larger family sizes. At the same time, we expect 
-healthier mothers to invest more in their children after birth, and hence have 
-higher quality children. By relegating health variables to the error term, 
-these two positive correlations will result in a positive bias on the fertility 
-coefficient estimated via IV. In order to determine the effect that these 
-omitted variables have on estimates of the QQ trade-off, we turn to results 
+as outlined in (\ref{TWINeqn:moves}) and the estimate $\hat\beta_1^{IV}$. We 
+expect that the bias in this estimate is due to those mothers who invest more in 
+their children in utero, or who have greater initial health endowments, being 
+more likely to give birth to twins, thus resulting in larger family sizes. At 
+the same time, we expect healthier mothers to invest more in their children after 
+birth, and hence have higher quality children. By relegating health variables to 
+the error term, these two positive correlations will result in a positive bias on 
+the fertility coefficient estimated via IV. In order to determine the effect that 
+these omitted variables have on estimates of the QQ trade-off, we turn to results 
 for equation (\ref{TWINeqn:RF}), both first omitting, and the including, 
 maternal health and socioeconomic variables.
 

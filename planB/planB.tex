@@ -239,7 +239,8 @@ determined, being based on the whim of the mayor or representative public
 health bodies in her area of residence.  This strange policy environment 
 endured for approximately four years, until a law was passed mandating that the 
 emergency after pill must be available to all women who request it.  This new 
-law became operational in May of 2013.
+law became operational in May of 2013.  Further details of the timing and 
+nature of the reform are provided in figure \ref{TEENfig:reformtiming}.
 
 The Chilean context is one in which emergency contraception may be expected to
 have particularly important effects on pregnancy and maternal health.  Abortion
@@ -383,7 +384,7 @@ estimating a full event study over time.
 %===============================================================================
 \section{Methodology}
 \label{TEENscn:ID}
-\Person take advantage of the quasi-random nature of the expansion of the 
+\Person take advantage of the random nature of the expansion of the 
 availability of the morning after pill to women in Chile.  A woman $i$, living
 in municipality $j$ in time $t$ is considered as treated if public health 
 centres report that the pill is available upon request.  A woman's child 
@@ -424,13 +425,11 @@ fertility at both the extensive and the intensive margins.  We thus measure
 $birth_{ijt}$ in a number of ways: firstly, at the intensive margin by 
 examining whether a woman gives birth at any parity level, and secondly, only 
 at the extensive margin by examining whether she moves from 0 to 1 births. 
-It is worth noting here that all extensive margin births will also be 
-included as extensive margin births, but not \emph{vice versa}.  Similarly, 
-we are interested in determining the degree of heterogeneity of access by age 
-groups, and look at teenagers (15-19 year olds), 20-34 year olds, and 35-49 
-year olds. Figure \ref{TEENfig:BirthDeath} describes trends in births for all 
-ages, while appendix figures \ref{TEENfig:Trend1519}-\ref{TEENfig:Trend2034} 
-seperate these by age groups.
+Similarly, we are interested in determining the degree of heterogeneity of 
+access by age groups, and look at teenagers (15-19 year olds), 20-34 year olds, 
+and 35-49 year olds. Figure \ref{TEENfig:BirthDeath} describes trends in births 
+for all ages, while appendix figures \ref{TEENfig:Trend1519}-%
+\ref{TEENfig:Trend2034} seperate these by age groups.
 
 Similar estimations are run replacing $birth_{ijt}$ with $fetal\ death_{ijt}$,
 which---for certain subsets---I believe proxy illegal abortion (as discussed
@@ -651,6 +650,14 @@ associated with a highly significant 5.8\% reduction in pregnancy
 time-varying controls.  The coefficients on these time varying controls are omitted 
 from table \ref{TEENtab:PillPreg} for the sake of clarity; however a full output 
 for column (4) of each panel is provided in appendix table \ref{TEENtabPregFull}.
+It is important to note that these coefficients refer to the proportional 
+reduction in rates of teen birth, not the absolute reduction in births.  In
+appendix table \ref{TEENtab:aggregateASFR}, this is examined in terms of age
+specific fertility rates (ASFR).  Here it is apparent that a 5.8\% reduction in 
+rates of births can be thought of as a reduction in the ASFR of 3.389 women.
+This implies that the reform reduced the number of teenagers ever giving birth
+during the ages of 15-19 by approximately 4 per 1,000: an important effect when
+compared to prevailing rates of teen pregnancy of 55 per 1,000 women in Chile.
 
 When we examine the effect only on first births, we see a somewhat smaller, but
 still important 2.9\% reduction in births (or an imprecisely estimated 2.1\% 
@@ -665,6 +672,27 @@ should equal those on ``All Births''.  As is, for the teenage group, we see
 that the coefficient on first births is 51\% of that on all births, suggesting
 that while the extensive margin is important, the morning after pill also has
 important effects at the intensive margin.
+
+The inclusion of time varying controls in columns 2-3 has relatively little 
+effect on the estimates of the reform.  However, including controls for condom
+usage does reduce estimates by an economically significant amount, particularly
+among young women, moving point estimates from -0.056 to -0.046.  While this
+provides some suggestion that mayors providing access to the reform may also
+encourage higher rates of condom use, it is important to note that these controls
+are noisy at best. As discussed further in appendix \ref{Pscn:Data}, while all
+other time-varying controls are observed at the level of the municipality, condom
+use must be calculated from survey data asking about condom use, and is only 
+available at the level of the region, which is one administrative division 
+\emph{above} municipalities.  While the inclusion of condom controls allows us
+to estimate the conditional effect of the morning after pill reform once 
+controlling for condom use, if other contraceptive measures which aren't 
+observed have similar effects to condoms, we may be concerned that we are 
+overstating the effect of the reform.  However, Ministry of Health evidence 
+suggests that condom availability is one of the few programs under the 
+discretion of the municipality.  Programs such as the prescription of the oral
+contraceptive pill and contraceptive implants are defined at the national level
+(where publicly available), or must be purchased privately through pharmacies
+\citep{MINSAL2013}.
 
 The effects on older age groups are more moderate than the effect on teenagers,
 consistent with the fact that a greater proportion of teenage births are
@@ -701,19 +729,25 @@ the morning after pill may reduce the prevalence of (illegal) abortion.  Some
 effect is found when examining the effect on all fetal deaths, however when 
 this is examined by subgroups, the effect is entirely driven by early gestation
 deaths.  The size of the coefficient is empirically very important: it 
-suggests a reduction in early gestation deaths by 37\%, which \person interpret
-as strong evidence in favour of reductions of illegal abortion.  When compared 
-to the null effect on late-term deaths, this seems to provide more support to
-this claim.
+suggests a reduction in early gestation deaths by 37\%, (these coefficients are
+log odds, so the effect size is interpreted as: $1-\log(-0.468)=-0.37$) which I 
+interpret as strong evidence in favour of reductions of illegal abortion.  When 
+compared to the null effect on late-term deaths, this seems to provide more 
+support to this claim. A similar pattern is observed for the 20-34 year old group 
+of women, however effects are smaller and not statistically significant. Although
+point estimates suggest that the effect of the EC pill on early term fetal deaths
+is negative, and larger than the effect on late term fetal deaths, neither of 
+these are precisely estimated.  
 
-A similar pattern is observed for the 20-34 year old group of women, however
-effects are smaller and insignificant in the main specification.  While no 
-significant effect is found when examining all births, the evidence from point
-estimates alone suggests that the arrival of emergency contraceptives reduce 
-early gestation deaths by 9\%.  Once again, no significant effect is found in 
-late gestation fetal deaths, however in this case, a $t$-test comparing these
-two estimates does not allow for the rejection of the null that they are
-equal.
+While the suggestive estimates on the effect of the EC pill on abortion are 
+large, particularly for young women, these are not implausible given the steep 
+costs of abortion on Chile.  Clandestine abortion in Chile is both dangerous and
+risky.  According to \citet{ShepardCasas2007} (based on figures from the 
+mid-2000s) approximately one third of maternal deaths in Chile are classified as 
+``due to abortion'', and around 40 women per year were prosecuted for abortion.
+Further anecdotal evidence suggests some cases of physical and emotional abuse 
+in hospitals, or even refusal of treatment if women were suspected of accessing 
+clandestine abortions prior to hospitalisation.
 
 The group of women aged 35 years and above is somewhat less clear, and, while the 
 effect sizes of the coefficients follows the pattern outlined above, the
@@ -722,7 +756,13 @@ fetal death is much more common as maternal age increases, it is perhaps
 unsurprising that we find some effect for this group.  One possible explanation
 for this finding is that the morning after pill allows less healthy women to 
 select out of child bearing, although given the lack of covariates recording 
-mother's health at the time of childbirth, this cannot be explored fully.
+mother's health at the time of childbirth, this cannot be explored fully.  In
+robustness checks which are reported in appendix tables (appendix table 
+\ref{TEENtab:DeathOLS}), I find that OLS estimates using the rate of fetal death 
+at the level of the municipality result in insignificant estimates for the over 
+35 age group, while the pattern of other results remains unchanged. This suggests 
+that the effect on the over 35 age group is quite noisy, and less robust than 
+birth findings and the fetal death effects at younger ages.
 
 \subsection{Municipality Spillover and Imperfect `Compliance'}
 \label{TEENsscn:spillover}
@@ -857,11 +897,13 @@ that similar results are found in babies.  In each case, no effect is observed
 on birthweight, gestational period, or length at birth (with the exception
 of a very small reduction in gestational length for babies born to 20-34 year
 olds).  Each of the reported significance levels is based on a two-tailed 
-$t$-test.  If \person were to correct for multiple hypothesis testing using a
-Bonferroni correction, finding a significant result would be even less likely.
+$t$-test.  
+%If \person were to correct for multiple hypothesis testing using a Bonferroni 
+%correction, finding a significant result would be even less likely.
 
 \subsection{Placebo Tests}
 \label{TEENsscn:placebo}
+\paragraph{Using the Pre-Reform Period as a Placebo}
 Robustness of the main estimates to the addition of time-varying controls and
 municipal-specific time trends provides some confidence in the results, however 
 does not directly examine the differential trends assumption underlying 
@@ -900,37 +942,39 @@ differential trends, as at 10\% significance levels, it is expected that
 approximately 3 in 30 coefficients should be falsely accepted (ie a type I error
 should occur).
 
-Along with these formal placebo tests, we can examine trends by eye based on
-full data on all births occurring in Chile in the past decade and a half. \Person 
-present graphical results as appendix figures \ref{TEENfig:Trend1519} and 
-\ref{TEENfig:Trend2034}.  These figures suggest that indeed, the sharp 
-discontinuity in births occurs precisely following the arrival of the EC pill 
-to Chile: further evidence in favour of these results owing to the morning after 
-pill, rather than to alternative actions taken in pill and non-pill 
-municipalities.  The most demanding way to test this specification is by
-running full event study analyses.  In this case, rather than estimating one
-coefficient on treatment interacted for post reform years, we estimate a 
-seperate coefficient on each lag and lead of the difference between treated and
-untreated municipalities. The logic of these tests is similar to examinations of
-\citet{Granger1969} causality. If the difference between treated and non-treated
-is really due to the reform, no difference between these two areas should emerge
-until \emph{after} the reform arrived.  \Person estimate a full event study, and
-present results in figures \ref{TEENfig:Event1519} and \ref{TEENfig:Event2034}.
-A coefficient and standard error is estimated on each lag and lead of the reform, 
-displaying the difference between pill and non-pill municipalities before and
-after the morning after pill's arrival.\footnote{By necessity, one coefficient
-must be omitted to avoid multicolinearity.  Often the first lead is chosen.  
-However in this case, given that some municipalities only first disbursed pills
-two years after the reform first arrived, \person choose to omit the third lead
-as this ensures that the base case is entirely before the date the reform 
-arrived for \emph{all} municipalities.}  These event studies provide further
-evidence in favour of the validity of parallel trend assumptions.  We see that
-for both teenagers and 20-34 year old women the effect of the reform appears
-only after the date of the reform (with the exception of one very marginal 
-coefficient on the fourth lag for 20-34 year olds), and that the estimated 
-effect grows over time once the reform is put in place, in line with increasing
-access as knowledge of availability grows.
+\paragraph{Full Event Study Analysis}
+While the lagged results above suggest that significant differences in rates
+of pregnancy were not seen in reform and non-reform areas \emph{prior} to the
+reform, the most compelling series of tests of the parallel trends assumption
+examines trends over both the pre and post-reform periods for both areas.  
+Formal tests of whether pregnancy rates diverge after the reform can then be 
+assessed using an event study methodology.  In order to examine the parallel 
+trends assumption more closely, I estimate an event study surrounding the 
+arrival of the EC pill.  This test allows for us to examine whether any 
+difference in trends emerges \emph{before} the arrival of the EC pill between 
+treated and non-treated areas, and also the evolution of outcomes after the date 
+of the reform.
 
+I present event studies for 15-19 and 20-34 year olds in figures 
+\ref{TEENfig:Event1519} and \ref{TEENfig:Event2034}.  Point estimates and 
+confidence intervals display the estimates on interactions between lags (or 
+leads) interacted with whether the municipality gave the EC pill or not.  If the
+only difference between EC pill and non EC pill municipalities emerged after the
+reform (rather than prevailing differences in trends prior to the reform), 
+estimates should only be significant in post reform years. Given the time-varying
+nature of the reform, in order to form the event study, we omit as the base case
+the lag 3 years before the start of the reform.  This is necessary given that for
+a municipality which adopts the morning after pill in 2011 (the final reform 
+year), a lag of three years is 2008, entirely before the pill arrived to Chile.
+
+As the raw trends presented in figures \ref{TEENfig:Trend1519} and 
+\ref{TEENfig:Trend2034} suggest, formal event studies show that differences 
+between EC pill and non EC-pill municipalities do occur after the arrival of the
+reform.  With the exception of one marginally significant lag for the 20-34 year
+old group, all lags suggest that no significant difference between in trends
+between treated and control areas exist before the reform.  However, after the
+reform differences do emerge, and these are particularly pronounced after the
+reform has been in place for some time (1 or 2 years).
 
 %===============================================================================
 \section{Conclusions}
@@ -1040,7 +1084,7 @@ freely to women.  These Municipal Health Centres are run under the directive
 of the elected mayor of each Municipality, leaving all remaining legislation 
 regarding the distribution of the pill up to the 346 mayors in Chile.
 
-In this study \Person study the period surrounding this 2008 legislation as the 
+In this study I focus on the period surrounding this 2008 legislation as the 
 cutoff of interest.  However, even after this finding the emergency 
 contraceptive pill has not been far from legislative action, with a number of
 other cases raised.  These cases never entirely threatened the continuity of
@@ -1054,6 +1098,34 @@ the passing of a decree on March 3, 2013, which makes obligatory the provision
 of the morning after pill to women of any age in any health centre in Chile.  
 This became operative on May 28, 2013, meaning that---at least officially---%
 there are no longer any restrictions in place in the country.
+
+While the morning after pill was only legalised in Chile with these reforms,
+the functionality of the morning after pill (the prevention of ovulation) can
+be simulated using an overdose of the traditional oral contraceptive pill 
+\citep{TaskForce1998}\footnote{This method is not as effective as more 
+modern regimes which are based on levonorgestrel (LNG). The 
+\citeauthor{TaskForce1998}'s estimates suggest that the use of LNG results in
+87\% effectiveness, while the Yuzpe method is 57\% effective. The Yuzpe regime
+is also trickier to follow as it requires two doses seperated by 12 hours, and
+is associated with higher rates of naseau.}. This is known as the Yuzpe method, 
+or the Yuzpe regime. I am not aware of any evidence or survey data which exists 
+to determine the knowledge of this method among the population of Chilean women.  
+However, if the arrival of the morning after pill reform also brings with it 
+greater awareness of the Yuzpe method, we may be concerned that we mistakenly 
+infer that this is the effect of the EC pill itself, and not increased knowledge 
+of alternative methods.  However, in searching through many official government 
+documents and unofficial documents both prior and posterior to the reform, we 
+find little evidence to suggest that this was a widely discussed or suggested 
+method.  In both the 2006 and 2012 revisions of the National Laws for the 
+Regulation of Fertility, as well as the Ministry of Health's Manual on Teenage 
+Pregnancy, no mention of this method was made (however the EC pill was mentioned 
+in the 2012 revision of the law as well as the Manual on Teenage Pregnancy). In 
+the only survey data of which I am aware which asks about the Yuzpe method 
+\citep{Didesetal2010}, of 162 surveyed municipal health centres, only 3 of 
+these mention suggesting the Yuzpe method if the EC pill is not available.  Our 
+reading of the source documents and data suggests that there is no reason to 
+think that the reform is associated with a change in the frequency of the Yuzpe 
+method, or that the Yuzpe method was particularly widely known in Chile.
 
 \section{Data Appendix}
 \label{Pscn:Data}
